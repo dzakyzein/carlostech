@@ -3,9 +3,10 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 
 // LandingPage
 import Home from './Pages/Landingpage/Home';
+import About from './Pages/Landingpage/About';
+import Service from './Pages/Landingpage/Servicepage/Service';
 import Login from './Pages/Loginpage/Login';
 import Register from './Pages/Signuppage/Signup';
-import About from './Pages/Landingpage/About';
 
 // AdminPage
 import Loader from './Pages/Adminpage/common/Loader/Loader';
@@ -44,9 +45,10 @@ const App = () => {
     <Routes>
       {/* Landing Pages */}
       <Route path='/' element={<Home />} />
+      <Route path='/service' element={<Service />} />
+      <Route path='/about' element={<About />} />
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/about' element={<About />} />
 
       {/* Admin Pages */}
       <Route
