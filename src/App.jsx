@@ -55,7 +55,7 @@ const App = () => {
         path='/admin'
         element={
           <>
-            <PageTitle title='eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Dashboard' />
             <ECommerce />
           </>
         }
@@ -64,7 +64,7 @@ const App = () => {
         path='/admin/calendar'
         element={
           <>
-            <PageTitle title='Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Calendar' />
             <Calendar />
           </>
         }
@@ -73,7 +73,7 @@ const App = () => {
         path='/admin/profile'
         element={
           <>
-            <PageTitle title='Profile | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Profile' />
             <Profile />
           </>
         }
@@ -82,7 +82,7 @@ const App = () => {
         path='/admin/forms/form-elements'
         element={
           <>
-            <PageTitle title='Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Form Elements' />
             <FormElements />
           </>
         }
@@ -91,7 +91,7 @@ const App = () => {
         path='/admin/forms/form-layout'
         element={
           <>
-            <PageTitle title='Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Form Layout' />
             <FormLayout />
           </>
         }
@@ -100,7 +100,7 @@ const App = () => {
         path='/admin/tables'
         element={
           <>
-            <PageTitle title='Tables | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Tables' />
             <Tables />
           </>
         }
@@ -109,7 +109,7 @@ const App = () => {
         path='/admin/settings'
         element={
           <>
-            <PageTitle title='Settings | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Settings' />
             <Settings />
           </>
         }
@@ -118,7 +118,7 @@ const App = () => {
         path='/admin/chart'
         element={
           <>
-            <PageTitle title='Basic Chart | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Chart' />
             <Chart />
           </>
         }
@@ -127,7 +127,7 @@ const App = () => {
         path='/admin/ui/alerts'
         element={
           <>
-            <PageTitle title='Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Alerts' />
             <Alerts />
           </>
         }
@@ -136,7 +136,7 @@ const App = () => {
         path='/admin/ui/buttons'
         element={
           <>
-            <PageTitle title='Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Buttons' />
             <Buttons />
           </>
         }
@@ -145,7 +145,7 @@ const App = () => {
         path='/admin/auth/signin'
         element={
           <>
-            <PageTitle title='Signin | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Sign in' />
             <SignIn />
           </>
         }
@@ -154,7 +154,7 @@ const App = () => {
         path='/admin/auth/signup'
         element={
           <>
-            <PageTitle title='Signup | TailAdmin - Tailwind CSS Admin Dashboard Template' />
+            <PageTitle title='Carlos Tech Admin | Sign out' />
             <SignUp />
           </>
         }
