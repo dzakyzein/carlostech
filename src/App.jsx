@@ -15,7 +15,7 @@ import SignIn from './Pages/Adminpage/pages/Authentication/SignIn';
 import SignUp from './Pages/Adminpage/pages/Authentication/SignUp';
 import Calendar from './Pages/Adminpage/pages/Calendar';
 import Chart from './Pages/Adminpage/pages/Chart';
-import ECommerce from './Pages/Adminpage/pages/Dashboard/ECommerce';
+import Dashboard from './Pages/Adminpage/pages/Dashboard/Dashboard';
 import FormElements from './Pages/Adminpage/pages/Form/FormElements';
 import FormLayout from './Pages/Adminpage/pages/Form/FormLayout';
 import Profile from './Pages/Adminpage/pages/Profile';
@@ -56,7 +56,7 @@ const App = () => {
         element={
           <>
             <PageTitle title='Carlos Tech Admin | Dashboard' />
-            <ECommerce />
+            <Dashboard />
           </>
         }
       />

@@ -13,7 +13,7 @@ import { MdOutlineShoppingCart } from 'react-icons/md';
 import { IoBagHandleOutline } from 'react-icons/io5';
 import { HiOutlineUsers } from 'react-icons/hi';
 
-const ECommerce = () => {
+const Dashboard = () => {
   return (
     <DefaultLayout>
       <div className='grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5'>
@@ -41,4 +41,4 @@ const ECommerce = () => {
   );
 };
 
-export default ECommerce;
+export default Dashboard;
