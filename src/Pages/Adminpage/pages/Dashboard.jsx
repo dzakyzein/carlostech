@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import CardDataStats from '../../components/CardDataStats';
-import ChartOne from '../../components/Charts/ChartOne';
-import ChartThree from '../../components/Charts/ChartThree';
-import ChartTwo from '../../components/Charts/ChartTwo';
-import MapOne from '../../components/Maps/MapOne';
-import DefaultLayout from '../../layout/DefaultLayout';
+import CardDataStats from '../components/CardDataStats';
+import ChartOne from '../components/Charts/ChartOne';
+import ChartThree from '../components/Charts/ChartThree';
+import ChartTwo from '../components/Charts/ChartTwo';
+import MapOne from '../components/Maps/MapOne';
+import DefaultLayout from '../layout/DefaultLayout';
 
 //icons
 import { FaEye } from 'react-icons/fa';
