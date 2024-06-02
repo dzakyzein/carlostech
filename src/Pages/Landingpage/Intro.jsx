@@ -1,3 +1,6 @@
+//icons
+import { FaCheck } from 'react-icons/fa6';
+
 const Intro = () => {
   return (
     <div className='container mx-auto md:px-6'>
@@ -19,160 +22,61 @@ const Intro = () => {
                   <div className='grid gap-x-6 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3'>
                     <div className='mb-6'>
                       <p className='flex items-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          stroke='currentColor'
-                          className='mr-3 h-5 w-5'
-                        >
-                          <path d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
+                        <FaCheck className='m-2' />
                         Support
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          stroke='currentColor'
-                          className='mr-3 h-5 w-5'
-                        >
-                          <path d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
+                        <FaCheck className='m-2' />
                         Analytics
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          stroke='currentColor'
-                          className='mr-3 h-5 w-5'
-                        >
-                          <path d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
+                        <FaCheck className='m-2' />
                         Components
                       </p>
                     </div>
                     <div className='mb-6'>
                       <p className='flex items-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          stroke='currentColor'
-                          className='mr-3 h-5 w-5'
-                        >
-                          <path d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
+                        <FaCheck className='m-2' />
                         Updates
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          stroke='currentColor'
-                          className='mr-3 h-5 w-5'
-                        >
-                          <path d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
+                        <FaCheck className='m-2' />
                         Reports
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          stroke='currentColor'
-                          className='mr-3 h-5 w-5'
-                        >
-                          <path d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
+                        <FaCheck className='m-2' />
                         Mobile
                       </p>
                     </div>
                     <div className='mb-6'>
                       <p className='flex items-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          stroke='currentColor'
-                          className='mr-3 h-5 w-5'
-                        >
-                          <path d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
+                        <FaCheck className='m-2' />
                         Modules
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          stroke='currentColor'
-                          className='mr-3 h-5 w-5'
-                        >
-                          <path d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
+                        <FaCheck className='m-2' />
                         Blocks
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          stroke='currentColor'
-                          className='mr-3 h-5 w-5'
-                        >
-                          <path d='M4.5 12.75l6 6 9-13.5' />
-                        </svg>
+                        <FaCheck className='m-2' />
                         Templates
                       </p>
                     </div>

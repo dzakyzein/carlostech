@@ -7,15 +7,16 @@ const Product = () => {
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4'>
             <div className='mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20'>
-              <span className='mb-2 block text-lg font-semibold text-primary'>
+              {/* <span className='mb-2 block text-lg font-semibold text-primary'>
                 Our Blogs
-              </span>
+              </span> */}
               <h2 className='mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px]'>
-                Our Recent News
+                Produk Terbaik
               </h2>
               <p className='text-base text-body-color dark:text-dark-6'>
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Kami menawarkan produk dan layanan terbaik untuk motor, mobil,
+                alat berat, dan mesin industri dengan kualitas unggulan dan
+                keandalan tinggi.
               </p>
             </div>
           </div>

@@ -112,9 +112,10 @@ const Service = () => {
             required
           >
             <option value=''>Pilih jenis mesin</option>
-            <option value='Mesin A'>Mesin A</option>
-            <option value='Mesin B'>Mesin B</option>
-            <option value='Mesin C'>Mesin C</option>
+            <option value='Alat Berat'>Alat Berat</option>
+            <option value='Gigi Rasio Motor'>Gigi Rasio Motor</option>
+            <option value='Gigi Rasio Mobil'>Gigi Rasio Mobil</option>
+            <option value='Sparepart Pabrik'>Sparepart Pabrik</option>
           </select>
         </div>
         <div className='mb-4'>
