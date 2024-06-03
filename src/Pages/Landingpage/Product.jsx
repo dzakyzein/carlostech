@@ -27,19 +27,19 @@ const Product = () => {
         </div>
         <div className='-mx-4 flex flex-wrap'>
           <CardProduct
-            date='Dec 22, 2023'
+            // date='Dec 22, 2023'
             CardTitle='Carlos Tech - Tracker Motor'
             CardDescription='Pelacak motor canggih dari Carlos Tech yang membantu Anda memantau dan melacak lokasi kendaraan Anda secara real-time untuk keamanan optimal.'
             image={Tracker}
           />
           <CardProduct
-            date='Dec 22, 2023'
+            // date='Dec 22, 2023'
             CardTitle='Carlos Tech - Tromol Roda Motor'
             CardDescription='Tromol berkualitas tinggi dari Carlos Tech, dirancang untuk memberikan kinerja pengereman yang superior dan daya tahan maksimal untuk motor Anda.'
             image={Tromol}
           />
           <CardProduct
-            date='Dec 22, 2023'
+            // date='Dec 22, 2023'
             CardTitle='Carlos Tech - Rasio Motor'
             CardDescription='Rasio motor presisi dari Carlos Tech yang memastikan efisiensi tenaga dan performa optimal untuk pengalaman berkendara yang lebih baik.'
             image={Ratio}

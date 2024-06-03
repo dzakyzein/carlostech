@@ -2,9 +2,11 @@
 
 import { Link } from 'react-router-dom';
 
+import CarlosTech from '../assets/carlos-tech.png';
+
 const Navbar = () => {
   return (
-    <div className='navbar bg-base-100'>
+    <div className='navbar bg-base-100 px-4 fixed top-0 left-0 z-9 w-full'>
       <div className='navbar-start'>
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
@@ -38,8 +40,8 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link className='btn btn-ghost text-xl' to='/'>
-          Carlos Tech
+        <Link to='/'>
+          <img src={CarlosTech} className='w-auto h-12' />
         </Link>
       </div>
       <div className='navbar-center hidden lg:flex'>

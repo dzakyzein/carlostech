@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const CardProduct = ({ image, date, CardTitle, CardDescription }) => {
+const CardProduct = ({ image, CardTitle, CardDescription }) => {
   return (
     <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
       <div className='mb-10 w-full'>
@@ -7,11 +7,11 @@ const CardProduct = ({ image, date, CardTitle, CardDescription }) => {
           <img src={image} alt='' className='w-full' />
         </div>
         <div>
-          {date && (
+          {/* {date && (
             <span className='mb-5 inline-block rounded bg-primary px-4 py-1 text-center text-xs font-semibold leading-loose text-white'>
               {date}
             </span>
-          )}
+          )} */}
           <h3>
             <a
               href='/#'
