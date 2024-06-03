@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
+import Loader from './Pages/Adminpage/common/Loader/Loader';
+
 // LandingPage
 import Home from './Pages/Landingpage/Home';
 import About from './Pages/Landingpage/About';
@@ -9,20 +11,15 @@ import Login from './Pages/Loginpage/Login';
 import Register from './Pages/Signuppage/Signup';
 
 // AdminPage
-import Loader from './Pages/Adminpage/common/Loader/Loader';
 import PageTitle from './Pages/Adminpage/components/PageTitle';
 import SignIn from './Pages/Adminpage/pages/Authentication/SignIn';
 import SignUp from './Pages/Adminpage/pages/Authentication/SignUp';
 import Calendar from './Pages/Adminpage/pages/Calendar';
 import Chart from './Pages/Adminpage/pages/Chart';
 import Dashboard from './Pages/Adminpage/pages/Dashboard';
-import FormElements from './Pages/Adminpage/pages/Form/FormElements';
-import FormLayout from './Pages/Adminpage/pages/Form/FormLayout';
 import Profile from './Pages/Adminpage/pages/Profile';
 import Settings from './Pages/Adminpage/pages/Settings';
-import Tables from './Pages/Adminpage/pages/Tables';
-import Alerts from './Pages/Adminpage/pages/UiElements/Alerts';
-import Buttons from './Pages/Adminpage/pages/UiElements/Buttons';
+import Product from './Pages/Adminpage/pages/Product';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -79,29 +76,11 @@ const App = () => {
         }
       />
       <Route
-        path='/admin/forms/form-elements'
+        path='/admin/product'
         element={
           <>
-            <PageTitle title='Carlos Tech Admin | Form Elements' />
-            <FormElements />
-          </>
-        }
-      />
-      <Route
-        path='/admin/forms/form-layout'
-        element={
-          <>
-            <PageTitle title='Carlos Tech Admin | Form Layout' />
-            <FormLayout />
-          </>
-        }
-      />
-      <Route
-        path='/admin/tables'
-        element={
-          <>
-            <PageTitle title='Carlos Tech Admin | Tables' />
-            <Tables />
+            <PageTitle title='Carlos Tech Admin | Product' />
+            <Product />
           </>
         }
       />
@@ -123,24 +102,7 @@ const App = () => {
           </>
         }
       />
-      <Route
-        path='/admin/ui/alerts'
-        element={
-          <>
-            <PageTitle title='Carlos Tech Admin | Alerts' />
-            <Alerts />
-          </>
-        }
-      />
-      <Route
-        path='/admin/ui/buttons'
-        element={
-          <>
-            <PageTitle title='Carlos Tech Admin | Buttons' />
-            <Buttons />
-          </>
-        }
-      />
+
       <Route
         path='/admin/auth/signin'
         element={

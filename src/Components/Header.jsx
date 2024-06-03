@@ -15,7 +15,7 @@ const Header = () => {
           </p>
           <a
             href='#'
-            className='inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-teal-600 hover:bg-teal-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900'
+            className='inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-teal-600 hover:bg-teal-800'
           >
             Get started
             <svg
@@ -32,8 +32,8 @@ const Header = () => {
             </svg>
           </a>
           <a
-            href='#'
-            className='inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800'
+            href='https://wa.me/6281226022666'
+            className='inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 hover:bg-boxdark'
           >
             Speak to Sales
           </a>
