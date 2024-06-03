@@ -1,6 +1,8 @@
 //icons
 import { FaCheck } from 'react-icons/fa6';
 
+import Introduction from '../../assets/intro.jpg';
+
 const Intro = () => {
   return (
     <div className='container mx-auto md:px-6'>
@@ -85,8 +87,8 @@ const Intro = () => {
               </div>
               <div className='md:mb-12 lg:mb-0'>
                 <img
-                  src='https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/121.jpg'
-                  className='rotate-lg-6 w-full rounded-lg shadow-lg'
+                  src={Introduction}
+                  className='rotate-lg-6 w-4/5 rounded-lg shadow-lg'
                   alt=''
                 />
               </div>

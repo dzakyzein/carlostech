@@ -1,5 +1,9 @@
 import CardProduct from './CardProduct';
 
+import Tracker from '../../assets/tracker.jpg';
+import Tromol from '../../assets/tromol.jpg';
+import Ratio from '../../assets/rasio-motor.jpg';
+
 const Product = () => {
   return (
     <section className='bg-black pb-10 pt-20 lg:pb-20 lg:pt-[120px]'>
@@ -21,25 +25,24 @@ const Product = () => {
             </div>
           </div>
         </div>
-
         <div className='-mx-4 flex flex-wrap'>
           <CardProduct
             date='Dec 22, 2023'
-            CardTitle='Meet AutoManage, the best AI management tools'
-            CardDescription='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-            image='https://i.ibb.co/Cnwd4q6/image-01.jpg'
+            CardTitle='Carlos Tech - Tracker Motor'
+            CardDescription='Pelacak motor canggih dari Carlos Tech yang membantu Anda memantau dan melacak lokasi kendaraan Anda secara real-time untuk keamanan optimal.'
+            image={Tracker}
           />
           <CardProduct
             date='Dec 22, 2023'
-            CardTitle='Meet AutoManage, the best AI management tools'
-            CardDescription='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-            image='https://i.ibb.co/Y23YC07/image-02.jpg'
+            CardTitle='Carlos Tech - Tromol Roda Motor'
+            CardDescription='Tromol berkualitas tinggi dari Carlos Tech, dirancang untuk memberikan kinerja pengereman yang superior dan daya tahan maksimal untuk motor Anda.'
+            image={Tromol}
           />
           <CardProduct
             date='Dec 22, 2023'
-            CardTitle='Meet AutoManage, the best AI management tools'
-            CardDescription='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-            image='https://i.ibb.co/7jdcnwn/image-03.jpg'
+            CardTitle='Carlos Tech - Rasio Motor'
+            CardDescription='Rasio motor presisi dari Carlos Tech yang memastikan efisiensi tenaga dan performa optimal untuk pengalaman berkendara yang lebih baik.'
+            image={Ratio}
           />
         </div>
       </div>
