@@ -8,7 +8,7 @@ import Home from './Pages/Landingpage/Home';
 import About from './Pages/Landingpage/About';
 import Service from './Pages/Landingpage/Servicepage/Service';
 import Login from './Pages/Loginpage/Login';
-import Register from './Pages/Signuppage/Signup';
+import Register from './Pages/Signuppage/Register';
 
 // AdminPage
 import PageTitle from './Pages/Adminpage/components/PageTitle';

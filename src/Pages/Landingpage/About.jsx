@@ -4,12 +4,12 @@ import Footer from '../../Components/Footer';
 
 const About = () => {
   return (
-    <div className='flex flex-col items-center bg-black'>
+    <div className='flex flex-col justify-between min-h-screen items-center bg-black'>
       <Navbar />
-      <div className='flex flex-col items-center my-5'>
-        <h1 className='text-2xl font-bold mb-4'>About Carlos Tech</h1>
+      <div className='flex flex-col items-center my-5 mt-20'>
+        <h1 className='text-title-lg font-bold mb-4'>About Carlos Tech</h1>
         <div className='flex flex-col items-center'>
-          <div className='max-w-3xl'>
+          <div className='max-w-xl flex justify-center'>
             <img
               src={Machine}
               alt='Machine'
@@ -17,18 +17,15 @@ const About = () => {
             />
           </div>
           <div>
-            <p className='text-justify max-w-3xl'>
-              Gambar tersebut menampilkan sebuah mesin canggih yang diambil dari
-              koleksi aset perusahaan Carlos Tech. Mesin ini merupakan
-              representasi dari inovasi teknologi terbaru yang diimplementasikan
-              dalam berbagai industri untuk meningkatkan efisiensi dan
-              produktivitas. Dengan desain yang modern dan fungsionalitas yang
-              tinggi, mesin ini menjadi simbol kemajuan teknis dan dedikasi
-              perusahaan dalam menyediakan solusi industri yang unggul. Gambar
-              ini diambil dengan resolusi tinggi, menyoroti detail presisi dan
-              kualitas manufaktur dari mesin tersebut, menunjukkan komitmen
-              Carlos Tech terhadap standar kualitas tertinggi dalam setiap
-              produk yang mereka hasilkan.
+            <p className='text-justify max-w-xl'>
+              Carlos Tech adalah bengkel bubut yang mengkhususkan diri dalam
+              pembuatan, perbaikan alat berat, gigi rasio motor, gigi rasio
+              mobil, dan sparepart pabrik. Dengan pengalaman bertahun-tahun,
+              kami menjadi pilihan utama bagi pelanggan yang membutuhkan solusi
+              teknik handal. Layanan kami berkualitas dan terpercaya, didukung
+              oleh tim ahli berpengalaman. Dengan komitmen kami, CarlosTech
+              hadir untuk memastikan kinerja optimal dan keandalan peralatan
+              Anda.
             </p>
           </div>
         </div>

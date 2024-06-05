@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { FaArrowCircleLeft } from 'react-icons/fa';
 
 import Footer from '../../../Components/Footer';
+import CarlosTech from '../../../assets/carlos-tech.png';
 
 const Service = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     address: '',
     machineType: '',
@@ -26,144 +27,139 @@ const Service = () => {
   };
 
   return (
-    <>
-      <div className='max-w-md mx-auto bg-black p-8 mt-10 rounded-lg shadow-md'>
-        <h2 className='text-2xl font-bold mb-6 text-center text-white'>
-          Formulir Pemesanan
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <div className='mb-4'>
-            <label
-              className='block text-sm font-medium text-white'
-              htmlFor='name'
-            >
-              Nama
-            </label>
-            <input
-              type='text'
-              id='name'
-              name='name'
-              value={formData.name}
-              onChange={handleChange}
-              className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:border-blue-500'
-              required
-            />
+    <div className='min-h-screen flex flex-col justify-between'>
+      <div className='flex items-center justify-start p-4'>
+        <a href='/'>
+          <FaArrowCircleLeft />
+        </a>
+      </div>
+      <div className='flex flex-col items-center justify-center md:flex-row md:justify-center md:space-x-4 mt-4'>
+        <div className='w-full max-w-md'>
+          <div className='flex justify-center mb-4'>
+            <img src={CarlosTech} className='w-1/2' />
           </div>
-          <div className='mb-4'>
-            <label
-              className='block text-sm font-medium text-white'
-              htmlFor='email'
+        </div>
+        <div className='w-full max-w-md bg-black p-4 md:p-6 rounded-lg shadow-md overflow-y-auto'>
+          <h2 className='text-2xl font-bold mb-4 text-center text-white'>
+            Formulir Pemesanan
+          </h2>
+          <form onSubmit={handleSubmit}>
+            <div className='mb-2'>
+              <label
+                className='block text-sm font-medium text-white'
+                htmlFor='name'
+              >
+                Nama
+              </label>
+              <input
+                type='text'
+                id='name'
+                name='name'
+                value={formData.name}
+                onChange={handleChange}
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                required
+              />
+            </div>
+            <div className='mb-2'>
+              <label
+                className='block text-sm font-medium text-white'
+                htmlFor='phone'
+              >
+                Telepon
+              </label>
+              <input
+                type='tel'
+                id='phone'
+                name='phone'
+                value={formData.phone}
+                onChange={handleChange}
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                required
+              />
+            </div>
+            <div className='mb-2'>
+              <label
+                className='block text-sm font-medium text-white'
+                htmlFor='address'
+              >
+                Alamat
+              </label>
+              <textarea
+                id='address'
+                name='address'
+                value={formData.address}
+                onChange={handleChange}
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                required
+              ></textarea>
+            </div>
+            <div className='mb-2'>
+              <label
+                className='block text-sm font-medium text-white'
+                htmlFor='machineType'
+              >
+                Jenis Mesin
+              </label>
+              <select
+                id='machineType'
+                name='machineType'
+                value={formData.machineType}
+                onChange={handleChange}
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                required
+              >
+                <option value=''>Pilih jenis mesin</option>
+                <option value='Alat Berat'>Alat Berat</option>
+                <option value='Gigi Rasio Motor'>Gigi Rasio Motor</option>
+                <option value='Gigi Rasio Mobil'>Gigi Rasio Mobil</option>
+                <option value='Sparepart Pabrik'>Sparepart Pabrik</option>
+              </select>
+            </div>
+            <div className='mb-2'>
+              <label
+                className='block text-sm font-medium text-white'
+                htmlFor='quantity'
+              >
+                Jumlah
+              </label>
+              <input
+                type='number'
+                id='quantity'
+                name='quantity'
+                value={formData.quantity}
+                onChange={handleChange}
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                min='1'
+                required
+              />
+            </div>
+            <div className='mb-2'>
+              <label
+                className='block text-sm font-medium text-white'
+                htmlFor='note'
+              >
+                Catatan
+              </label>
+              <textarea
+                id='note'
+                name='note'
+                value={formData.note}
+                onChange={handleChange}
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+              ></textarea>
+            </div>
+            <button
+              type='submit'
+              className='w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-0'
             >
-              Email
-            </label>
-            <input
-              type='email'
-              id='email'
-              name='email'
-              value={formData.email}
-              onChange={handleChange}
-              className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:border-blue-500'
-              required
-            />
-          </div>
-          <div className='mb-4'>
-            <label
-              className='block text-sm font-medium text-white'
-              htmlFor='phone'
-            >
-              Telepon
-            </label>
-            <input
-              type='tel'
-              id='phone'
-              name='phone'
-              value={formData.phone}
-              onChange={handleChange}
-              className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:border-blue-500'
-              required
-            />
-          </div>
-          <div className='mb-4'>
-            <label
-              className='block text-sm font-medium text-white'
-              htmlFor='address'
-            >
-              Alamat
-            </label>
-            <textarea
-              id='address'
-              name='address'
-              value={formData.address}
-              onChange={handleChange}
-              className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:border-blue-500'
-              required
-            ></textarea>
-          </div>
-          <div className='mb-4'>
-            <label
-              className='block text-sm font-medium text-white'
-              htmlFor='machineType'
-            >
-              Jenis Mesin
-            </label>
-            <select
-              id='machineType'
-              name='machineType'
-              value={formData.machineType}
-              onChange={handleChange}
-              className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:border-blue-500'
-              required
-            >
-              <option value=''>Pilih jenis mesin</option>
-              <option value='Alat Berat'>Alat Berat</option>
-              <option value='Gigi Rasio Motor'>Gigi Rasio Motor</option>
-              <option value='Gigi Rasio Mobil'>Gigi Rasio Mobil</option>
-              <option value='Sparepart Pabrik'>Sparepart Pabrik</option>
-            </select>
-          </div>
-          <div className='mb-4'>
-            <label
-              className='block text-sm font-medium text-white'
-              htmlFor='quantity'
-            >
-              Jumlah
-            </label>
-            <input
-              type='number'
-              id='quantity'
-              name='quantity'
-              value={formData.quantity}
-              onChange={handleChange}
-              className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:border-blue-500'
-              min='1'
-              required
-            />
-          </div>
-          <div className='mb-4'>
-            <label
-              className='block text-sm font-medium text-white'
-              htmlFor='note'
-            >
-              Catatan
-            </label>
-            <textarea
-              id='note'
-              name='note'
-              value={formData.note}
-              onChange={handleChange}
-              className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:border-blue-500'
-            ></textarea>
-          </div>
-          <button
-            type='submit'
-            className='w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300'
-          >
-            Pesan Sekarang
-          </button>
-        </form>
+              Pesan Sekarang
+            </button>
+          </form>
+        </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
