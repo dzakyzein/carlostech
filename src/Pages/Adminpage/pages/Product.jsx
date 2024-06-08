@@ -1,6 +1,6 @@
 import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
 import TableThree from '../components/Tables/TableThree';
-import TableTwo from '../components/Tables/TableTwo';
+import TableTwo from '../components/Tables/TableOne';
 import DefaultLayout from '../layout/DefaultLayout';
 
 const Product = () => {

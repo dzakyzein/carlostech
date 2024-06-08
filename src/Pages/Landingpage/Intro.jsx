@@ -20,8 +20,7 @@ const Intro = () => {
                     neque iaculis malesuada. Aenean gravida magna orci, non
                     efficitur est porta id. Donec magna diam.
                   </p>
-
-                  <div className='grid gap-x-6 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3'>
+                  <div className='grid gap-x-6 xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3'>
                     <div className='mb-6'>
                       <p className='flex items-center'>
                         <FaCheck className='m-2' />
@@ -85,7 +84,7 @@ const Intro = () => {
                   </div>
                 </div>
               </div>
-              <div className='md:mb-12 lg:mb-0'>
+              <div className='xsm:hidden md:flex justify-center inline-block lg:mb-0'>
                 <img
                   src={Introduction}
                   className='rotate-lg-6 w-4/5 rounded-lg shadow-lg'

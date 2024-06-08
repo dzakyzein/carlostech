@@ -9,7 +9,7 @@ const Product = () => {
     <section className='bg-black pb-10 pt-20 lg:pb-20 lg:pt-[120px]'>
       <div className='container lg:px-10'>
         <div className='-mx-4 flex flex-wrap'>
-          <div className='w-full px-4'>
+          <div className='w-full px-4 xsm:mx-4 md:flex flex-col justify-center'>
             <div className='mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20'>
               {/* <span className='mb-2 block text-lg font-semibold text-primary'>
                 Our Blogs
@@ -25,7 +25,7 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <div className='-mx-4 flex flex-wrap'>
+        <div className='m-4 flex flex-wrap'>
           <CardProduct
             // date='Dec 22, 2023'
             CardTitle='Carlos Tech - Tracker Motor'
