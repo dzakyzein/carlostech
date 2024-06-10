@@ -18,7 +18,6 @@ import Calendar from './Pages/Adminpage/pages/Calendar';
 import Chart from './Pages/Adminpage/pages/Chart';
 import Dashboard from './Pages/Adminpage/pages/Dashboard';
 import Profile from './Pages/Adminpage/pages/Profile';
-import Settings from './Pages/Adminpage/pages/Settings';
 import Product from './Pages/Adminpage/pages/Product';
 import User from './Pages/Adminpage/pages/User';
 
@@ -91,15 +90,6 @@ const App = () => {
           <>
             <PageTitle title='Carlos Tech Admin | Product' />
             <Product />
-          </>
-        }
-      />
-      <Route
-        path='/admin/settings'
-        element={
-          <>
-            <PageTitle title='Carlos Tech Admin | Settings' />
-            <Settings />
           </>
         }
       />
