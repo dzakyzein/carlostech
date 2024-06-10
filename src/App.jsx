@@ -20,6 +20,7 @@ import Dashboard from './Pages/Adminpage/pages/Dashboard';
 import Profile from './Pages/Adminpage/pages/Profile';
 import Settings from './Pages/Adminpage/pages/Settings';
 import Product from './Pages/Adminpage/pages/Product';
+import User from './Pages/Adminpage/pages/User';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -72,6 +73,15 @@ const App = () => {
           <>
             <PageTitle title='Carlos Tech Admin | Profile' />
             <Profile />
+          </>
+        }
+      />
+      <Route
+        path='/admin/user'
+        element={
+          <>
+            <PageTitle title='Carlos Tech Admin | User' />
+            <User />
           </>
         }
       />

@@ -1,13 +1,9 @@
 /* eslint-disable no-unused-vars */
-import { Product } from '../../types/product';
-import ProductOne from '../../images/product/product-01.png';
-import ProductTwo from '../../images/product/product-02.png';
-import ProductThree from '../../images/product/product-03.png';
-import ProductFour from '../../images/product/product-04.png';
+import Gear from '../../../../assets/gear.png';
 
 const productData = [
   {
-    image: ProductOne,
+    image: Gear,
     name: 'Rasio Motor',
     phone: '+62 812-0718-7465',
     address: 'Jl. Joko Tingkir no. 51',
@@ -17,7 +13,7 @@ const productData = [
     status: 'Lunas',
   },
   {
-    image: ProductTwo,
+    image: Gear,
     name: 'Sparepart Pabrik',
     phone: '+62 812-0718-7465',
     address: 'Jl. Joko Tingkir no. 51',
@@ -27,7 +23,7 @@ const productData = [
     status: 'Belum lunas',
   },
   {
-    image: ProductThree,
+    image: Gear,
     name: 'Rasio Mobil',
     phone: '+62 812-0718-7465',
     address: 'Jl. Joko Tingkir no. 51',
@@ -37,7 +33,7 @@ const productData = [
     status: 'Belum lunas',
   },
   {
-    image: ProductFour,
+    image: Gear,
     name: 'Alat Berat',
     phone: '+62 812-0718-7465',
     address: 'Jl. Joko Tingkir no. 51',

@@ -13,72 +13,79 @@ const Intro = () => {
               <div className='mb-12 md:mt-12 lg:mt-0 lg:mb-0'>
                 <div className='relative z-1 block rounded-lg bg-black bg-opacity-20 px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[25px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-mr-14'>
                   <h2 className='mb-6 text-3xl font-bold'>
-                    Why is it so great?
+                    Kenapa harus Carlos Tech?
                   </h2>
-                  <p className='mb-8 text-neutral-500 dark:text-neutral-300'>
-                    Nunc tincidunt vulputate elit. Mauris varius purus malesuada
-                    neque iaculis malesuada. Aenean gravida magna orci, non
-                    efficitur est porta id. Donec magna diam.
+                  <p className='mb-8 text-zinc-400'>
+                    Carlos Tech adalah pilihan utama untuk pembuatan rasio motor
+                    dan rasio mobil, serta kebutuhan sparepart pabrik dan alat
+                    berat Anda. Menggunakan mesin manual dengan keahlian tinggi,
+                    kami memberikan hasil yang presisi dan berkualitas tinggi.
+                    Dengan pelayanan cepat dan andal, kami memastikan performa
+                    optimal untuk kendaraan Anda dan efisiensi maksimal untuk
+                    peralatan industri Anda. Percayakan kepada Carlos Tech untuk
+                    solusi yang terpercaya dan profesional.
                   </p>
                   <div className='grid gap-x-6 xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3'>
                     <div className='mb-6'>
                       <p className='flex items-center'>
                         <FaCheck className='m-2' />
-                        Support
+                        Rasio Motor
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
                         <FaCheck className='m-2' />
-                        Analytics
+                        Rasio Mobil
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
                         <FaCheck className='m-2' />
-                        Components
-                      </p>
-                    </div>
-                    <div className='mb-6'>
-                      <p className='flex items-center'>
-                        <FaCheck className='m-2' />
-                        Updates
+                        Sparepart Pabrik
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
                         <FaCheck className='m-2' />
-                        Reports
+                        Alat Berat
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
                         <FaCheck className='m-2' />
-                        Mobile
-                      </p>
-                    </div>
-                    <div className='mb-6'>
-                      <p className='flex items-center'>
-                        <FaCheck className='m-2' />
-                        Modules
+                        Mesin Manual
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
                         <FaCheck className='m-2' />
-                        Blocks
+                        Durabilitas
                       </p>
                     </div>
 
                     <div className='mb-6'>
                       <p className='flex items-center'>
                         <FaCheck className='m-2' />
-                        Templates
+                        Kualitas Terbaik
+                      </p>
+                    </div>
+
+                    <div className='mb-6'>
+                      <p className='flex items-center'>
+                        <FaCheck className='m-2' />
+                        Pelayanan Cepat
+                      </p>
+                    </div>
+
+                    <div className='mb-6'>
+                      <p className='flex items-center'>
+                        <FaCheck className='m-2' />
+                        Solusi Terpercaya
                       </p>
                     </div>
                   </div>
@@ -87,7 +94,7 @@ const Intro = () => {
               <div className='xsm:hidden md:flex justify-center inline-block lg:mb-0'>
                 <img
                   src={Introduction}
-                  className='rotate-lg-6 w-4/5 rounded-lg shadow-lg'
+                  className='rotate-lg-6 w-4/5 rounded-lg shadow-lg mr-10'
                   alt=''
                 />
               </div>

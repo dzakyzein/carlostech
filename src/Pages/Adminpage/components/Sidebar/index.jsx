@@ -10,6 +10,7 @@ import { CiCalendar } from 'react-icons/ci';
 import { GoPerson } from 'react-icons/go';
 import { BsTable } from 'react-icons/bs';
 import { IoSettingsOutline } from 'react-icons/io5';
+import { HiOutlineUsers } from 'react-icons/hi';
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const location = useLocation();
@@ -158,8 +159,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   Profile
                 </NavLink>
               </li>
-              {/* <!-- Menu Item Profile --> */}
-
+              {/* <!-- Menu Item User --> */}
+              <li>
+                <NavLink
+                  to='/admin/user'
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('user') && 'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <HiOutlineUsers />
+                  User
+                </NavLink>
+              </li>
               {/* <!-- Menu Item Product --> */}
               <li>
                 <NavLink

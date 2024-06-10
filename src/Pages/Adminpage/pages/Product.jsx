@@ -1,6 +1,6 @@
 import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
 import TableThree from '../components/Tables/TableThree';
-import TableTwo from '../components/Tables/TableOne';
+import TableOne from '../components/Tables/TableOne';
 import DefaultLayout from '../layout/DefaultLayout';
 
 const Product = () => {
@@ -9,7 +9,7 @@ const Product = () => {
       <Breadcrumb pageName='Product' />
 
       <div className='flex flex-col gap-10'>
-        <TableTwo />
+        <TableOne />
         <TableThree />
       </div>
     </DefaultLayout>
