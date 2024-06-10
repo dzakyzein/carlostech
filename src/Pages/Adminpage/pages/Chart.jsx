@@ -2,7 +2,6 @@
 import React from 'react';
 import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
 import ChartOne from '../components/Charts/ChartOne';
-import ChartThree from '../components/Charts/ChartThree';
 import ChartTwo from '../components/Charts/ChartTwo';
 import DefaultLayout from '../layout/DefaultLayout';
 
@@ -19,9 +18,6 @@ const Chart = () => {
           <ChartTwo />
         </div>
         <div className='col-span-0 md:col-span-3'></div>
-        <div className='col-span-12 md:col-span-6'>
-          <ChartThree />
-        </div>
         <div className='col-span-0 md:col-span-3'></div>
       </div>
     </DefaultLayout>
