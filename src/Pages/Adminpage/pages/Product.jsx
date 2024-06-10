@@ -1,5 +1,5 @@
 import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
-import TableThree from '../components/Tables/TableTwo';
+import TableTwo from '../components/Tables/TableTwo';
 import TableOne from '../components/Tables/TableOne';
 import DefaultLayout from '../layout/DefaultLayout';
 
@@ -10,7 +10,7 @@ const Product = () => {
 
       <div className='flex flex-col gap-10'>
         <TableOne />
-        <TableThree />
+        <TableTwo />
       </div>
     </DefaultLayout>
   );
