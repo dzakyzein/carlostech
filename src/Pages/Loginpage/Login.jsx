@@ -4,7 +4,7 @@ import { FaArrowCircleLeft } from 'react-icons/fa';
 const Login = () => {
   return (
     <section className='bg-gray-50 dark:bg-gray-900'>
-      <div className='flex items-center justify-start p-4'>
+      <div className='absolute top-4 left-4'>
         <a href='/'>
           <FaArrowCircleLeft />
         </a>
