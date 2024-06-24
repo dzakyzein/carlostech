@@ -12,6 +12,7 @@
   "dependencies": {
     "alpinejs": "^3.13.10",
     "apexcharts": "^3.49.1",
+    "axios": "^1.7.2",
     "flatpickr": "^4.6.13",
     "headlessui": "^0.0.0",
     "jsvectormap": "^1.5.3",

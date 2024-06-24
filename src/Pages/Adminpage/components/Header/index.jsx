@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from 'react-router-dom';
 import DropdownUser from './DropdownUser';
-import LogoIcon from '../../images/logo/logo-icon.svg';
 import DarkModeSwitcher from './DarkModeSwitcher';
 
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
@@ -51,10 +49,6 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
             </span>
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
-
-          <Link className='block flex-shrink-0 lg:hidden' to='/'>
-            <img src={LogoIcon} alt='Logo' />
-          </Link>
         </div>
 
         <div className='flex items-center gap-3 2xsm:gap-7'>
