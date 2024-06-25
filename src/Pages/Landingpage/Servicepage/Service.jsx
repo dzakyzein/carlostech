@@ -40,15 +40,12 @@ const Service = () => {
           </div>
         </div>
         <div className='w-full max-w-md bg-black p-4 md:p-6 rounded-lg shadow-md overflow-y-auto'>
-          <h2 className='text-2xl font-bold mb-4 text-center text-white'>
+          <h2 className='text-2xl font-bold mb-4 text-center '>
             Formulir Pemesanan
           </h2>
           <form onSubmit={handleSubmit}>
             <div className='mb-2'>
-              <label
-                className='block text-sm font-medium text-white'
-                htmlFor='name'
-              >
+              <label className='block text-sm font-medium ' htmlFor='name'>
                 Nama
               </label>
               <input
@@ -62,10 +59,7 @@ const Service = () => {
               />
             </div>
             <div className='mb-2'>
-              <label
-                className='block text-sm font-medium text-white'
-                htmlFor='phone'
-              >
+              <label className='block text-sm font-medium ' htmlFor='phone'>
                 Telepon
               </label>
               <input
@@ -79,10 +73,7 @@ const Service = () => {
               />
             </div>
             <div className='mb-2'>
-              <label
-                className='block text-sm font-medium text-white'
-                htmlFor='address'
-              >
+              <label className='block text-sm font-medium ' htmlFor='address'>
                 Alamat
               </label>
               <textarea
@@ -96,7 +87,7 @@ const Service = () => {
             </div>
             <div className='mb-2'>
               <label
-                className='block text-sm font-medium text-white'
+                className='block text-sm font-medium '
                 htmlFor='machineType'
               >
                 Jenis Mesin
@@ -117,10 +108,7 @@ const Service = () => {
               </select>
             </div>
             <div className='mb-2'>
-              <label
-                className='block text-sm font-medium text-white'
-                htmlFor='quantity'
-              >
+              <label className='block text-sm font-medium ' htmlFor='quantity'>
                 Jumlah
               </label>
               <input
@@ -135,10 +123,7 @@ const Service = () => {
               />
             </div>
             <div className='mb-2'>
-              <label
-                className='block text-sm font-medium text-white'
-                htmlFor='note'
-              >
+              <label className='block text-sm font-medium ' htmlFor='note'>
                 Catatan
               </label>
               <textarea

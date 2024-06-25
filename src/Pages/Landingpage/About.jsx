@@ -7,7 +7,7 @@ const About = () => {
     <div className='flex flex-col justify-between min-h-screen items-center bg-black'>
       <Navbar />
       <div className='flex flex-col items-center my-5 mt-20'>
-        <h1 className='text-title-lg font-bold mb-4'>About Carlos Tech</h1>
+        <h1 className='text-title-lg font-bold mb-4'>Tentang Carlos Tech</h1>
         <div className='flex flex-col items-center'>
           <div className='max-w-xl flex justify-center'>
             <img
