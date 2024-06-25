@@ -27,12 +27,7 @@ const Login = () => {
       const { token, user } = response.data.data;
       localStorage.setItem('token', token);
 
-      // Check role and redirect accordingly
-      if (user.role === 'admin') {
-        navigate('/admin'); // Redirect to admin dashboard
-      } else {
-        navigate('/'); // Redirect to default home page or any other page
-      }
+      navigate(user.role === 'admin' ? '/admin' : '/');
     } catch (err) {
       setError('Login gagal. Silakan coba lagi.');
     } finally {
@@ -97,6 +92,7 @@ const Login = () => {
               <button
                 type='submit'
                 className='w-full text-white bg-slate-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
+                disabled={loading}
               >
                 {loading ? 'Loading...' : 'Masuk'}
               </button>
