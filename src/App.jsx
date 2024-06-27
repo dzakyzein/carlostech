@@ -3,10 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Loader from './Pages/Adminpage/common/Loader/Loader';
 
+// Route
+import ProtectedRoute from './Routes/ProtectedRoute';
+import { AuthProvider } from './Routes/AuthContext';
+
 // LandingPage
 import Home from './Pages/Landingpage/Home';
 import About from './Pages/Landingpage/About';
-import Service from './Pages/Landingpage/Servicepage/Service';
+import Service from './Pages/Landingpage/ServicePage/Service';
 import Login from './Pages/Loginpage/Login';
 import Register from './Pages/Signuppage/Register';
 import LPProfile from './Pages/Landingpage/ProfilePage/Profile';
@@ -37,16 +41,30 @@ const App = () => {
   }, [pathname]);
 
   return (
-    <>
+    <AuthProvider>
       {loading ? (
         <Loader />
       ) : (
         <Routes>
           {/* Landing Pages */}
           <Route path='/' element={<Home />} />
-          <Route path='/service' element={<Service />} />
+          <Route
+            path='/service'
+            element={
+              <ProtectedRoute requiredRole='customer'>
+                {<Service />}
+              </ProtectedRoute>
+            }
+          />
           <Route path='/about' element={<About />} />
-          <Route path='/profile' element={<LPProfile />} />
+          <Route
+            path='/profile'
+            element={
+              <ProtectedRoute requiredRole='customer'>
+                {<LPProfile />}
+              </ProtectedRoute>
+            }
+          />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
 
@@ -54,78 +72,78 @@ const App = () => {
           <Route
             path='/admin'
             element={
-              <>
+              <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Dashboard' />
                 <Dashboard />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
             path='/admin/calendar'
             element={
-              <>
+              <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Calendar' />
                 <Calendar />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
             path='/admin/profile'
             element={
-              <>
+              <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Profile' />
                 <Profile />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
             path='/admin/user'
             element={
-              <>
+              <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | User' />
                 <User />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
             path='/admin/product'
             element={
-              <>
+              <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Product' />
                 <Product />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
             path='/admin/chart'
             element={
-              <>
+              <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Chart' />
                 <Chart />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
             path='/admin/auth/signin'
             element={
-              <>
+              <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Sign in' />
                 <SignIn />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
             path='/admin/auth/signup'
             element={
-              <>
+              <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Sign out' />
                 <SignUp />
-              </>
+              </ProtectedRoute>
             }
           />
         </Routes>
       )}
-    </>
+    </AuthProvider>
   );
 };
 

@@ -4,6 +4,7 @@ import axios from 'axios';
 import CarlosTech from '../../assets/carlos-tech.png';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../Routes/AuthContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -26,6 +28,8 @@ const Login = () => {
 
       const { token, user } = response.data.data;
       localStorage.setItem('token', token);
+
+      login(user);
 
       navigate(user.role === 'admin' ? '/admin' : '/');
     } catch (err) {
