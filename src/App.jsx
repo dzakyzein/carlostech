@@ -17,8 +17,6 @@ import LPProfile from './Pages/Landingpage/ProfilePage/Profile';
 
 // AdminPage
 import PageTitle from './Pages/Adminpage/components/PageTitle';
-import SignIn from './Pages/Adminpage/pages/Authentication/SignIn';
-import SignUp from './Pages/Adminpage/pages/Authentication/SignUp';
 import Calendar from './Pages/Adminpage/pages/Calendar';
 import Chart from './Pages/Adminpage/pages/Chart';
 import Dashboard from './Pages/Adminpage/pages/Dashboard';
@@ -123,7 +121,7 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route
+          {/* <Route
             path='/admin/auth/signin'
             element={
               <ProtectedRoute requiredRole='admin'>
@@ -131,16 +129,7 @@ const App = () => {
                 <SignIn />
               </ProtectedRoute>
             }
-          />
-          <Route
-            path='/admin/auth/signup'
-            element={
-              <ProtectedRoute requiredRole='admin'>
-                <PageTitle title='Carlos Tech Admin | Sign out' />
-                <SignUp />
-              </ProtectedRoute>
-            }
-          />
+          /> */}
         </Routes>
       )}
     </AuthProvider>
