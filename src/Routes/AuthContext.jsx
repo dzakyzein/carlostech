@@ -6,18 +6,22 @@ import React, { createContext, useContext, useState } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // ganti null dengan data pengguna yang sebenarnya
+  const isLogin = !!localStorage.getItem('token');
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem('user')) || null
+  ); // ganti null dengan data pengguna yang sebenarnya
 
   const login = (userData) => {
     setUser(userData);
   };
 
   const logout = () => {
-    setUser(null);
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, isLogin }}>
       {children}
     </AuthContext.Provider>
   );

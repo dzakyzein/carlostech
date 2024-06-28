@@ -1,10 +1,7 @@
 /* eslint-disable no-unused-vars */
-import Gear from '../../../../assets/gear.png';
-
 const productData = [
   {
-    image: Gear,
-    name: 'Rasio Motor',
+    name: 'Dzaky',
     phone: '+62 812-0718-7465',
     address: 'Jl. Joko Tingkir no. 51',
     category: 'Alat berat',
@@ -13,34 +10,13 @@ const productData = [
     status: 'Lunas',
   },
   {
-    image: Gear,
-    name: 'Sparepart Pabrik',
+    name: 'Dzaky',
     phone: '+62 812-0718-7465',
     address: 'Jl. Joko Tingkir no. 51',
     category: 'Alat berat',
     sold: 5,
     note: 'note 2',
     status: 'Belum lunas',
-  },
-  {
-    image: Gear,
-    name: 'Rasio Mobil',
-    phone: '+62 812-0718-7465',
-    address: 'Jl. Joko Tingkir no. 51',
-    category: 'Alat berat',
-    sold: 5,
-    note: 'note 3',
-    status: 'Belum lunas',
-  },
-  {
-    image: Gear,
-    name: 'Alat Berat',
-    phone: '+62 812-0718-7465',
-    address: 'Jl. Joko Tingkir no. 51',
-    category: 'Alat berat',
-    sold: 5,
-    note: 'note 4',
-    status: 'Lunas',
   },
 ];
 
@@ -49,13 +25,13 @@ const TableOne = () => {
     <div className='rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark'>
       <div className='py-6 px-4 md:px-6 xl:px-7.5'>
         <h4 className='text-xl font-semibold text-black dark:text-white'>
-          Produk Terjual
+          Data Penjualan
         </h4>
       </div>
 
-      <div className='grid grid-cols-8 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-10 md:px-6 2xl:px-7.5'>
+      <div className='grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-10 md:px-6 2xl:px-7.5'>
         <div className='col-span-2 flex items-center'>
-          <p className='font-medium'>Nama Produk</p>
+          <p className='font-medium'>Nama</p>
         </div>
         <div className='col-span-2 hidden items-center sm:flex'>
           <p className='font-medium'>No. Telepon</p>
@@ -84,9 +60,6 @@ const TableOne = () => {
         >
           <div className='col-span-2 flex items-center'>
             <div className='flex flex-col gap-4 sm:flex-row sm:items-center'>
-              <div className='w-15 rounded-md'>
-                <img src={product.image} alt='Product' />
-              </div>
               <p className='text-sm text-black dark:text-white'>
                 {product.name}
               </p>

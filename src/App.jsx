@@ -63,9 +63,22 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-
+          <Route
+            path='/login'
+            element={
+              <ProtectedRoute>
+                <Login />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path='/register'
+            element={
+              <ProtectedRoute>
+                <Register />
+              </ProtectedRoute>
+            }
+          ></Route>
           {/* Admin Pages */}
           <Route
             path='/admin'
@@ -121,15 +134,6 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          {/* <Route
-            path='/admin/auth/signin'
-            element={
-              <ProtectedRoute requiredRole='admin'>
-                <PageTitle title='Carlos Tech Admin | Sign in' />
-                <SignIn />
-              </ProtectedRoute>
-            }
-          /> */}
         </Routes>
       )}
     </AuthProvider>
