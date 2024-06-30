@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 
 import Footer from '../../../Components/Footer';
@@ -14,6 +14,21 @@ const Service = () => {
     quantity: 1,
     note: '',
   });
+
+  // Gunakan useEffect untuk mengatur nilai nama setelah login
+  useEffect(() => {
+    // Ambil data pengguna dari local storage atau state aplikasi jika ada
+    const loggedInUser = localStorage.getItem('user'); // Gantilah dengan cara penyimpanan yang Anda gunakan
+
+    if (loggedInUser) {
+      const user = JSON.parse(loggedInUser);
+      // Set nilai nama di formData jika pengguna sudah login
+      setFormData((prevData) => ({
+        ...prevData,
+        name: user.name,
+      }));
+    }
+  }, []); // Efek hanya dijalankan sekali setelah komponen dimuat
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,8 +69,8 @@ const Service = () => {
                 name='name'
                 value={formData.name}
                 onChange={handleChange}
-                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
-                required
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm'
+                readOnly
               />
             </div>
             <div className='mb-2'>
