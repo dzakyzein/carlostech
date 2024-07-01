@@ -10,8 +10,8 @@ const Service = () => {
     name: '',
     phone: '',
     address: '',
-    machineType: '',
-    quantity: 1,
+    type: '',
+    amount: 1,
     note: '',
   });
 
@@ -98,16 +98,13 @@ const Service = () => {
               ></textarea>
             </div>
             <div className='mb-2'>
-              <label
-                className='block text-sm font-medium '
-                htmlFor='machineType'
-              >
+              <label className='block text-sm font-medium ' htmlFor='type'>
                 Jenis Mesin
               </label>
               <select
-                id='machineType'
-                name='machineType'
-                value={formData.machineType}
+                id='type'
+                name='type'
+                value={formData.type}
                 onChange={handleChange}
                 className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
                 required
@@ -120,14 +117,14 @@ const Service = () => {
               </select>
             </div>
             <div className='mb-2'>
-              <label className='block text-sm font-medium ' htmlFor='quantity'>
+              <label className='block text-sm font-medium ' htmlFor='amount'>
                 Jumlah
               </label>
               <input
                 type='number'
-                id='quantity'
-                name='quantity'
-                value={formData.quantity}
+                id='amount'
+                name='amount'
+                value={formData.amount}
                 onChange={handleChange}
                 className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
                 min='1'
