@@ -15,20 +15,17 @@ const Service = () => {
     note: '',
   });
 
-  // Gunakan useEffect untuk mengatur nilai nama setelah login
   useEffect(() => {
-    // Ambil data pengguna dari local storage atau state aplikasi jika ada
-    const loggedInUser = localStorage.getItem('user'); // Gantilah dengan cara penyimpanan yang Anda gunakan
+    const loggedInUser = localStorage.getItem('user');
 
     if (loggedInUser) {
       const user = JSON.parse(loggedInUser);
-      // Set nilai nama di formData jika pengguna sudah login
       setFormData((prevData) => ({
         ...prevData,
         name: user.name,
       }));
     }
-  }, []); // Efek hanya dijalankan sekali setelah komponen dimuat
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
