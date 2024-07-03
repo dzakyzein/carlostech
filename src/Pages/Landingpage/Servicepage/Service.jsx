@@ -4,6 +4,7 @@ import { FaArrowCircleLeft } from 'react-icons/fa';
 
 import Footer from '../../../Components/Footer';
 import CarlosTech from '../../../assets/carlos-tech.png';
+import axios from 'axios';
 
 const Service = () => {
   const [formData, setFormData] = useState({
@@ -32,10 +33,27 @@ const Service = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Order submitted:', formData);
-    alert('Pesanan telah selesai');
+
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await axios.post(
+        'http://localhost:3000/api/v1/reservations',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log('Server response:', response.data);
+      alert('Pesanan telah terkirim');
+    } catch (error) {
+      console.error('Error saat mengirim pesanan:', error);
+      alert('Gagal mengirim pesanan');
+    }
   };
 
   return (
