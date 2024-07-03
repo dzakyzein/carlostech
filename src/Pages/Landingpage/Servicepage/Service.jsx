@@ -15,6 +15,7 @@ const Service = () => {
     type: '',
     amount: 1,
     note: '',
+    status: 'Belum Lunas',
   });
 
   useEffect(() => {

@@ -1,11 +1,44 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Navbar from '../../../Components/Navbar';
 import Footer from '../../../Components/Footer';
-
 import { IoPersonOutline } from 'react-icons/io5';
 
 const LPProfile = () => {
+  const [user, setUser] = useState({});
+  const [reservations, setReservations] = useState([]);
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const token = localStorage.getItem('token');
+
+    if (userData) {
+      setUser(userData);
+    }
+
+    const fetchReservations = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:3000/api/v1/reservations',
+          {
+            params: { userId: userData.id },
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setReservations(response.data.data);
+      } catch (error) {
+        console.error('Error fetching reservations:', error);
+      }
+    };
+
+    if (userData && userData.id) {
+      fetchReservations();
+    }
+  }, []);
+
   return (
     <div className='flex flex-col'>
       <Navbar />
@@ -19,12 +52,16 @@ const LPProfile = () => {
               <li className='flex items-center'>
                 <span className='font-medium mr-2'>Nama</span>
                 <span className='text-gray-700'>:</span>
-                <span className='ml-2 text-gray-700'>John Doe</span>
+                <span className='ml-2 text-gray-700'>
+                  {user.name || 'John Doe'}
+                </span>
               </li>
               <li className='flex items-center'>
                 <span className='font-medium mr-2'>Email</span>
                 <span className='text-gray-700'>:</span>
-                <span className='ml-2 text-gray-700'>john.doe@example.com</span>
+                <span className='ml-2 text-gray-700'>
+                  {user.email || 'john.doe@example.com'}
+                </span>
               </li>
               <li className='flex items-center'>
                 <span className='font-medium mr-2'>Password</span>
@@ -40,25 +77,40 @@ const LPProfile = () => {
         <div className='container mx-auto mt-8'>
           <h2 className='text-2xl font-bold mb-4 text-center'>Pemesanan</h2>
           <table className='table-auto mx-auto'>
-            <thead>
+            <thead className='border'>
               <tr>
-                <th className='px-4 py-2'>Nama</th>
-                <th className='px-4 py-2'>Telepon</th>
-                <th className='px-4 py-2'>Alamat</th>
-                <th className='px-4 py-2'>Jenis Mesin</th>
-                <th className='px-4 py-2'>Jumlah</th>
-                <th className='px-4 py-2'>Catatan</th>
+                <th className='px-4 py-2 border-r'>Nama</th>
+                <th className='px-4 py-2 border-r'>Telepon</th>
+                <th className='px-4 py-2 border-r'>Alamat</th>
+                <th className='px-4 py-2 border-r'>Jenis Mesin</th>
+                <th className='px-4 py-2 border-r'>Jumlah</th>
+                <th className='px-4 py-2 border-r'>Catatan</th>
+                <th className='px-4 py-2'>Status</th>
               </tr>
             </thead>
+
             <tbody>
-              <tr>
-                <td className='border px-4 py-2'>John Doe</td>
-                <td className='border px-4 py-2'>123-456-7890</td>
-                <td className='border px-4 py-2'>123 Street, City</td>
-                <td className='border px-4 py-2'>Motor</td>
-                <td className='border px-4 py-2'>2</td>
-                <td className='border px-4 py-2'>-</td>
-              </tr>
+              {reservations.length > 0 ? (
+                reservations.map((reservation, index) => (
+                  <tr key={index}>
+                    <td className='border px-4 py-2'>{reservation.name}</td>
+                    <td className='border px-4 py-2'>{reservation.phone}</td>
+                    <td className='border px-4 py-2'>{reservation.address}</td>
+                    <td className='border px-4 py-2'>{reservation.type}</td>
+                    <td className='border px-4 py-2'>{reservation.amount}</td>
+                    <td className='border px-4 py-2'>
+                      {reservation.note || '-'}
+                    </td>
+                    <td className='border px-4 py-2'>{reservation.status}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td className='border px-4 py-2' colSpan='7'>
+                    No reservations found
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
