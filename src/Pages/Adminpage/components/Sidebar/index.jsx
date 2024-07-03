@@ -178,7 +178,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   }`}
                 >
                   <BsTable />
-                  Product
+                  Sale
                 </NavLink>
               </li>
               {/* <!-- Menu Item Product --> */}

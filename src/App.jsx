@@ -21,8 +21,9 @@ import Calendar from './Pages/Adminpage/pages/Calendar';
 import Chart from './Pages/Adminpage/pages/Chart';
 import Dashboard from './Pages/Adminpage/pages/Dashboard';
 import Profile from './Pages/Adminpage/pages/Profile';
-import Product from './Pages/Adminpage/pages/Product';
+import Product from './Pages/Adminpage/pages/Sale';
 import User from './Pages/Adminpage/pages/User';
+import Sale from './Pages/Adminpage/pages/Sale';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -117,11 +118,11 @@ const App = () => {
             }
           />
           <Route
-            path='/admin/product'
+            path='/admin/sale'
             element={
               <ProtectedRoute requiredRole='admin'>
-                <PageTitle title='Carlos Tech Admin | Product' />
-                <Product />
+                <PageTitle title='Carlos Tech Admin | Sale' />
+                <Sale />
               </ProtectedRoute>
             }
           />

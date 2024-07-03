@@ -1,17 +1,17 @@
 import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
-import TableOne from '../components/Tables/TableOne';
+import SaleData from '../components/Tables/SaleData';
 import DefaultLayout from '../layout/DefaultLayout';
 
-const Product = () => {
+const Sale = () => {
   return (
     <DefaultLayout>
       <Breadcrumb pageName='Penjualan' />
 
       <div className='flex flex-col gap-10'>
-        <TableOne />
+        <SaleData />
       </div>
     </DefaultLayout>
   );
 };
 
-export default Product;
+export default Sale;
