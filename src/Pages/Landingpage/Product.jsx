@@ -17,7 +17,7 @@ const Product = () => {
               <h2 className='mb-4 text-3xl font-bold dark:text-white sm:text-4xl md:text-[40px]'>
                 Produk Terbaik
               </h2>
-              <p className='text-base text-body-color dark:text-dark-6'>
+              <p className='text-xl'>
                 Kami menawarkan produk dan layanan terbaik untuk motor, mobil,
                 alat berat, dan mesin industri dengan kualitas unggulan dan
                 keandalan tinggi.
@@ -25,7 +25,7 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <div className='m-4 flex flex-wrap'>
+        <div className='flex flex-wrap'>
           <CardProduct
             // date='Dec 22, 2023'
             CardTitle='Carlos Tech - Tracker Motor'
