@@ -6,7 +6,7 @@ import Ratio from '../../assets/rasio-motor.jpg';
 
 const Product = () => {
   return (
-    <section className='text-black pb-10 pt-20 lg:pb-20 lg:pt-[120px]'>
+    <section className='text-black pb-10 pt-15 lg:pb-20 lg:pt-[120px] '>
       <div className='container lg:px-10'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4 xsm:mx-4 md:flex flex-col justify-center'>

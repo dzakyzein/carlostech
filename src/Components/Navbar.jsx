@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='navbar bg-white px-8 fixed top-0 left-0 z-9 w-full text-black'>
+    <div className='navbar bg-white px-8 fixed top-0 left-0 z-99 w-full text-black'>
       <div className='navbar-start'>
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
@@ -83,7 +83,7 @@ const Navbar = () => {
       <div className='navbar-end'>
         {isLoggedIn ? (
           <div className='flex items-center gap-2'>
-            <div className='dropdown dropdown-end'>
+            <div className='dropdown dropdown-end '>
               <div
                 tabIndex={0}
                 role='button'
@@ -95,7 +95,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
+                className='menu menu-sm dropdown-content bg-white text-black rounded-box z-[1] mt-3 w-52 p-2 shadow'
               >
                 <li>
                   <Link to='/profile'>Profile</Link>

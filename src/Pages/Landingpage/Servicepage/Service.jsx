@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { FaArrowCircleLeft } from 'react-icons/fa';
-
+import LandingLayout from '../Layout/LandingLayout';
+import BgMachine from '../../../assets/bg-machine.png';
 import Footer from '../../../Components/Footer';
 import CarlosTech from '../../../assets/carlos-tech.png';
 import axios from 'axios';
@@ -57,7 +58,10 @@ const Service = () => {
   };
 
   return (
-    <div className='min-h-screen flex flex-col justify-between'>
+    <div
+      className='min-h-screen flex flex-col justify-between bg-center bg-cover bg-no-repeat'
+      style={{ backgroundImage: `url(${BgMachine})` }}
+    >
       <div className='flex items-center justify-start p-4'>
         <a href='/'>
           <FaArrowCircleLeft />
@@ -69,7 +73,7 @@ const Service = () => {
             <img src={CarlosTech} className='w-1/2' />
           </div>
         </div>
-        <div className='w-full max-w-md bg-black p-4 md:p-6 rounded-lg shadow-md overflow-y-auto'>
+        <div className='w-full max-w-md bg-white text-black p-4 md:p-6 rounded-lg shadow-md overflow-y-auto'>
           <h2 className='text-2xl font-bold mb-4 text-center '>
             Formulir Pemesanan
           </h2>
@@ -84,7 +88,7 @@ const Service = () => {
                 name='name'
                 value={formData.name}
                 onChange={handleChange}
-                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm'
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-white'
                 readOnly
               />
             </div>
@@ -98,7 +102,7 @@ const Service = () => {
                 name='phone'
                 value={formData.phone}
                 onChange={handleChange}
-                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-white'
                 required
               />
             </div>
@@ -111,7 +115,7 @@ const Service = () => {
                 name='address'
                 value={formData.address}
                 onChange={handleChange}
-                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-white'
                 required
               ></textarea>
             </div>
@@ -124,7 +128,7 @@ const Service = () => {
                 name='type'
                 value={formData.type}
                 onChange={handleChange}
-                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-white font-normal'
                 required
               >
                 <option value=''>Pilih jenis mesin</option>
@@ -144,7 +148,7 @@ const Service = () => {
                 name='amount'
                 value={formData.amount}
                 onChange={handleChange}
-                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-white'
                 min='1'
                 required
               />
@@ -158,12 +162,12 @@ const Service = () => {
                 name='note'
                 value={formData.note}
                 onChange={handleChange}
-                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-0'
+                className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-white'
               ></textarea>
             </div>
             <button
               type='submit'
-              className='w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-0'
+              className='w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none'
             >
               Pesan Sekarang
             </button>

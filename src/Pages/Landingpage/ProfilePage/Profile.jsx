@@ -9,7 +9,7 @@ const LPProfile = () => {
   return (
     <div className='flex flex-col'>
       <Navbar />
-      <div className='min-h-screen bg-gray-100 mt-16'>
+      <div className='min-h-screen bg-white text-black mt-16'>
         <div className='container mx-auto p-6 flex flex-col md:flex-row'>
           <div className='md:w-1/2 ml-40'>
             <h2 className='text-2xl font-bold mb-6 text-center md:text-left'>
