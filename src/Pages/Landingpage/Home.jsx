@@ -5,10 +5,11 @@ import CardProduct from './CardProduct';
 import Product from './Product';
 import Footer from '../../Components/Footer';
 import Map from './Map';
+import LandingLayout from './Layout/LandingLayout';
 
 const Home = () => {
   return (
-    <>
+    <LandingLayout>
       <Navbar />
       <Header />
       <Intro />
@@ -16,7 +17,7 @@ const Home = () => {
       <Product />
       <Map />
       <Footer />
-    </>
+    </LandingLayout>
   );
 };
 
