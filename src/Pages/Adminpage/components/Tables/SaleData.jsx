@@ -37,24 +37,27 @@ const SaleData = () => {
     try {
       if (!saleId) {
         console.error('Sale ID is undefined or null');
+        return;
       }
       const newStatus = currentStatus === 'lunas' ? 'belum lunas' : 'lunas';
 
-      await axios.put(
-        `http://localhost:3000/api/v1/reservations/${saleId}`,
-        { status: newStatus },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        }
-      );
-
-      // Update UI by updating saleData state
-      const updatedSales = saleData.map((sale) =>
-        sale._id === saleId ? { ...sale, status: newStatus } : sale
-      );
-      setSaleData(updatedSales);
+      await axios
+        .put(
+          `http://localhost:3000/api/v1/reservations/${saleId}`,
+          { status: newStatus },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+        .then((response) => {
+          // Update UI by updating saleData state
+          const updatedSales = saleData.map((sale) =>
+            sale.id === saleId ? { ...sale, status: newStatus } : sale
+          );
+          setSaleData(updatedSales);
+        });
     } catch (error) {
       console.error('Error updating status:', error);
     }
@@ -119,7 +122,10 @@ const SaleData = () => {
           </div>
           <div
             className='col-span-1 flex items-center cursor-pointer'
-            onClick={() => handleStatusChange(sale._id, sale.status)}
+            onClick={() => {
+              console.log('Clicked sale id: ', sale.id);
+              handleStatusChange(sale.id, sale.status);
+            }}
           >
             <p
               className={`text-sm ${
