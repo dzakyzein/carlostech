@@ -47,9 +47,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   });
 
   const handleLogout = () => {
-    // Lakukan proses logout di sini, seperti menghapus token, dll.
     localStorage.removeItem('token');
-    // Arahkan ke halaman login setelah logout
     navigate('/login');
   };
 
@@ -169,19 +167,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               </li>
               {/* <!-- Menu Item User --> */}
 
-              {/* <!-- Menu Item Product --> */}
+              {/* <!-- Menu Item Sale --> */}
               <li>
                 <NavLink
-                  to='/admin/product'
+                  to='/admin/sale'
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('product') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('sale') && 'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <BsTable />
                   Sale
                 </NavLink>
               </li>
-              {/* <!-- Menu Item Product --> */}
+              {/* <!-- Menu Item sale --> */}
             </ul>
           </div>
 

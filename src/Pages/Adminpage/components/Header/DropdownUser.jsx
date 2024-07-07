@@ -1,18 +1,28 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 import UserOne from '../../images/user/user-01.png';
 
 //icons
-import { IoPersonOutline, IoSettingsOutline } from 'react-icons/io5';
-import { TiContacts } from 'react-icons/ti';
+import { IoSettingsOutline } from 'react-icons/io5';
 import { TbLogout2 } from 'react-icons/tb';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userName, setUserName] = useState('');
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Ambil nama pengguna dari localStorage
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      setUserName(user.name);
+    }
+  }, []);
 
   // close on click outside
   useEffect(() => {
@@ -40,6 +50,11 @@ const DropdownUser = () => {
     return () => document.removeEventListener('keydown', keyHandler);
   });
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
   return (
     <div className='relative'>
       <Link
@@ -50,9 +65,8 @@ const DropdownUser = () => {
       >
         <span className='hidden text-right lg:block'>
           <span className='block text-sm font-medium text-black dark:text-white'>
-            Thomas Anree
+            {userName}
           </span>
-          <span className='block text-xs'>UX Designer</span>
         </span>
 
         <span className='h-12 w-12 rounded-full'>
@@ -72,24 +86,6 @@ const DropdownUser = () => {
         <ul className='flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark'>
           <li>
             <Link
-              to='/admin/profile'
-              className='flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base'
-            >
-              <IoPersonOutline className='text-xl' />
-              My Profile
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='#'
-              className='flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base'
-            >
-              <TiContacts className='text-xl' />
-              My Contacts
-            </Link>
-          </li>
-          <li>
-            <Link
               to='/pages/settings'
               className='flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base'
             >
@@ -98,10 +94,14 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <button className='flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base'>
+        <NavLink
+          to='/login'
+          onClick={handleLogout}
+          className='flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base'
+        >
           <TbLogout2 className='text-xl' />
           Log Out
-        </button>
+        </NavLink>
       </div>
       {/* <!-- Dropdown End --> */}
     </div>

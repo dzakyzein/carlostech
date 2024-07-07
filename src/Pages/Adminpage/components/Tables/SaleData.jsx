@@ -33,6 +33,33 @@ const SaleData = () => {
     fetchReservations();
   }, []);
 
+  const handleStatusChange = async (saleId, currentStatus) => {
+    try {
+      if (!saleId) {
+        console.error('Sale ID is undefined or null');
+      }
+      const newStatus = currentStatus === 'lunas' ? 'belum lunas' : 'lunas';
+
+      await axios.put(
+        `http://localhost:3000/api/v1/reservations/${saleId}`,
+        { status: newStatus },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
+
+      // Update UI by updating saleData state
+      const updatedSales = saleData.map((sale) =>
+        sale._id === saleId ? { ...sale, status: newStatus } : sale
+      );
+      setSaleData(updatedSales);
+    } catch (error) {
+      console.error('Error updating status:', error);
+    }
+  };
+
   return (
     <div className='rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark'>
       <div className='py-6 px-4 md:px-6 xl:px-7.5'>
@@ -41,7 +68,7 @@ const SaleData = () => {
         </h4>
       </div>
 
-      <div className='grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-10 md:px-6 2xl:px-7.5'>
+      <div className='grid grid-cols-8 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-10 md:px-6 2xl:px-7.5'>
         <div className='col-span-2 flex items-center'>
           <p className='font-medium'>Nama</p>
         </div>
@@ -90,8 +117,17 @@ const SaleData = () => {
           <div className='col-span-1 flex items-center'>
             <p className='text-sm text-black dark:text-white'>{sale.note}</p>
           </div>
-          <div className='col-span-1 flex items-center'>
-            <p className='text-sm text-black dark:text-white'>{sale.status}</p>
+          <div
+            className='col-span-1 flex items-center cursor-pointer'
+            onClick={() => handleStatusChange(sale._id, sale.status)}
+          >
+            <p
+              className={`text-sm ${
+                sale.status === 'lunas' ? 'text-green-500' : 'text-red-500'
+              } dark:text-white`}
+            >
+              {sale.status}
+            </p>
           </div>
         </div>
       ))}
