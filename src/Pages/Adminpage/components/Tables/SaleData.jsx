@@ -5,8 +5,8 @@ import axios from 'axios';
 const SaleData = () => {
   const [admin, setAdmin] = useState({});
   const [saleData, setSaleData] = useState([]);
-  const [editModalOpen, setEditModalOpen] = useState(false); // State untuk mengontrol modal
-  const [selectedSale, setSelectedSale] = useState(null); // State untuk menyimpan data reservasi yang akan diedit
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [selectedSale, setSelectedSale] = useState(null);
 
   useEffect(() => {
     const adminData = JSON.parse(localStorage.getItem('admin'));
@@ -81,15 +81,12 @@ const SaleData = () => {
         return;
       }
 
-      // Implement your logic to update the reservation data using axios.put or similar
-
       // Update UI by updating saleData state or refetching data
       const updatedSales = saleData.map((sale) =>
         sale.id === editedData.id ? { ...sale, ...editedData } : sale
       );
       setSaleData(updatedSales);
 
-      // For simplicity, let's just close the modal here
       closeEditModal();
     } catch (error) {
       console.error('Error updating reservation:', error);
