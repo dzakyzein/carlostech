@@ -1,8 +1,0 @@
-input[type='email'] {
-  background-color: white !important;
-  color: black;
-}
-
-input[type='email']:focus {
-  background-color: white !important;
-}
