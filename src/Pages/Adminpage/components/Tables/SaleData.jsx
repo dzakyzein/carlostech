@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { NumericFormat } from 'react-number-format';
 
 const SaleData = () => {
   const [admin, setAdmin] = useState({});
@@ -81,6 +82,16 @@ const SaleData = () => {
         return;
       }
 
+      await axios.put(
+        `http://localhost:3000/api/v1/reservations/${editedData.id}`,
+        editedData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
       // Update UI by updating saleData state or refetching data
       const updatedSales = saleData.map((sale) =>
         sale.id === editedData.id ? { ...sale, ...editedData } : sale
@@ -93,6 +104,22 @@ const SaleData = () => {
     }
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setSelectedSale({
+      ...selectedSale,
+      [name]: value,
+    });
+  };
+
+  const handlePriceChange = (values) => {
+    const { formattedValue, value } = values;
+    setSelectedSale({
+      ...selectedSale,
+      price: value,
+    });
+  };
+
   return (
     <div className='rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark'>
       <div className='py-6 px-4 md:px-6 xl:px-7.5'>
@@ -101,6 +128,7 @@ const SaleData = () => {
         </h4>
       </div>
 
+      {/* table header */}
       <div className='grid grid-cols-9 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-11 md:px-6 2xl:px-7.5'>
         <div className='col-span-2 flex items-center'>
           <p className='font-medium'>Nama</p>
@@ -128,6 +156,7 @@ const SaleData = () => {
         </div>
       </div>
 
+      {/* table row */}
       {saleData.map((sale, key) => (
         <div
           className='grid grid-cols-9 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-11 md:px-6 2xl:px-7.5'
@@ -208,6 +237,7 @@ const SaleData = () => {
                   type='text'
                   id='name'
                   name='name'
+                  readOnly
                   defaultValue={selectedSale.name}
                   className='bg-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 />
@@ -223,6 +253,7 @@ const SaleData = () => {
                   type='text'
                   id='phone'
                   name='phone'
+                  readOnly
                   defaultValue={selectedSale.phone}
                   className='bg-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 />
@@ -238,6 +269,7 @@ const SaleData = () => {
                   type='text'
                   id='address'
                   name='address'
+                  readOnly
                   defaultValue={selectedSale.address}
                   className='bg-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 />
@@ -253,6 +285,7 @@ const SaleData = () => {
                   type='text'
                   id='type'
                   name='type'
+                  readOnly
                   defaultValue={selectedSale.type}
                   className='bg-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 />
@@ -268,6 +301,7 @@ const SaleData = () => {
                   type='text'
                   id='amount'
                   name='amount'
+                  readOnly
                   defaultValue={selectedSale.amount}
                   className='bg-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 />
@@ -283,11 +317,50 @@ const SaleData = () => {
                   type='textarea'
                   id='note'
                   name='note'
+                  onChange={handleInputChange}
                   defaultValue={selectedSale.note}
                   className='bg-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 />
               </div>
-              <div className='flex justify-end'>
+              <div className='mb-4'>
+                <label
+                  htmlFor='price'
+                  className='block text-sm font-medium text-black'
+                >
+                  Harga
+                </label>
+                <NumericFormat
+                  thousandSeparator={true}
+                  prefix={'Rp '}
+                  id='price'
+                  name='price'
+                  onChange={handleInputChange}
+                  defaultValue={selectedSale.price}
+                  className='bg-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+                />
+              </div>
+              <div className='mb-4'>
+                <label
+                  htmlFor='progress'
+                  className='block text-sm font-medium text-black'
+                >
+                  Progress
+                </label>
+                <select
+                  id='progress'
+                  name='progress'
+                  value={selectedSale.progress}
+                  onChange={handleInputChange}
+                  className='bg-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+                >
+                  <option value='0%'>0%</option>
+                  <option value='25%'>25%</option>
+                  <option value='50%'>50%</option>
+                  <option value='75%'>75%</option>
+                  <option value='100%'>100%</option>
+                </select>
+              </div>
+              <div className='flex justify-end col-span-2'>
                 <button
                   type='submit'
                   className='bg-sky-500 hover:bg-sky-600 text-white py-2 px-4 rounded-lg'

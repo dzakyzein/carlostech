@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import axios from 'axios';
+import usePasswordVisibility from '../Landingpage/Hooks/usePasswordVisibility';
 
 import CarlosTech from '../../assets/carlos-tech.png';
 import BgMachine from '../../assets/bg-machine.png';
@@ -16,6 +17,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
+  const { showPassword, PasswordVisibilityIcon } = usePasswordVisibility();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -74,35 +76,30 @@ const Login = () => {
                   type='email'
                   name='email'
                   id='email'
-                  className='bg-white border text-black sm:text-sm rounded-lg focus:border-primary-600 block w-full p-2.5'
+                  className='bg-white border text-black sm:text-sm rounded-lg block w-full p-2.5'
                   placeholder='nama@gmail.com'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
-              <div>
-                <label
-                  htmlFor='password'
-                  className='block mb-2 text-sm font-medium'
-                >
-                  Password
-                </label>
+              <div className='relative'>
                 <input
-                  type='password'
+                  type={showPassword.password ? 'text' : 'password'}
                   name='password'
                   id='password'
                   placeholder='password'
-                  className='bg-white border text-gray-900 sm:text-sm rounded-lg focus:border-primary-600 block w-full p-2.5'
+                  className='bg-white border text-gray-900 sm:text-sm rounded-lg block w-full p-2.5'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                {PasswordVisibilityIcon('password')}
               </div>
               {error && <p className='text-sm text-red-500'>{error}</p>}
               <button
                 type='submit'
-                className='w-full text-white bg-sky-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+                className='w-full text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
                 disabled={loading}
               >
                 {loading ? 'Loading...' : 'Masuk'}

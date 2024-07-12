@@ -39,6 +39,10 @@ const LPProfile = () => {
     }
   }, []);
 
+  const formatCurrency = (amount) => {
+    return `Rp ${new Intl.NumberFormat('id-ID').format(amount)}`;
+  };
+
   return (
     <div className='flex flex-col'>
       <Navbar />
@@ -85,7 +89,9 @@ const LPProfile = () => {
                 <th className='px-4 py-2 border-r'>Jenis Mesin</th>
                 <th className='px-4 py-2 border-r'>Jumlah</th>
                 <th className='px-4 py-2 border-r'>Catatan</th>
-                <th className='px-4 py-2'>Status</th>
+                <th className='px-4 py-2 border-r'>Status</th>
+                <th className='px-4 py-2 border-r'>Harga</th>
+                <th className='px-4 py-2'>Progress</th>
               </tr>
             </thead>
 
@@ -102,11 +108,15 @@ const LPProfile = () => {
                       {reservation.note || '-'}
                     </td>
                     <td className='border px-4 py-2'>{reservation.status}</td>
+                    <td className='border px-4 py-2'>
+                      {formatCurrency(reservation.price)}
+                    </td>
+                    <td className='border px-4 py-2'>{reservation.progress}</td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td className='border px-4 py-2' colSpan='7'>
+                  <td className='border px-4 py-2 text-center' colSpan='9'>
                     No reservations found
                   </td>
                 </tr>
