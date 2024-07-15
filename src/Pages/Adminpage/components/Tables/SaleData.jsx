@@ -360,6 +360,25 @@ const SaleData = () => {
                   <option value='100%'>100%</option>
                 </select>
               </div>
+
+              {/* New section for viewing the payment proof */}
+              <div className='col-span-2 mb-4'>
+                <label className='block text-sm font-medium text-black'>
+                  Bukti Pembayaran
+                </label>
+                {selectedSale.paymentProof ? (
+                  <a
+                    href={selectedSale.paymentProof}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-blue-500'
+                  >
+                    Lihat Bukti Pembayaran
+                  </a>
+                ) : (
+                  <span className='text-black'>Belum ada bukti pembayaran</span>
+                )}
+              </div>
               <div className='flex justify-end col-span-2'>
                 <button
                   type='submit'
