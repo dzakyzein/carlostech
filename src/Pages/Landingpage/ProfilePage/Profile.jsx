@@ -142,7 +142,9 @@ const LPProfile = () => {
         </div>
 
         <div className='container mx-auto mt-8'>
-          <h2 className='text-2xl font-bold mb-4 text-center'>Pemesanan</h2>
+          <h2 className='text-2xl font-bold mb-4 text-center'>
+            Riwayat Pemesanan
+          </h2>
           <table className='table-auto mx-auto'>
             <thead className='border'>
               <tr>
