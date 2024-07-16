@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NumericFormat } from 'react-number-format';
 
@@ -8,6 +8,8 @@ const SaleData = () => {
   const [saleData, setSaleData] = useState([]);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedSale, setSelectedSale] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const salesPerPage = 6;
 
   useEffect(() => {
     const adminData = JSON.parse(localStorage.getItem('admin'));
@@ -112,6 +114,24 @@ const SaleData = () => {
     });
   };
 
+  const indexOfLastSale = currentPage * salesPerPage;
+  const indexOfFirstSale = indexOfLastSale - salesPerPage;
+  const currentSales = saleData.slice(indexOfFirstSale, indexOfLastSale);
+
+  const totalPages = Math.ceil(saleData.length / salesPerPage);
+
+  const nextPage = () => {
+    if (currentPage < Math.ceil(saleData.length / salesPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
     <div className='rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark'>
       <div className='py-6 px-4 md:px-6 xl:px-7.5'>
@@ -121,7 +141,10 @@ const SaleData = () => {
       </div>
 
       {/* table header */}
-      <div className='grid grid-cols-9 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-11 md:px-6 2xl:px-7.5'>
+      <div className='grid grid-cols-10 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-11 md:px-6 2xl:px-7.5'>
+        <div className='col-span-1 flex items-center'>
+          <p className='font-medium'>No</p>
+        </div>
         <div className='col-span-2 flex items-center'>
           <p className='font-medium'>Nama</p>
         </div>
@@ -138,9 +161,6 @@ const SaleData = () => {
           <p className='font-medium'>Jumlah</p>
         </div>
         <div className='col-span-1 flex items-center'>
-          <p className='font-medium'>Catatan</p>
-        </div>
-        <div className='col-span-1 flex items-center'>
           <p className='font-medium'>Status</p>
         </div>
         <div className='col-span-1 flex items-center'>
@@ -149,11 +169,18 @@ const SaleData = () => {
       </div>
 
       {/* table row */}
-      {saleData.map((sale, key) => (
+      {currentSales.map((sale, index) => (
         <div
-          className='grid grid-cols-9 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-11 md:px-6 2xl:px-7.5'
-          key={key}
+          className='grid grid-cols-10 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-11 md:px-6 2xl:px-7.5'
+          key={sale.id}
         >
+          <div className='col-span-1 flex items-center'>
+            <div className='flex flex-col gap-4 sm:flex-row sm:items-center'>
+              <p className='text-sm text-black dark:text-white'>
+                {indexOfFirstSale + index + 1}
+              </p>
+            </div>
+          </div>
           <div className='col-span-2 flex items-center'>
             <div className='flex flex-col gap-4 sm:flex-row sm:items-center'>
               <p className='text-sm text-black dark:text-white'>{sale.name}</p>
@@ -173,11 +200,7 @@ const SaleData = () => {
           <div className='col-span-1 flex items-center'>
             <p className='text-sm text-black dark:text-white'>{sale.amount}</p>
           </div>
-          <div className='col-span-1 flex items-center'>
-            <p className='text-sm text-black dark:text-white truncate'>
-              {sale.note}
-            </p>
-          </div>
+
           <div
             className='col-span-1 flex items-center cursor-pointer'
             onClick={() => {
@@ -202,6 +225,28 @@ const SaleData = () => {
           </div>
         </div>
       ))}
+
+      {saleData.length > salesPerPage && (
+        <div className='flex justify-between py-4 px-4 md:px-6 2xl:px-7.5'>
+          <button
+            onClick={prevPage}
+            disabled={currentPage === 1}
+            className='px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded disabled:opacity-50'
+          >
+            Previous
+          </button>
+          <span className='px-4 py-2'>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={nextPage}
+            disabled={currentPage === totalPages}
+            className='px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded disabled:opacity-50'
+          >
+            Next
+          </button>
+        </div>
+      )}
 
       {/* Modal for editing reservation */}
       {editModalOpen && selectedSale && (
