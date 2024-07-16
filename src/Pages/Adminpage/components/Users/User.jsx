@@ -4,7 +4,7 @@ import axios from 'axios';
 const User = () => {
   const [userData, setUserData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 7;
+  const usersPerPage = 6;
 
   useEffect(() => {
     axios

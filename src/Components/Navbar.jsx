@@ -70,13 +70,19 @@ const Navbar = () => {
       <div className='navbar-center hidden lg:flex font-medium'>
         <ul className='menu menu-horizontal px-1'>
           <li>
-            <Link to='/'>Home</Link>
+            <Link to='/' className='hover:bg-sky-500 hover:text-white'>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to='/service'>Pemesanan</Link>
+            <Link to='/service' className='hover:bg-sky-500 hover:text-white'>
+              Pemesanan
+            </Link>
           </li>
           <li>
-            <Link to='/about'>Tentang Kami</Link>
+            <Link to='/about' className='hover:bg-sky-500 hover:text-white'>
+              Tentang Kami
+            </Link>
           </li>
         </ul>
       </div>
@@ -90,7 +96,7 @@ const Navbar = () => {
                 className='btn btn-ghost btn-circle avatar'
               >
                 <div className='w-10 rounded-full'>
-                  <GoPerson className='w-10 h-10' />
+                  <GoPerson className='w-10 h-10 hover:bg-sky-500 hover:text-white' />
                 </div>
               </div>
               <ul
@@ -98,20 +104,36 @@ const Navbar = () => {
                 className='menu menu-sm dropdown-content bg-white text-black rounded-box z-[1] mt-3 w-52 p-2 shadow'
               >
                 <li>
-                  <Link to='/profile'>Profile</Link>
+                  <Link
+                    to='/profile'
+                    className='hover:bg-sky-500 hover:text-white'
+                  >
+                    Profile
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={handleLogout}>Logout</button>
+                  <button
+                    onClick={handleLogout}
+                    className='hover:bg-sky-500 hover:text-white'
+                  >
+                    Logout
+                  </button>
                 </li>
               </ul>
             </div>
           </div>
         ) : (
           <>
-            <Link className='btn btn-ghost mr-3' to='/register'>
+            <Link
+              className='btn btn-ghost mr-3 hover:bg-sky-500 hover:text-white'
+              to='/register'
+            >
               Daftar
             </Link>
-            <Link className='btn btn-ghost' to='/login'>
+            <Link
+              className='btn btn-ghost hover:bg-sky-500 hover:text-white'
+              to='/login'
+            >
               Masuk
             </Link>
           </>

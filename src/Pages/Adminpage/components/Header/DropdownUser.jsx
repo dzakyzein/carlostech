@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
-import UserOne from '../../images/user/user-01.png';
-
 //icons
-import { IoSettingsOutline } from 'react-icons/io5';
 import { TbLogout2 } from 'react-icons/tb';
+import { GoPerson } from 'react-icons/go';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -63,14 +61,14 @@ const DropdownUser = () => {
         className='flex items-center gap-4'
         to='#'
       >
+        <span className='h-10 w-10 rounded-full'>
+          <GoPerson className='w-full h-full' alt='User' />
+        </span>
+
         <span className='hidden text-right lg:block'>
           <span className='block text-sm font-medium text-black dark:text-white'>
             {userName}
           </span>
-        </span>
-
-        <span className='h-12 w-12 rounded-full'>
-          <img src={UserOne} alt='User' />
         </span>
       </Link>
 
@@ -83,17 +81,6 @@ const DropdownUser = () => {
           dropdownOpen === true ? 'block' : 'hidden'
         }`}
       >
-        <ul className='flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark'>
-          <li>
-            <Link
-              to='/pages/settings'
-              className='flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base'
-            >
-              <IoSettingsOutline />
-              Account Settings
-            </Link>
-          </li>
-        </ul>
         <NavLink
           to='/login'
           onClick={handleLogout}
