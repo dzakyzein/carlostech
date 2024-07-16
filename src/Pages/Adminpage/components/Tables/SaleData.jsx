@@ -80,7 +80,6 @@ const SaleData = () => {
     try {
       const token = localStorage.getItem('token');
       if (!editedData.id) {
-        console.error('Sale ID is undefined or null');
         return;
       }
 
@@ -111,6 +110,14 @@ const SaleData = () => {
     setSelectedSale({
       ...selectedSale,
       [name]: value,
+    });
+  };
+
+  const handlePriceChange = (values) => {
+    const { value } = values;
+    setSelectedSale({
+      ...selectedSale,
+      price: value,
     });
   };
 
@@ -371,7 +378,7 @@ const SaleData = () => {
                   prefix={'Rp '}
                   id='price'
                   name='price'
-                  onChange={handleInputChange}
+                  onValueChange={handlePriceChange}
                   defaultValue={selectedSale.price}
                   className='bg-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 />
