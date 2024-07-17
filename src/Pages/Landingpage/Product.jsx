@@ -28,21 +28,21 @@ const Product = () => {
         <div className='flex flex-wrap'>
           <CardProduct
             Title='Carlos Tech - Tracker Motor'
-            type='Rasio Motor'
+            Type='Rasio Motor'
             Description='Pelacak motor canggih dari Carlos Tech yang membantu Anda memantau dan melacak lokasi kendaraan Anda secara real-time untuk keamanan optimal.'
-            image={Tracker}
+            Image={Tracker}
           />
           <CardProduct
             Title='Carlos Tech - Tromol Roda Motor'
-            type='Rasio Motor'
+            Type='Rasio Motor'
             Description='Tromol berkualitas tinggi dari Carlos Tech, dirancang untuk memberikan kinerja pengereman yang superior dan daya tahan maksimal untuk motor Anda.'
-            image={Tromol}
+            Image={Tromol}
           />
           <CardProduct
             Title='Carlos Tech - Rasio Motor'
-            type='Rasio Motor'
+            Type='Rasio Motor'
             Description='Rasio motor presisi dari Carlos Tech yang memastikan efisiensi tenaga dan performa optimal untuk pengalaman berkendara yang lebih baik.'
-            image={Ratio}
+            Image={Ratio}
           />
         </div>
       </div>

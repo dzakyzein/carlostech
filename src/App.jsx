@@ -20,7 +20,7 @@ import PageTitle from './Pages/Adminpage/components/PageTitle';
 import Calendar from './Pages/Adminpage/pages/Calendar';
 import Dashboard from './Pages/Adminpage/pages/Dashboard';
 import Profile from './Pages/Adminpage/pages/Profile';
-import Product from './Pages/Adminpage/pages/Sale';
+import Tool from './Pages/Adminpage/pages/Tool';
 import User from './Pages/Adminpage/pages/User';
 import Sale from './Pages/Adminpage/pages/Sale';
 
@@ -104,6 +104,15 @@ const App = () => {
               <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Profile' />
                 <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/admin/tool'
+            element={
+              <ProtectedRoute requiredRole='admin'>
+                <PageTitle title='Carlos Tech Admin | Tool' />
+                <Tool />
               </ProtectedRoute>
             }
           />

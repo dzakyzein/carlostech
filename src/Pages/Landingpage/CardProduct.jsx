@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-const CardProduct = ({ image, Title, Description, type }) => {
+const CardProduct = ({ Image, Title, Description, Type }) => {
   return (
     <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
       <div className='mb-10 w-full'>
         <div className='mb-8 overflow-hidden rounded'>
-          <img src={image} alt='' className='w-full' />
+          <img src={Image} alt='' className='w-full' />
         </div>
         <div>
           <h3>
@@ -13,7 +13,7 @@ const CardProduct = ({ image, Title, Description, type }) => {
             </p>
           </h3>
           <span className='mb-5 inline-block rounded bg-sky-500 px-4 py-1 text-center text-xs font-semibold leading-loose text-white'>
-            {type}
+            {Type}
           </span>
           <p className='text-base text-body-color dark:text-dark-6'>
             {Description}
