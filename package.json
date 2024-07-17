@@ -27,6 +27,7 @@
     "react-number-format": "^5.4.0",
     "react-router-dom": "^6.23.0",
     "react-toastify": "^10.0.5",
+    "recharts": "^2.12.7",
     "sort-by": "^1.2.0",
     "vite-plugin-svgr": "^4.2.0"
   },
