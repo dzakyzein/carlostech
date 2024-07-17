@@ -233,6 +233,8 @@ const SaleData = () => {
         </div>
       ))}
 
+      {/* Next & Prev */}
+
       {saleData.length > salesPerPage && (
         <div className='flex justify-between py-4 px-4 md:px-6 2xl:px-7.5'>
           <button
