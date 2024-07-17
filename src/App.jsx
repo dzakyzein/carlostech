@@ -18,7 +18,6 @@ import LPProfile from './Pages/Landingpage/ProfilePage/Profile';
 // AdminPage
 import PageTitle from './Pages/Adminpage/components/PageTitle';
 import Calendar from './Pages/Adminpage/pages/Calendar';
-import Chart from './Pages/Adminpage/pages/Chart';
 import Dashboard from './Pages/Adminpage/pages/Dashboard';
 import Profile from './Pages/Adminpage/pages/Profile';
 import Product from './Pages/Adminpage/pages/Sale';
@@ -123,15 +122,6 @@ const App = () => {
               <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Sale' />
                 <Sale />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/admin/chart'
-            element={
-              <ProtectedRoute requiredRole='admin'>
-                <PageTitle title='Carlos Tech Admin | Chart' />
-                <Chart />
               </ProtectedRoute>
             }
           />
