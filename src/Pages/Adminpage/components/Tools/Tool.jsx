@@ -287,7 +287,7 @@ const Tool = () => {
         <div className='col-span-2 hidden items-center md:flex'>
           <p className='font-medium'>Type</p>
         </div>
-        <div className='col-span-2 hidden items-center md:flex'>
+        <div className='col-span-3 hidden items-center md:flex'>
           <p className='font-medium'>Description</p>
         </div>
         <div className='col-span-3 hidden items-center md:flex'>
@@ -314,7 +314,7 @@ const Tool = () => {
           <div className='col-span-2 hidden items-center md:flex'>
             <p className='text-sm text-black dark:text-white'>{tool.type}</p>
           </div>
-          <div className='col-span-2 hidden items-center md:flex'>
+          <div className='col-span-3 hidden items-center md:flex'>
             <p className='text-sm text-black dark:text-white'>
               {tool.description}
             </p>
