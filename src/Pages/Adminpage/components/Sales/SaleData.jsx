@@ -415,7 +415,7 @@ const SaleData = () => {
                 </label>
                 {selectedSale.paymentProof ? (
                   <a
-                    href={selectedSale.paymentProof}
+                    href={`http://localhost:3000/${selectedSale.paymentProof}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'
