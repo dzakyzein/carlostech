@@ -4,7 +4,7 @@ const CardProduct = ({ Image, Title, Description, Type }) => {
     <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
       <div className='mb-10 w-full'>
         <div className='mb-8 overflow-hidden rounded'>
-          <img src={Image} alt='' className='w-full' />
+          <img src={Image} alt='' className='w-full h-80 object-cover' />
         </div>
         <div>
           <h3>
