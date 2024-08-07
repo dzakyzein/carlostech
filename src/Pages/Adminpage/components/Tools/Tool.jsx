@@ -230,8 +230,8 @@ const Tool = () => {
           <label className='block text-black dark:text-white mb-2'>
             Description
           </label>
-          <input
-            type='text'
+          <textarea
+            type='textarea'
             name='description'
             value={newTool.description}
             onChange={handleInputChange}
