@@ -297,6 +297,7 @@ const Tool = () => {
           <p className='font-medium'>Aksi</p>
         </div>
       </div>
+
       {currentTools.map((tool, index) => (
         <div
           className='grid grid-cols-12 border-t border-stroke py-4.5 px-4 dark:border-strokedark md:px-6 2xl:px-7.5'

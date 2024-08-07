@@ -1,10 +1,28 @@
 import CardProduct from './CardProduct';
 
-import Tracker from '../../assets/tracker.jpg';
-import Tromol from '../../assets/tromol.jpg';
-import Ratio from '../../assets/rasio-motor.jpg';
+// import Tracker from '../../assets/tracker.jpg';
+// import Tromol from '../../assets/tromol.jpg';
+// import Ratio from '../../assets/rasio-motor.jpg';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const Product = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Ganti URL_API dengan URL endpoint API Anda
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/api/v1/tools');
+        setProducts(response.data.data);
+      } catch (error) {
+        console.error('Error fetching the products', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
     <section className='text-black pb-10 pt-15 lg:pb-20 lg:pt-[120px] '>
       <div className='container lg:px-10'>
@@ -26,24 +44,15 @@ const Product = () => {
           </div>
         </div>
         <div className='flex flex-wrap'>
-          <CardProduct
-            Title='Carlos Tech - Tracker Motor'
-            Type='Rasio Motor'
-            Description='Pelacak motor canggih dari Carlos Tech yang membantu Anda memantau dan melacak lokasi kendaraan Anda secara real-time untuk keamanan optimal.'
-            Image={Tracker}
-          />
-          <CardProduct
-            Title='Carlos Tech - Tromol Roda Motor'
-            Type='Rasio Motor'
-            Description='Tromol berkualitas tinggi dari Carlos Tech, dirancang untuk memberikan kinerja pengereman yang superior dan daya tahan maksimal untuk motor Anda.'
-            Image={Tromol}
-          />
-          <CardProduct
-            Title='Carlos Tech - Rasio Motor'
-            Type='Rasio Motor'
-            Description='Rasio motor presisi dari Carlos Tech yang memastikan efisiensi tenaga dan performa optimal untuk pengalaman berkendara yang lebih baik.'
-            Image={Ratio}
-          />
+          {products.map((tool) => (
+            <CardProduct
+              key={tool.id}
+              Title={tool.title}
+              Type={tool.type}
+              Description={tool.description}
+              Image={`http://localhost:3000${tool.imageUrl}`}
+            />
+          ))}
         </div>
       </div>
     </section>
