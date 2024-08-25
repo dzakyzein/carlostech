@@ -6,18 +6,16 @@ const CardProduct = ({ Image, Title, Description, Type }) => {
         <div className='mb-8 overflow-hidden rounded'>
           <img src={Image} alt='' className='w-full h-80 object-cover' />
         </div>
-        <div>
+        <div className='text-left'>
           <h3>
-            <p className='mb-4 inline-block text-xl font-semibold text-dark sm:text-2xl lg:text-xl xl:text-2xl'>
+            <p className='mb-4 inline-block text-xl font-semibold sm:text-2xl lg:text-xl xl:text-2xl'>
               {Title}
             </p>
           </h3>
           <span className='mb-5 inline-block rounded bg-sky-500 px-4 py-1 text-center text-xs font-semibold leading-loose text-white'>
             {Type}
           </span>
-          <p className='text-base text-body-color dark:text-dark-6'>
-            {Description}
-          </p>
+          <p className='text-base text-justify'>{Description}</p>
         </div>
       </div>
     </div>
