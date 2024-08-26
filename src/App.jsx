@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Loader from './Pages/Adminpage/common/Loader/Loader';
@@ -19,7 +19,6 @@ import LPProfile from './Pages/Landingpage/ProfilePage/Profile';
 import PageTitle from './Pages/Adminpage/components/PageTitle';
 import Calendar from './Pages/Adminpage/pages/Calendar';
 import Dashboard from './Pages/Adminpage/pages/Dashboard';
-import Profile from './Pages/Adminpage/pages/Profile';
 import Tool from './Pages/Adminpage/pages/Tool';
 import User from './Pages/Adminpage/pages/User';
 import Sale from './Pages/Adminpage/pages/Sale';
@@ -95,15 +94,6 @@ const App = () => {
               <ProtectedRoute requiredRole='admin'>
                 <PageTitle title='Carlos Tech Admin | Calendar' />
                 <Calendar />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/admin/profile'
-            element={
-              <ProtectedRoute requiredRole='admin'>
-                <PageTitle title='Carlos Tech Admin | Profile' />
-                <Profile />
               </ProtectedRoute>
             }
           />

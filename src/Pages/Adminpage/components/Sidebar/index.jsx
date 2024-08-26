@@ -7,7 +7,6 @@ import CarlosTech from '../../../../assets/carlos-tech.png';
 //icons
 import { RxDashboard } from 'react-icons/rx';
 import { CiCalendar } from 'react-icons/ci';
-import { GoPerson } from 'react-icons/go';
 import { BsTable } from 'react-icons/bs';
 import { HiOutlineUsers } from 'react-icons/hi';
 import { CiLogout } from 'react-icons/ci';
@@ -139,20 +138,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 </NavLink>
               </li>
               {/* <!-- Menu Item Calendar --> */}
-
-              {/* <!-- Menu Item Profile --> */}
-              <li>
-                <NavLink
-                  to='/admin/profile'
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('profile') && 'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <GoPerson />
-                  Profile
-                </NavLink>
-              </li>
-              {/* <!-- Menu Item Profile --> */}
 
               {/* Menu Item Tool */}
               <li>
