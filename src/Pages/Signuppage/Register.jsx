@@ -20,6 +20,11 @@ const Register = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === 'name') {
+      const isAlphabetic = /^[A-Za-z]*$/.test(value);
+      if (!isAlphabetic) return;
+    }
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -80,6 +85,7 @@ const Register = () => {
                   className='bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5'
                   placeholder='John Doe'
                   required
+                  pattern='[A-Z, a-z]'
                 />
               </div>
               <div>
