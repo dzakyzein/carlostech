@@ -34,6 +34,11 @@ const Service = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === 'phone') {
+      const isValidPhoneNumber = /^[0-9+]*$/.test(value);
+      if (!isValidPhoneNumber) return;
+    }
+
     setFormData({ ...formData, [name]: value });
   };
 
@@ -101,6 +106,7 @@ const Service = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 className='mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-white'
+                pattern='[0-9+]*'
                 required
               />
             </div>
