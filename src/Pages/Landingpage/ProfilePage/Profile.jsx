@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../../../Components/Navbar';
@@ -9,6 +9,7 @@ const LPProfile = () => {
   const [user, setUser] = useState({});
   const [reservations, setReservations] = useState([]);
   const [paymentProof, setPaymentProof] = useState(null);
+  const [paidOff, setPaidOff] = useState(null);
   const [selectedReservation, setSelectedReservation] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -52,7 +53,7 @@ const LPProfile = () => {
     }
   }, []);
 
-  const handleUpload = async (reservationId) => {
+  const handleUploadProof = async (reservationId) => {
     if (!paymentProof) return;
 
     const formData = new FormData();
@@ -110,6 +111,67 @@ const LPProfile = () => {
       console.log('Delete successful:', response.data);
     } catch (error) {
       console.error('Error deleting payment proof:', error.response.data);
+    }
+  };
+
+  const handleUploadPaidOff = async (reservationId) => {
+    if (!paidOff) return;
+
+    const formData = new FormData();
+    formData.append('paidoff', paidOff);
+
+    try {
+      const response = await axios.put(
+        `http://localhost:3000/api/v1/reservations/upload-paidoff/${reservationId}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
+
+      // Tangani respons jika berhasil
+      console.log('Upload successful:', response.data);
+      // Update state reservations setelah berhasil mengunggah
+      setReservations(
+        reservations.map((reservation) =>
+          reservation.id === reservationId
+            ? { ...reservation, paidOff: response.data.data.paidOff }
+            : reservation
+        )
+      );
+    } catch (error) {
+      console.error('Error uploading paid off:', error.response.data);
+    }
+  };
+
+  const handleDeletePaidOff = async (reservationId) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:3000/api/v1/reservations/delete-paidoff/${reservationId}`, // Endpoint untuk hapus bukti pembayaran
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
+
+      // Update state reservations setelah berhasil menghapus bukti pembayaran
+      setReservations(
+        reservations.map((reservation) =>
+          reservation.id === reservationId
+            ? { ...reservation, paidOff: null }
+            : reservation
+        )
+      );
+
+      // Tangani respons jika berhasil
+      console.log('Delete successful:', response.data);
+    } catch (error) {
+      console.error('Error deleting paidoff:', error.response.data);
     }
   };
 
@@ -181,6 +243,8 @@ const LPProfile = () => {
                       {formatCurrency(reservation.price)}
                     </td>
                     <td className='border px-4 py-2'>{reservation.progress}</td>
+
+                    {/* Payment Proof */}
                     <td className='border px-4 py-2'>
                       {reservation.paymentProof ? (
                         <div>
@@ -207,7 +271,7 @@ const LPProfile = () => {
                             className='border border-gray-300 rounded p-1'
                           />
                           <button
-                            onClick={() => handleUpload(reservation.id)}
+                            onClick={() => handleUploadProof(reservation.id)}
                             className='ml-2 bg-blue-500 text-white rounded p-1'
                           >
                             Upload
@@ -215,11 +279,13 @@ const LPProfile = () => {
                         </div>
                       )}
                     </td>
+
+                    {/* PaidOff */}
                     <td className='border px-4 py-2'>
-                      {reservation.paymentProof ? (
+                      {reservation.paidOff ? (
                         <div>
                           <a
-                            href={`http://localhost:3000/${reservation.paymentProof}`}
+                            href={`http://localhost:3000/${reservation.paidOff}`}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='text-blue-500'
@@ -227,7 +293,7 @@ const LPProfile = () => {
                             Lihat
                           </a>
                           <span
-                            onClick={() => handleDeleteProof(reservation.id)}
+                            onClick={() => handleDeletePaidOff(reservation.id)}
                             className='ml-2 text-red-500 cursor-pointer'
                           >
                             Hapus
@@ -237,11 +303,11 @@ const LPProfile = () => {
                         <div>
                           <input
                             type='file'
-                            onChange={(e) => setPaymentProof(e.target.files[0])}
+                            onChange={(e) => setPaidOff(e.target.files[0])}
                             className='border border-gray-300 rounded p-1'
                           />
                           <button
-                            onClick={() => handleUpload(reservation.id)}
+                            onClick={() => handleUploadPaidOff(reservation.id)}
                             className='ml-2 bg-blue-500 text-white rounded p-1'
                           >
                             Upload
@@ -262,7 +328,7 @@ const LPProfile = () => {
               ) : (
                 <tr>
                   <td className='border px-4 py-2 text-center' colSpan='10'>
-                    Tidak Riwayat Reservasi
+                    Tidak Ada Riwayat Reservasi
                   </td>
                 </tr>
               )}
@@ -324,9 +390,9 @@ const LPProfile = () => {
               </p>
               <p>
                 <strong>Bukti Transaksi Lunas:</strong>{' '}
-                {selectedReservation.paymentProof ? (
+                {selectedReservation.paidOff ? (
                   <a
-                    href={`http://localhost:3000/${selectedReservation.paymentProof}`}
+                    href={`http://localhost:3000/${selectedReservation.paidOff}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'

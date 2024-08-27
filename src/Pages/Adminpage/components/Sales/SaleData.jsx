@@ -408,10 +408,9 @@ const SaleData = () => {
                 </select>
               </div>
 
-              {/* New section for viewing the payment proof */}
               <div className='col-span-2 mb-4'>
                 <label className='block text-sm font-medium text-black'>
-                  Bukti Pembayaran
+                  Bukti Pembayaran DP
                 </label>
                 {selectedSale.paymentProof ? (
                   <a
@@ -420,7 +419,24 @@ const SaleData = () => {
                     rel='noopener noreferrer'
                     className='text-blue-500'
                   >
-                    Lihat Bukti Pembayaran
+                    Lihat Bukti Pembayaran DP
+                  </a>
+                ) : (
+                  <span className='text-black'>Belum ada bukti pembayaran</span>
+                )}
+              </div>
+              <div className='col-span-2 mb-4'>
+                <label className='block text-sm font-medium text-black'>
+                  Bukti Pembayaran Lunas
+                </label>
+                {selectedSale.paidOff ? (
+                  <a
+                    href={`http://localhost:3000/${selectedSale.paidOff}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-blue-500'
+                  >
+                    Lihat Bukti Pembayaran Lunas
                   </a>
                 ) : (
                   <span className='text-black'>Belum ada bukti pembayaran</span>
