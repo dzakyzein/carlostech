@@ -134,7 +134,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   }`}
                 >
                   <CiCalendar />
-                  Calendar
+                  Kalender
                 </NavLink>
               </li>
               {/* <!-- Menu Item Calendar --> */}
@@ -148,7 +148,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   }`}
                 >
                   <AiOutlineTool />
-                  Tool
+                  Peralatan
                 </NavLink>
               </li>
               {/* Menu Item Tool */}
@@ -162,7 +162,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   }`}
                 >
                   <HiOutlineUsers />
-                  User
+                  Pengguna
                 </NavLink>
               </li>
               {/* <!-- Menu Item User --> */}
@@ -176,7 +176,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   }`}
                 >
                   <BsTable />
-                  Sale
+                  Penjualan
                 </NavLink>
               </li>
               {/* <!-- Menu Item sale --> */}
@@ -200,7 +200,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   }`}
                 >
                   <CiLogout />
-                  Logout
+                  Keluar
                 </NavLink>
               </li>
               {/* <!-- Menu Item Logout --> */}
