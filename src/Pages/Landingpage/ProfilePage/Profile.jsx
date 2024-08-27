@@ -9,6 +9,18 @@ const LPProfile = () => {
   const [user, setUser] = useState({});
   const [reservations, setReservations] = useState([]);
   const [paymentProof, setPaymentProof] = useState(null);
+  const [selectedReservation, setSelectedReservation] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (reservation) => {
+    setSelectedReservation(reservation);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedReservation(null);
+  };
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('user'));
@@ -149,14 +161,12 @@ const LPProfile = () => {
             <thead className='border'>
               <tr>
                 <th className='px-4 py-2 border-r'>Nama</th>
-                <th className='px-4 py-2 border-r'>Telepon</th>
-                <th className='px-4 py-2 border-r'>Alamat</th>
                 <th className='px-4 py-2 border-r'>Jenis Mesin</th>
-                <th className='px-4 py-2 border-r'>Jumlah</th>
-                <th className='px-4 py-2 border-r'>Catatan</th>
                 <th className='px-4 py-2 border-r'>Status</th>
                 <th className='px-4 py-2 border-r'>Harga</th>
                 <th className='px-4 py-2 border-r'>Progress</th>
+                <th className='px-4 py-2 border-r'>Bukti Transaksi DP</th>
+                <th className='px-4 py-2 border-r'>Bukti Transaksi Lunas</th>
                 <th className='px-4 py-2 border-r'>Aksi</th>
               </tr>
             </thead>
@@ -165,13 +175,7 @@ const LPProfile = () => {
                 reservations.map((reservation, index) => (
                   <tr key={index}>
                     <td className='border px-4 py-2'>{reservation.name}</td>
-                    <td className='border px-4 py-2'>{reservation.phone}</td>
-                    <td className='border px-4 py-2'>{reservation.address}</td>
                     <td className='border px-4 py-2'>{reservation.type}</td>
-                    <td className='border px-4 py-2'>{reservation.amount}</td>
-                    <td className='border px-4 py-2'>
-                      {reservation.note || '-'}
-                    </td>
                     <td className='border px-4 py-2'>{reservation.status}</td>
                     <td className='border px-4 py-2'>
                       {formatCurrency(reservation.price)}
@@ -181,7 +185,7 @@ const LPProfile = () => {
                       {reservation.paymentProof ? (
                         <div>
                           <a
-                            href={reservation.paymentProof}
+                            href={`http://localhost:3000/${reservation.paymentProof}`}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='text-blue-500'
@@ -211,18 +215,137 @@ const LPProfile = () => {
                         </div>
                       )}
                     </td>
+                    <td className='border px-4 py-2'>
+                      {reservation.paymentProof ? (
+                        <div>
+                          <a
+                            href={`http://localhost:3000/${reservation.paymentProof}`}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='text-blue-500'
+                          >
+                            Lihat
+                          </a>
+                          <span
+                            onClick={() => handleDeleteProof(reservation.id)}
+                            className='ml-2 text-red-500 cursor-pointer'
+                          >
+                            Hapus
+                          </span>
+                        </div>
+                      ) : (
+                        <div>
+                          <input
+                            type='file'
+                            onChange={(e) => setPaymentProof(e.target.files[0])}
+                            className='border border-gray-300 rounded p-1'
+                          />
+                          <button
+                            onClick={() => handleUpload(reservation.id)}
+                            className='ml-2 bg-blue-500 text-white rounded p-1'
+                          >
+                            Upload
+                          </button>
+                        </div>
+                      )}
+                    </td>
+                    <td className='border px-4 py-2'>
+                      <button
+                        onClick={() => openModal(reservation)}
+                        className='text-blue-500 underline'
+                      >
+                        Lihat Detail
+                      </button>
+                    </td>
                   </tr>
                 ))
               ) : (
                 <tr>
                   <td className='border px-4 py-2 text-center' colSpan='10'>
-                    No reservations found
+                    Tidak Riwayat Reservasi
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
+          <h2 className='text-xl font-bold text-center mt-10 italic'>
+            Catatan: Pesanan Akan Diproses Setelah Kami Menerima Pembayaran Uang
+            Muka
+          </h2>
         </div>
+
+        {/* Modal Detail Tabel */}
+        {isModalOpen && selectedReservation && (
+          <div className='fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50'>
+            <div className='bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-3xl'>
+              <h2 className='text-2xl font-bold mb-4'>Detail Pemesanan</h2>
+              <p>
+                <strong>Nama:</strong> {selectedReservation.name}
+              </p>
+              <p>
+                <strong>Telepon:</strong> {selectedReservation.phone}
+              </p>
+              <p>
+                <strong>Alamat:</strong> {selectedReservation.address}
+              </p>
+              <p>
+                <strong>Jenis Mesin:</strong> {selectedReservation.type}
+              </p>
+              <p>
+                <strong>Jumlah:</strong> {selectedReservation.amount}
+              </p>
+              <p>
+                <strong>Catatan:</strong> {selectedReservation.note || '-'}
+              </p>
+              <p>
+                <strong>Status:</strong> {selectedReservation.status}
+              </p>
+              <p>
+                <strong>Harga:</strong>{' '}
+                {formatCurrency(selectedReservation.price)}
+              </p>
+              <p>
+                <strong>Progress:</strong> {selectedReservation.progress}
+              </p>
+              <p>
+                <strong>Bukti Transaksi DP:</strong>{' '}
+                {selectedReservation.paymentProof ? (
+                  <a
+                    href={`http://localhost:3000/${selectedReservation.paymentProof}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-blue-500'
+                  >
+                    Lihat
+                  </a>
+                ) : (
+                  'Tidak ada bukti transaksi'
+                )}
+              </p>
+              <p>
+                <strong>Bukti Transaksi Lunas:</strong>{' '}
+                {selectedReservation.paymentProof ? (
+                  <a
+                    href={`http://localhost:3000/${selectedReservation.paymentProof}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-blue-500'
+                  >
+                    Lihat
+                  </a>
+                ) : (
+                  'Tidak ada bukti transaksi'
+                )}
+              </p>
+              <button
+                onClick={closeModal}
+                className='mt-4 bg-blue-500 text-white rounded px-4 py-2'
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        )}
       </div>
       <Footer />
     </div>
