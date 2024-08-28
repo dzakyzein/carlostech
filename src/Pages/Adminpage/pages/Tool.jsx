@@ -5,7 +5,7 @@ import DefaultLayout from '../layout/DefaultLayout';
 const Tool = () => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName='Tool' />
+      <Breadcrumb pageName='Peralatan' />
 
       <div className='flex flex-col gap-10'>
         <ToolData />

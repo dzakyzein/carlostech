@@ -5,7 +5,7 @@ import DefaultLayout from '../layout/DefaultLayout';
 const User = () => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName='User' />
+      <Breadcrumb pageName='Pengguna' />
 
       <div className='flex flex-col gap-10'>
         <UserData />
