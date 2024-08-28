@@ -1,12 +1,70 @@
+/* eslint-disable react/prop-types */
 import CardProduct from './CardProduct';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
+
+const Carousel = ({ items }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerPage = 3;
+
+  const next = () => {
+    if (currentIndex < items.length - itemsPerPage) {
+      setCurrentIndex(currentIndex + itemsPerPage);
+    }
+  };
+
+  const prev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - itemsPerPage);
+    }
+  };
+
+  return (
+    <div className='relative'>
+      <div className='flex flex-wrap'>
+        {items.slice(currentIndex, currentIndex + itemsPerPage).map((item) => (
+          <CardProduct
+            key={item.id}
+            Title={item.title}
+            Type={item.type}
+            Description={item.description}
+            Image={`http://localhost:3000${item.imageUrl}`}
+          />
+        ))}
+      </div>
+
+      {/* Tombol navigasi kiri */}
+      <button
+        onClick={prev}
+        disabled={currentIndex === 0}
+        className={`absolute top-44 my-auto left-0 transform -translate-y-1/2 text-2xl bg-white rounded-full p-2 shadow-md ${
+          currentIndex === 0 ? 'text-gray-400' : 'text-black'
+        }`}
+      >
+        <MdNavigateBefore />
+      </button>
+
+      {/* Tombol navigasi kanan */}
+      <button
+        onClick={next}
+        disabled={currentIndex >= items.length - itemsPerPage}
+        className={`absolute top-44 my-auto right-0 transform -translate-y-1/2 text-2xl bg-white rounded-full p-2 shadow-md ${
+          currentIndex >= items.length - itemsPerPage
+            ? 'text-gray-400'
+            : 'text-black'
+        }`}
+      >
+        <MdNavigateNext />
+      </button>
+    </div>
+  );
+};
 
 const Product = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Ganti URL_API dengan URL endpoint API Anda
     const fetchProducts = async () => {
       try {
         const response = await axios.get('http://localhost:3000/api/v1/tools');
@@ -20,7 +78,7 @@ const Product = () => {
   }, []);
 
   return (
-    <section className='text-black pb-10 pt-15 lg:pb-20 lg:pt-[120px] '>
+    <section className='text-black pb-10 pt-15 lg:pb-20 lg:pt-[120px]'>
       <div className='container lg:px-10'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4 xsm:mx-4 md:flex flex-col justify-center'>
@@ -36,17 +94,7 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <div className='flex flex-wrap'>
-          {products.map((tool) => (
-            <CardProduct
-              key={tool.id}
-              Title={tool.title}
-              Type={tool.type}
-              Description={tool.description}
-              Image={`http://localhost:3000${tool.imageUrl}`}
-            />
-          ))}
-        </div>
+        <Carousel items={products} />
       </div>
     </section>
   );
