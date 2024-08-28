@@ -1,6 +1,5 @@
 import BgHeader from '../assets/bg-header.png';
 import { FaRegMessage } from 'react-icons/fa6';
-import { FaArrowRight } from 'react-icons/fa';
 
 const Header = () => {
   return (
@@ -21,19 +20,13 @@ const Header = () => {
             teknologi manual dengan kepresisian tinggi dan tenaga ahli
             berpengalaman.
           </p>
-          <a
-            href=''
-            className='inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-teal-600 hover:bg-teal-800'
-          >
-            Coba sekarang!
-            <FaArrowRight className='ml-2' />
-          </a>
+
           <a
             target='_blank'
             href='https://wa.me/6281226022666'
             className='bg-white text-black inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border rounded-lg hover:bg-boxdark hover:text-white'
           >
-            Bicara dengan penjual
+            Hubungi penjual
             <FaRegMessage className='ml-2' />
           </a>
         </div>
