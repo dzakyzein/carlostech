@@ -229,7 +229,7 @@ const LPProfile = () => {
                 <th className='px-4 py-2 border-r'>Progress</th>
                 <th className='px-4 py-2 border-r'>Bukti Transaksi DP</th>
                 <th className='px-4 py-2 border-r'>Bukti Transaksi Lunas</th>
-                <th className='px-4 py-2 border-r'>Aksi</th>
+                <th className='px-4 py-2 border-r'>Detail</th>
               </tr>
             </thead>
             <tbody>
