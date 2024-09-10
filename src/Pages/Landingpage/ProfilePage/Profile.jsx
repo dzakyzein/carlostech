@@ -374,6 +374,12 @@ const LPProfile = () => {
                 <strong>Progress:</strong> {selectedReservation.progress}
               </p>
               <p>
+                <strong>Tanggal Pemesanan:</strong>{' '}
+                {new Date(selectedReservation.createdAt).toLocaleDateString(
+                  'id-ID'
+                )}
+              </p>
+              <p>
                 <strong>Bukti Transaksi DP:</strong>{' '}
                 {selectedReservation.paymentProof ? (
                   <a
