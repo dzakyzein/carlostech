@@ -211,7 +211,7 @@ const Tool = () => {
             name='title'
             value={newTool.title}
             onChange={handleInputChange}
-            className='w-full bg-white px-3 py-2 border rounded-md text-black dark:text-white'
+            className='w-full bg-white px-3 py-2 border rounded-md text-black dark:text-white dark:bg-black'
             required
           />
         </div>
@@ -222,7 +222,7 @@ const Tool = () => {
             name='type'
             value={newTool.type}
             onChange={handleInputChange}
-            className='w-full bg-white px-3 py-2 border rounded-md text-black dark:text-white'
+            className='w-full bg-white px-3 py-2 border rounded-md text-black dark:text-white dark:bg-black'
             required
           />
         </div>
@@ -235,7 +235,7 @@ const Tool = () => {
             name='description'
             value={newTool.description}
             onChange={handleInputChange}
-            className='w-full bg-white px-3 py-2 border rounded-md text-black dark:text-white'
+            className='w-full bg-white px-3 py-2 border rounded-md text-black dark:text-white dark:bg-black'
             required
           />
         </div>
@@ -245,7 +245,7 @@ const Tool = () => {
             type='file'
             name='image'
             onChange={handleFileChange}
-            className='w-full bg-white px-3 py-2 border rounded-md text-black dark:text-white'
+            className='w-full bg-white px-3 py-2 border rounded-md text-black dark:text-white dark:bg-black'
           />
           {newTool.imageUrl && !newTool.image && (
             <div className='mt-2'>

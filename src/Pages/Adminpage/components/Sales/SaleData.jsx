@@ -219,7 +219,7 @@ const SaleData = () => {
                 sale.status === 'lunas'
                   ? 'text-green-500 dark:text-green-500'
                   : 'text-red-500 dark:text-red-500'
-              } dark:text-white`}
+              } `}
             >
               {sale.status}
             </p>
