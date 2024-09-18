@@ -6,7 +6,6 @@ import CarlosTech from '../../../../assets/carlos-tech.png';
 
 //icons
 import { RxDashboard } from 'react-icons/rx';
-import { CiCalendar } from 'react-icons/ci';
 import { BsTable } from 'react-icons/bs';
 import { HiOutlineUsers } from 'react-icons/hi';
 import { CiLogout } from 'react-icons/ci';
@@ -123,21 +122,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 }}
               </SidebarLinkGroup>
               {/* <!-- Menu Item Dashboard --> */}
-
-              {/* <!-- Menu Item Calendar --> */}
-              <li>
-                <NavLink
-                  to='/admin/calendar'
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('calendar') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
-                >
-                  <CiCalendar />
-                  Kalender
-                </NavLink>
-              </li>
-              {/* <!-- Menu Item Calendar --> */}
 
               {/* Menu Item Tool */}
               <li>

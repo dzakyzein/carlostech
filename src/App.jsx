@@ -17,7 +17,6 @@ import LPProfile from './Pages/Landingpage/ProfilePage/Profile';
 
 // AdminPage
 import PageTitle from './Pages/Adminpage/components/PageTitle';
-import Calendar from './Pages/Adminpage/pages/Calendar';
 import Dashboard from './Pages/Adminpage/pages/Dashboard';
 import Tool from './Pages/Adminpage/pages/Tool';
 import User from './Pages/Adminpage/pages/User';
@@ -88,15 +87,7 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route
-            path='/admin/calendar'
-            element={
-              <ProtectedRoute requiredRole='admin'>
-                <PageTitle title='Carlos Tech Admin | Calendar' />
-                <Calendar />
-              </ProtectedRoute>
-            }
-          />
+
           <Route
             path='/admin/tool'
             element={
