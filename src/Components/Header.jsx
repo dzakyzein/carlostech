@@ -1,3 +1,4 @@
+import { GoBook } from 'react-icons/go';
 import BgHeader from '../assets/bg-header.png';
 import { FaRegMessage } from 'react-icons/fa6';
 
@@ -26,8 +27,16 @@ const Header = () => {
             href='https://wa.me/6281226022666'
             className='bg-white text-black inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border rounded-lg hover:bg-boxdark hover:text-white'
           >
-            Hubungi penjual
+            Hubungi Penjual
             <FaRegMessage className='ml-2' />
+          </a>
+          <a
+            target='_blank'
+            href='https://drive.google.com/file/d/1VYpB9Odf5amG2nE6FxvkGhawyoQNUiOJ/view?usp=sharing'
+            className='ml-5 bg-white text-black inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border rounded-lg hover:bg-boxdark hover:text-white'
+          >
+            Alur Pemesanan
+            <GoBook className='ml-2' />
           </a>
         </div>
       </div>
