@@ -6,7 +6,7 @@ import CardDataStats from '../components/CardDataStats';
 import DefaultLayout from '../layout/DefaultLayout';
 
 // icons
-import { FaEye } from 'react-icons/fa';
+// import { FaEye } from 'react-icons/fa';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { IoBagHandleOutline } from 'react-icons/io5';
 import { HiOutlineUsers } from 'react-icons/hi';
@@ -25,6 +25,21 @@ const Dashboard = () => {
 
   const [selectedMonth, setSelectedMonth] = useState(currentMonth); // Default bulan sekarang
   const [selectedYear, setSelectedYear] = useState(currentYear); // Default tahun sekarang
+
+  const bulanIndonesia = {
+    '01': 'Januari',
+    '02': 'Februari',
+    '03': 'Maret',
+    '04': 'April',
+    '05': 'Mei',
+    '06': 'Juni',
+    '07': 'Juli',
+    '08': 'Agustus',
+    '09': 'September',
+    10: 'Oktober',
+    11: 'November',
+    12: 'Desember',
+  };
 
   // Fetch total users
   useEffect(() => {
@@ -120,17 +135,17 @@ const Dashboard = () => {
         />
       </div>
 
-      <div className='grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5'>
-        <CardDataStats
+      <div className='ml-36 w-[1200px] grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5'>
+        {/* <CardDataStats
           title='Total Pengunjung'
           total='$3.456K'
           rate='0.43%'
           levelUp
         >
           <FaEye className='text-blue-600 text-xl' />
-        </CardDataStats>
+        </CardDataStats> */}
         <CardDataStats
-          title='Total Omset Bulanan'
+          title={`Total Omset Bulan ${bulanIndonesia[selectedMonth]}`}
           total={formatRupiah(totalMonthlyRevenue)}
         >
           <MdOutlineShoppingCart className='text-blue-600 text-xl' />

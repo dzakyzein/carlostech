@@ -10,6 +10,7 @@ import { BsTable } from 'react-icons/bs';
 import { HiOutlineUsers } from 'react-icons/hi';
 import { CiLogout } from 'react-icons/ci';
 import { AiOutlineTool } from 'react-icons/ai';
+import { FaRegQuestionCircle } from 'react-icons/fa';
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const location = useLocation();
@@ -188,6 +189,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 </NavLink>
               </li>
               {/* <!-- Menu Item Logout --> */}
+
+              <li>
+                <NavLink
+                  to='https://drive.google.com/file/d/1hzudUeano3VNmYu5hvIi88XiGKSBZ1Jf/view?usp=sharing'
+                  target='_blank'
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-zinc-500 duration-300 ease-in-out hover:text-zinc-400  mt-30`}
+                >
+                  <FaRegQuestionCircle />
+                  Panduan
+                </NavLink>
+              </li>
             </ul>
           </div>
         </nav>
