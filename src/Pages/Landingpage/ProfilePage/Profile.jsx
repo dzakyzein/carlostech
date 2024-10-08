@@ -184,7 +184,7 @@ const LPProfile = () => {
       <Navbar />
       <div className='min-h-screen bg-white text-black mt-16'>
         <div className='container mx-auto p-6 flex flex-col md:flex-row'>
-          <div className='md:w-1/2 ml-40'>
+          <div className='w-full md:w-1/2 md:ml-40'>
             <h2 className='text-2xl font-bold mb-6 text-center md:text-left'>
               Profil Pengguna
             </h2>
@@ -222,13 +222,21 @@ const LPProfile = () => {
           <table className='table-auto mx-auto'>
             <thead className='border'>
               <tr>
-                <th className='px-4 py-2 border-r'>Nama</th>
-                <th className='px-4 py-2 border-r'>Jenis Mesin</th>
+                <th className='px-4 py-2 border-r hidden md:table-cell'>
+                  Nama
+                </th>
+                <th className='px-4 py-2 border-r hidden md:table-cell'>
+                  Jenis Mesin
+                </th>
                 <th className='px-4 py-2 border-r'>Status</th>
                 <th className='px-4 py-2 border-r'>Harga</th>
                 <th className='px-4 py-2 border-r'>Progress</th>
-                <th className='px-4 py-2 border-r'>Bukti Transaksi DP</th>
-                <th className='px-4 py-2 border-r'>Bukti Transaksi Lunas</th>
+                <th className='px-4 py-2 border-r hidden md:table-cell'>
+                  Bukti Transaksi DP
+                </th>
+                <th className='px-4 py-2 border-r hidden md:table-cell'>
+                  Bukti Transaksi Lunas
+                </th>
                 <th className='px-4 py-2 border-r'>Detail</th>
               </tr>
             </thead>
@@ -236,8 +244,12 @@ const LPProfile = () => {
               {reservations.length > 0 ? (
                 reservations.map((reservation, index) => (
                   <tr key={index}>
-                    <td className='border px-4 py-2'>{reservation.name}</td>
-                    <td className='border px-4 py-2'>{reservation.type}</td>
+                    <td className='border px-4 py-2 hidden md:table-cell'>
+                      {reservation.name}
+                    </td>
+                    <td className='border px-4 py-2 hidden md:table-cell'>
+                      {reservation.type}
+                    </td>
                     <td className='border px-4 py-2'>{reservation.status}</td>
                     <td className='border px-4 py-2'>
                       {formatCurrency(reservation.price)}
@@ -245,7 +257,7 @@ const LPProfile = () => {
                     <td className='border px-4 py-2'>{reservation.progress}</td>
 
                     {/* Payment Proof */}
-                    <td className='border px-4 py-2'>
+                    <td className='border px-4 py-2 hidden md:table-cell'>
                       {reservation.paymentProof ? (
                         <div>
                           <a
@@ -281,7 +293,7 @@ const LPProfile = () => {
                     </td>
 
                     {/* PaidOff */}
-                    <td className='border px-4 py-2'>
+                    <td className='border px-4 py-2 hidden md:table-cell'>
                       {reservation.paidOff ? (
                         <div>
                           <a
@@ -327,14 +339,15 @@ const LPProfile = () => {
                 ))
               ) : (
                 <tr>
-                  <td className='border px-4 py-2 text-center' colSpan='10'>
+                  <td className='border px-4 py-2 text-center' colSpan='8'>
                     Tidak Ada Riwayat Reservasi
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
-          <h2 className='text-xl font-bold text-center mt-10 italic'>
+
+          <h2 className='text-xl font-bold text-center my-10 italic'>
             Catatan: Pesanan Akan Diproses Setelah Kami Menerima Pembayaran Uang
             Muka
           </h2>
@@ -380,7 +393,7 @@ const LPProfile = () => {
                 )}
               </p>
               <p>
-                <strong>Bukti Transaksi DP:</strong>{' '}
+                <strong>Bukti Transaksi DP:</strong>
                 {selectedReservation.paymentProof ? (
                   <a
                     href={`http://localhost:3000/${selectedReservation.paymentProof}`}
@@ -395,7 +408,7 @@ const LPProfile = () => {
                 )}
               </p>
               <p>
-                <strong>Bukti Transaksi Lunas:</strong>{' '}
+                <strong>Bukti Transaksi Lunas:</strong>
                 {selectedReservation.paidOff ? (
                   <a
                     href={`http://localhost:3000/${selectedReservation.paidOff}`}
