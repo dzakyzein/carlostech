@@ -6,7 +6,22 @@ import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 
 const Carousel = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3;
+  const [itemsPerPage, setItemsPerPage] = useState(3); // Default to 3 items
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerPage(1); // Satu item untuk mobile
+      } else {
+        setItemsPerPage(3); // Tiga item untuk tampilan yang lebih besar
+      }
+    };
+
+    handleResize(); // Set initial items per page
+    window.addEventListener('resize', handleResize); // Update on resize
+
+    return () => window.removeEventListener('resize', handleResize); // Clean up listener
+  }, []);
 
   const next = () => {
     if (currentIndex < items.length - itemsPerPage) {

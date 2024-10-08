@@ -15,7 +15,7 @@ const Intro = () => {
                   <h2 className='mb-6 text-3xl font-bold'>
                     Kenapa harus Carlos Tech?
                   </h2>
-                  <p className='mb-8 '>
+                  <p className='mb-8 text-justify'>
                     Carlos Tech adalah pilihan utama untuk pembuatan rasio motor
                     dan rasio mobil, serta kebutuhan sparepart pabrik dan alat
                     berat Anda. Menggunakan mesin manual dengan keahlian tinggi,
@@ -91,7 +91,7 @@ const Intro = () => {
                   </div>
                 </div>
               </div>
-              <div className='xsm:hidden md:flex justify-center inline-block lg:mb-0'>
+              <div className='hidden md:flex justify-center inline-block lg:mb-0'>
                 <img
                   src={Introduction}
                   className='rotate-lg-6 w-4/5 rounded-lg shadow-lg mr-10'

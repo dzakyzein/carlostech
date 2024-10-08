@@ -46,16 +46,22 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
+            className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 gap-2 bg-white'
           >
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/' className='bg-white'>
+                Home
+              </Link>
             </li>
             <li>
-              <Link to='/service'>Pemesanan</Link>
+              <Link to='/service' className='bg-white'>
+                Pemesanan
+              </Link>
             </li>
             <li>
-              <Link to='/about'>Tentang Kami</Link>
+              <Link to='/about' className='bg-white'>
+                Tentang Kami
+              </Link>
             </li>
           </ul>
         </div>
