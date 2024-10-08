@@ -70,13 +70,13 @@ const Service = () => {
       className='min-h-screen flex flex-col justify-between bg-center bg-cover bg-no-repeat'
       style={{ backgroundImage: `url(${BgMachine})` }}
     >
-      <div className='flex flex-col items-center justify-center md:space-x-4 mt-4'>
+      <div className='flex flex-col items-center justify-center md:space-x-4 mt-4 p-4'>
         <div className='w-full max-w-md'>
           <div className='flex justify-center mb-4'>
             <img src={CarlosTech} className='w-1/2' />
           </div>
         </div>
-        <div className='w-full max-w-md bg-white text-black p-4 md:p-6 rounded-lg shadow-md overflow-y-auto mb-10'>
+        <div className='w-full max-w-md bg-white text-black md:p-6 rounded-lg shadow-md overflow-y-auto mb-10 p-4'>
           <h2 className='text-2xl font-bold mb-4 text-center '>
             Formulir Pemesanan
           </h2>

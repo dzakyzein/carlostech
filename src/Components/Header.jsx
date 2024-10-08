@@ -23,7 +23,7 @@ const Header = () => {
           </p>
 
           {/* Flex container for buttons */}
-          <div className='flex lg:flex-row xsm:flex-col justify-center mt-4 '>
+          <div className='flex lg:flex-row flex-col justify-center mt-4 '>
             <a
               target='_blank'
               href='https://wa.me/6281226022666'
