@@ -6,18 +6,20 @@ const About = () => {
   return (
     <div className='flex flex-col justify-between min-h-screen items-center bg-white text-black'>
       <Navbar />
-      <div className='flex flex-col items-center my-5 mt-20'>
-        <h1 className='text-title-lg font-bold mb-10'>Tentang Carlos Tech</h1>
-        <div className='flex items-center'>
-          <div className='max-w-[39.5rem] flex justify-center'>
+      <div className='flex flex-col items-center my-5 mt-20 p-4'>
+        <h1 className='text-title-lg font-bold mb-10 text-center'>
+          Tentang Carlos Tech
+        </h1>
+        <div className='flex flex-col items-center md:flex-row md:items-start md:justify-center'>
+          <div className='max-w-[39.5rem] flex justify-center mb-4 md:mb-0'>
             <img
               src={Machine}
               alt='Machine'
-              className='w-auto h-auto shadow-lg rounded-lg mb-4'
+              className='w-auto h-auto shadow-lg rounded-lg'
             />
           </div>
-          <div className='ml-10'>
-            <p className='text-justify max-w-xl'>
+          <div className='mt-4 md:mt-0 md:ml-10 max-w-xl'>
+            <p className='text-justify'>
               Carlos Tech didirikan pada tahun 2004 dengan hanya dua karyawan
               dan satu mesin. Sebelum mendirikan bengkel ini, pemiliknya
               mengalami perjalanan panjang mulai dari tahun 1991 setelah
