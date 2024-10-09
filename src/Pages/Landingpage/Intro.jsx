@@ -91,7 +91,7 @@ const Intro = () => {
                   </div>
                 </div>
               </div>
-              <div className='hidden md:flex justify-center inline-block lg:mb-0'>
+              <div className='hidden md:flex justify-center lg:mb-0'>
                 <img
                   src={Introduction}
                   className='rotate-lg-6 w-4/5 rounded-lg shadow-lg mr-10'

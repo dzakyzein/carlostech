@@ -22,7 +22,7 @@ const SaleData = () => {
     const fetchReservations = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3000/api/v1/reservations',
+          'http://api.carlostech.id/api/v1/reservations',
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -47,7 +47,7 @@ const SaleData = () => {
       const newStatus = currentStatus === 'lunas' ? 'belum lunas' : 'lunas';
 
       await axios.put(
-        `http://localhost:3000/api/v1/reservations/${saleId}`,
+        `http://api.carlostech.id/api/v1/reservations/${saleId}`,
         { status: newStatus },
         {
           headers: {
@@ -84,7 +84,7 @@ const SaleData = () => {
       }
 
       await axios.put(
-        `http://localhost:3000/api/v1/reservations/${editedData.id}`,
+        `http://api.carlostech.id/api/v1/reservations/${editedData.id}`,
         editedData,
         {
           headers: {
@@ -414,7 +414,7 @@ const SaleData = () => {
                 </label>
                 {selectedSale.paymentProof ? (
                   <a
-                    href={`http://localhost:3000/${selectedSale.paymentProof}`}
+                    href={`http://api.carlostech.id/${selectedSale.paymentProof}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'
@@ -431,7 +431,7 @@ const SaleData = () => {
                 </label>
                 {selectedSale.paidOff ? (
                   <a
-                    href={`http://localhost:3000/${selectedSale.paidOff}`}
+                    href={`http://api.carlostech.id/${selectedSale.paidOff}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'

@@ -23,11 +23,14 @@ const Tool = () => {
   const fetchTools = async () => {
     const token = localStorage.getItem('token');
     try {
-      const response = await axios.get('http://localhost:3000/api/v1/tools', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        'http://api.carlostech.id/api/v1/tools',
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setToolData(response.data.data);
     } catch (error) {
       console.error('Error fetching tools:', error);
@@ -81,7 +84,7 @@ const Tool = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:3000/api/v1/tools',
+        'http://api.carlostech.id/api/v1/tools',
         formData,
         {
           headers: {
@@ -123,7 +126,7 @@ const Tool = () => {
   const handleDelete = async (toolId) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:3000/api/v1/tools/${toolId}`, {
+      await axios.delete(`http://api.carlostech.id/api/v1/tools/${toolId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -158,7 +161,7 @@ const Tool = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:3000/api/v1/tools/${editTool.id}`,
+        `http://api.carlostech.id/api/v1/tools/${editTool.id}`,
         formData,
         {
           headers: {
@@ -250,7 +253,7 @@ const Tool = () => {
           {newTool.imageUrl && !newTool.image && (
             <div className='mt-2'>
               <img
-                src={`http://localhost:3000${newTool.imageUrl}`}
+                src={`http://api.carlostech.id${newTool.imageUrl}`}
                 alt={newTool.title}
                 className='w-1/3 object-cover rounded'
               />
@@ -322,12 +325,12 @@ const Tool = () => {
           </div>
           <div className='col-span-3 hidden items-center md:flex'>
             <a
-              href={`http://localhost:3000${tool.imageUrl}`} // URL gambar
+              href={`http://api.carlostech.id${tool.imageUrl}`} // URL gambar
               target='_blank'
               rel='noopener noreferrer'
             >
               <img
-                src={`http://localhost:3000${tool.imageUrl}`} // URL gambar
+                src={`http://api.carlostech.id${tool.imageUrl}`} // URL gambar
                 alt={tool.title}
                 className='w-3/5 object-cover rounded'
               />

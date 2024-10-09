@@ -44,7 +44,7 @@ const Dashboard = () => {
   // Fetch total users
   useEffect(() => {
     axios
-      .get('http://localhost:3000/api/v1/users/total-users')
+      .get('http://api.carlostech.id/api/v1/users/total-users')
       .then((response) => {
         setTotalUsers(response.data.totalUsers);
       })
@@ -56,7 +56,7 @@ const Dashboard = () => {
   // Fetch total reservations
   useEffect(() => {
     axios
-      .get('http://localhost:3000/api/v1/reservations/total-reservations', {
+      .get('http://api.carlostech.id/api/v1/reservations/total-reservations', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -72,7 +72,7 @@ const Dashboard = () => {
   // Fetch monthly revenue based on selected month and year
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/v1/reservations/monthly-revenue`, {
+      .get(`http://api.carlostech.id/api/v1/reservations/monthly-revenue`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

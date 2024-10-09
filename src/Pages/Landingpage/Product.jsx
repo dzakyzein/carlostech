@@ -44,7 +44,7 @@ const Carousel = ({ items }) => {
             Title={item.title}
             Type={item.type}
             Description={item.description}
-            Image={`http://localhost:3000${item.imageUrl}`}
+            Image={`http://api.carlostech.id${item.imageUrl}`}
           />
         ))}
       </div>
