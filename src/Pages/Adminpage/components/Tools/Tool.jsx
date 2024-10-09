@@ -24,7 +24,7 @@ const Tool = () => {
     const token = localStorage.getItem('token');
     try {
       const response = await axios.get(
-        'http://api.carlostech.id/api/v1/tools',
+        'https://api.carlostech.id/api/v1/tools',
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -84,7 +84,7 @@ const Tool = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://api.carlostech.id/api/v1/tools',
+        'https://api.carlostech.id/api/v1/tools',
         formData,
         {
           headers: {
@@ -126,7 +126,7 @@ const Tool = () => {
   const handleDelete = async (toolId) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://api.carlostech.id/api/v1/tools/${toolId}`, {
+      await axios.delete(`https://api.carlostech.id/api/v1/tools/${toolId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -161,7 +161,7 @@ const Tool = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://api.carlostech.id/api/v1/tools/${editTool.id}`,
+        `https://api.carlostech.id/api/v1/tools/${editTool.id}`,
         formData,
         {
           headers: {
@@ -253,7 +253,7 @@ const Tool = () => {
           {newTool.imageUrl && !newTool.image && (
             <div className='mt-2'>
               <img
-                src={`http://api.carlostech.id${newTool.imageUrl}`}
+                src={`https://api.carlostech.id${newTool.imageUrl}`}
                 alt={newTool.title}
                 className='w-1/3 object-cover rounded'
               />
@@ -325,12 +325,12 @@ const Tool = () => {
           </div>
           <div className='col-span-3 hidden items-center md:flex'>
             <a
-              href={`http://api.carlostech.id${tool.imageUrl}`} // URL gambar
+              href={`https://api.carlostech.id${tool.imageUrl}`} // URL gambar
               target='_blank'
               rel='noopener noreferrer'
             >
               <img
-                src={`http://api.carlostech.id${tool.imageUrl}`} // URL gambar
+                src={`https://api.carlostech.id${tool.imageUrl}`} // URL gambar
                 alt={tool.title}
                 className='w-3/5 object-cover rounded'
               />

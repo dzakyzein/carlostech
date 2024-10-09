@@ -24,7 +24,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        'http://api.carlostech.id/api/v1/auth/login',
+        'https://api.carlostech.id/api/v1/auth/login',
         {
           email,
           password,
