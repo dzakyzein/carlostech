@@ -36,7 +36,7 @@ const Register = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/v1/auth/register',
+        'http://api.carlostech.id/api/v1/auth/register',
         formData
       );
       console.log(response.data); // Handle successful registration response

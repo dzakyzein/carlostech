@@ -34,7 +34,7 @@ const LPProfile = () => {
     const fetchReservations = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3000/api/v1/reservations',
+          'http://api.carlostech.id/api/v1/reservations',
           {
             params: { userId: userData.id },
             headers: {
@@ -61,7 +61,7 @@ const LPProfile = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/reservations/upload-proof/${reservationId}`, // Tambahkan reservationId
+        `http://api.carlostech.id/api/v1/reservations/upload-proof/${reservationId}`, // Tambahkan reservationId
         formData,
         {
           headers: {
@@ -89,7 +89,7 @@ const LPProfile = () => {
   const handleDeleteProof = async (reservationId) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/reservations/delete-proof/${reservationId}`, // Endpoint untuk hapus bukti pembayaran
+        `http://api.carlostech.id/api/v1/reservations/delete-proof/${reservationId}`, // Endpoint untuk hapus bukti pembayaran
         {},
         {
           headers: {
@@ -122,7 +122,7 @@ const LPProfile = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/reservations/upload-paidoff/${reservationId}`,
+        `http://api.carlostech.id/api/v1/reservations/upload-paidoff/${reservationId}`,
         formData,
         {
           headers: {
@@ -150,7 +150,7 @@ const LPProfile = () => {
   const handleDeletePaidOff = async (reservationId) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/reservations/delete-paidoff/${reservationId}`, // Endpoint untuk hapus bukti pembayaran
+        `http://api.carlostech.id/api/v1/reservations/delete-paidoff/${reservationId}`, // Endpoint untuk hapus bukti pembayaran
         {},
         {
           headers: {
@@ -261,7 +261,7 @@ const LPProfile = () => {
                       {reservation.paymentProof ? (
                         <div>
                           <a
-                            href={`http://localhost:3000/${reservation.paymentProof}`}
+                            href={`http://api.carlostech.id/${reservation.paymentProof}`}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='text-blue-500'
@@ -297,7 +297,7 @@ const LPProfile = () => {
                       {reservation.paidOff ? (
                         <div>
                           <a
-                            href={`http://localhost:3000/${reservation.paidOff}`}
+                            href={`http://api.carlostech.id/${reservation.paidOff}`}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='text-blue-500'
@@ -396,7 +396,7 @@ const LPProfile = () => {
                 <strong>Bukti Transaksi DP:</strong>
                 {selectedReservation.paymentProof ? (
                   <a
-                    href={`http://localhost:3000/${selectedReservation.paymentProof}`}
+                    href={`http://api.carlostech.id/${selectedReservation.paymentProof}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'
@@ -411,7 +411,7 @@ const LPProfile = () => {
                 <strong>Bukti Transaksi Lunas:</strong>
                 {selectedReservation.paidOff ? (
                   <a
-                    href={`http://localhost:3000/${selectedReservation.paidOff}`}
+                    href={`http://api.carlostech.id/${selectedReservation.paidOff}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'

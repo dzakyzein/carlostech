@@ -49,7 +49,7 @@ const Service = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/v1/reservations',
+        'http://api.carlostech.id/api/v1/reservations',
         formData,
         {
           headers: {
