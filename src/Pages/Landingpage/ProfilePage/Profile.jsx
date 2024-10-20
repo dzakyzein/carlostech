@@ -203,11 +203,6 @@ const LPProfile = () => {
                   {user.email || 'john.doe@example.com'}
                 </span>
               </li>
-              <li className='flex items-center'>
-                <span className='font-medium mr-2'>Password</span>
-                <span className='text-gray-700'>:</span>
-                <span className='ml-2 text-gray-700'>*********</span>
-              </li>
             </ul>
           </div>
           <div className='md:w-1/2 flex items-center justify-center mt-6 md:mt-0'>
