@@ -8,7 +8,7 @@ const User = () => {
 
   useEffect(() => {
     axios
-      .get('https://api.carlostech.id/api/v1/users')
+      .get('http://localhost:3000/api/v1/users')
       .then((response) => {
         setUserData(response.data.data);
       })

@@ -5,6 +5,7 @@ import Product from './Product';
 import Footer from '../../Components/Footer';
 import Map from './Map';
 import LandingLayout from './Layout/LandingLayout';
+import ProductList from './ProductList';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Navbar />
       <Header />
       <Intro />
+      <ProductList />
       <Product />
       <Map />
       <Footer />
