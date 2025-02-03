@@ -2,10 +2,10 @@ Carlos Tech
 
 This project is built using React.js and Tailwind CSS.
 
-
 Development Status
 
 🚧 Currently in advanced development stage 🚧
+
 Actively working on improving and adding new features. Please note that the project is not yet production-ready.
 
 Known Issues
