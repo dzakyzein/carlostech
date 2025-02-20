@@ -27,7 +27,7 @@ const Header = () => {
             <a
               target='_blank'
               href='https://wa.me/6281226022666'
-              className='bg-white text-black inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border rounded-lg hover:bg-boxdark hover:text-white mb-2 sm:mb-0 sm:mr-4'
+              className='bg-white text-black inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border rounded-lg hover:bg-boxdark hover:text-white mb-2 sm:mb-0'
             >
               Hubungi Penjual
               <FaRegMessage className='ml-2' />

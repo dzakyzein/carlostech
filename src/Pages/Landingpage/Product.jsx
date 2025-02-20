@@ -94,7 +94,7 @@ const Product = () => {
 
   return (
     <section className='text-black pb-10 pt-15 lg:pb-20 lg:pt-[120px]'>
-      <div className='container lg:px-10'>
+      <div className='container lg:px-10 max-w-7xl mx-auto'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4 xsm:mx-4 md:flex flex-col justify-center'>
             <div className='mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20'>

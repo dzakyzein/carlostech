@@ -4,7 +4,6 @@ import React from 'react';
 
 const LandingLayout = ({ children }) => {
   const layoutStyle = {
-    backgroundColor: 'white',
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
