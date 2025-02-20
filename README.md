@@ -1,8 +1,22 @@
-# React + Vite
+# Carlos Tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is built using **React.js** and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+**Development Status**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+**🚧 Currently in advanced development stage 🚧**
+
+
+Actively working on improving and adding new features. Please note that the project is not yet production-ready.
+
+**Known Issues**
+
+
+**⚠️Monitor/PC support is still incomplete⚠️**
+
+Some features or layouts may not function optimally on PC monitors. We are working to resolve this in future updates.
+
+**Recommended Usage**
+
+For the best experience, please access this project using a laptop. Mobile responsiveness and full PC monitor support are still under development.
