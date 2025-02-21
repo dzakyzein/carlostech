@@ -4,7 +4,7 @@ import { FaCheck } from 'react-icons/fa6';
 
 const ProductList = () => {
   return (
-    <section className='text-black pb-10 pt-15 lg:pb-20 lg:pt-[120px] mx-4'>
+    <section className='text-white pb-10 pt-15 lg:pb-20 lg:pt-[120px] mx-4'>
       <div className='container lg:px-10 max-w-7xl mx-auto'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4 xsm:mx-4 md:flex flex-col justify-center'>
@@ -12,7 +12,7 @@ const ProductList = () => {
               <h2 className='mb-4 text-3xl font-bold dark:text-white sm:text-4xl md:text-[40px]'>
                 List Produk
               </h2>
-              <p className='text-lg text-black'>
+              <p className='text-lg text-white'>
                 Produk-produk di bawah ini tersedia dan dapat dipesan sesuai
                 dengan kebutuhan Anda.
               </p>

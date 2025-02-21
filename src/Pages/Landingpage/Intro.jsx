@@ -5,7 +5,7 @@ import Introduction from '../../assets/intro.jpg';
 
 const Intro = () => {
   return (
-    <div className='container mx-auto md:px-6 text-black'>
+    <div className='container mx-auto md:px-6 text-white'>
       <section className='text-center lg:text-left'>
         <div className='py-12 md:px-12'>
           <div className='container mx-auto xl:px-32'>

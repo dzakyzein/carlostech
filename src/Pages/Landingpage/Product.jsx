@@ -53,7 +53,7 @@ const Carousel = ({ items }) => {
       <button
         onClick={prev}
         disabled={currentIndex === 0}
-        className={`absolute top-44 my-auto left-0 transform -translate-y-1/2 text-2xl bg-white rounded-full p-2 shadow-md ${
+        className={`absolute top-44 my-auto left-0 transform -translate-y-1/2 text-2xl bg-white text-black rounded-full p-2 shadow-md ${
           currentIndex === 0 ? 'text-gray-400' : 'text-black'
         }`}
       >
@@ -64,7 +64,7 @@ const Carousel = ({ items }) => {
       <button
         onClick={next}
         disabled={currentIndex >= items.length - itemsPerPage}
-        className={`absolute top-44 my-auto right-0 transform -translate-y-1/2 text-2xl bg-white rounded-full p-2 shadow-md ${
+        className={`absolute top-44 my-auto right-0 transform -translate-y-1/2 text-2xl bg-white text-black rounded-full p-2 shadow-md ${
           currentIndex >= items.length - itemsPerPage
             ? 'text-gray-400'
             : 'text-black'
@@ -93,12 +93,12 @@ const Product = () => {
   }, []);
 
   return (
-    <section className='text-black pb-10 pt-15 lg:pb-20 lg:pt-[120px]'>
+    <section className='text-white pb-10 pt-15 lg:pb-20 lg:pt-[120px]'>
       <div className='container lg:px-10 max-w-7xl mx-auto'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4 xsm:mx-4 md:flex flex-col justify-center'>
             <div className='mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20'>
-              <h2 className='mb-4 text-3xl font-bold dark:text-white sm:text-4xl md:text-[40px]'>
+              <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-[40px]'>
                 Produk Terbaik
               </h2>
               <p className='text-xl'>
