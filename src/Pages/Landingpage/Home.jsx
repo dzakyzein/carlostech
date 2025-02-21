@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <LandingLayout>
       {/* Animasi latar belakang untuk seluruh halaman */}
-      <AnimatedBackground animationName='starryNight' blendMode='screen' />
+      <AnimatedBackground animationName='cosmicDust' blendMode='normal' />
 
       {/* Konten halaman */}
       <Navbar />
