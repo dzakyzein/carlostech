@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { AnimatedBackground } from 'animated-backgrounds';
 import Navbar from '../../Components/Navbar';
 import Header from '../../Components/Header';
 import Intro from './Intro';
@@ -13,10 +12,6 @@ import ProductList from './ProductList';
 const Home = () => {
   return (
     <LandingLayout>
-      {/* Animasi latar belakang untuk seluruh halaman */}
-      <AnimatedBackground animationName='cosmicDust' blendMode='normal' />
-
-      {/* Konten halaman */}
       <Navbar />
       <Header />
       <Intro />
