@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import usePasswordVisibility from '../Landingpage/Hooks/usePasswordVisibility';
 
-import BgMachine from '../../assets/bg-machine.png';
+import LandingLayout from '../Landingpage/Layout/LandingLayout';
 import CarlosTech from '../../assets/carlos-tech.png';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 
@@ -50,10 +50,7 @@ const Register = () => {
   };
 
   return (
-    <section
-      className='bg-center bg-cover bg-no-repeat'
-      style={{ backgroundImage: `url(${BgMachine})` }}
-    >
+    <LandingLayout>
       <div className='absolute top-4 left-4'>
         <a href='/'>
           <FaArrowCircleLeft />
@@ -168,7 +165,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </section>
+    </LandingLayout>
   );
 };
 

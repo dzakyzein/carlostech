@@ -23,7 +23,7 @@ const ProductList = () => {
         {/* Grid Layout */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 '>
           {/* Grid Item 1 */}
-          <div className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300'>
+          <div className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white text-black'>
             <h3 className='text-2xl font-semibold mb-4 pb-2 border-b-2 border-gray-200 shadow-sm'>
               Mesin Motor
             </h3>
@@ -48,7 +48,7 @@ const ProductList = () => {
           </div>
 
           {/* Grid Item 2 */}
-          <div className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300'>
+          <div className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white text-black'>
             <h3 className='text-2xl font-semibold mb-4 pb-2 border-b-2 border-gray-200 shadow-sm'>
               Mesin Mobil
             </h3>
@@ -61,7 +61,7 @@ const ProductList = () => {
           </div>
 
           {/* Grid Item 3 */}
-          <div className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300'>
+          <div className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white text-black'>
             <h3 className='text-2xl font-semibold mb-4 pb-2 border-b-2 border-gray-200 shadow-sm'>
               Mesin Industri
             </h3>

@@ -1,14 +1,18 @@
 import { GoBook } from 'react-icons/go';
 import { FaRegMessage } from 'react-icons/fa6';
 
+import SplitText from './Animation/SplitText';
+
 const Header = () => {
+  const title =
+    'Carlos Tech - Ahli Close Rasio Mobil, Motor, Alat Berat, dan Industri';
+
   return (
     <div className='relative pt-20 flex justify-center'>
       <div className='max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 relative z-10'>
         <div className='mr-auto place-self-center text-center'>
           <h1 className='text-white max-w-2xl mb-4 text-4xl font-semibold tracking-tight md:text-5xl xl:text-6xl text-justify'>
-            Carlos Tech - Ahli Close Rasio Mobil, Motor, Alat Berat, dan
-            Industri
+            <SplitText text={title} />
           </h1>
           <p className='text-white max-w-2xl mb-6 font-normal lg:mb-8 md:text-lg lg:text-xl text-justify'>
             Kami menyediakan layanan perawatan dan perbaikan terbaik untuk

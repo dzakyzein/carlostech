@@ -10,7 +10,10 @@ const Intro = () => {
         <div className='py-12 md:px-12'>
           <div className='container mx-auto xl:px-32'>
             <div className='w-auto grid items-center lg:grid-cols-2'>
-              <div className='mb-12 md:mt-12 lg:mt-0 lg:mb-0'>
+              <div
+                className='mb-12 md:mt-12 lg:mt-0 lg:mb-0'
+                data-aos='fade-up'
+              >
                 <div className='relative z-1 block rounded-lg  px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[25px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-mr-14'>
                   <h2 className='mb-6 text-3xl font-bold'>
                     Kenapa harus Carlos Tech?

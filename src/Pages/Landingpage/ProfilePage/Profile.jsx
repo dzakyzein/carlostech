@@ -214,133 +214,150 @@ const LPProfile = () => {
           <h2 className='text-2xl font-bold mb-4 text-center'>
             Riwayat Pemesanan
           </h2>
-          <table className='table-auto mx-auto'>
-            <thead className='border'>
-              <tr>
-                <th className='px-4 py-2 border-r hidden md:table-cell'>
-                  Nama
-                </th>
-                <th className='px-4 py-2 border-r hidden md:table-cell'>
-                  Jenis Mesin
-                </th>
-                <th className='px-4 py-2 border-r'>Status</th>
-                <th className='px-4 py-2 border-r'>Harga</th>
-                <th className='px-4 py-2 border-r'>Progress</th>
-                <th className='px-4 py-2 border-r hidden md:table-cell'>
-                  Bukti Transaksi DP
-                </th>
-                <th className='px-4 py-2 border-r hidden md:table-cell'>
-                  Bukti Transaksi Lunas
-                </th>
-                <th className='px-4 py-2 border-r'>Detail</th>
-              </tr>
-            </thead>
-            <tbody>
-              {reservations.length > 0 ? (
-                reservations.map((reservation, index) => (
-                  <tr key={index}>
-                    <td className='border px-4 py-2 hidden md:table-cell'>
-                      {reservation.name}
-                    </td>
-                    <td className='border px-4 py-2 hidden md:table-cell'>
-                      {reservation.type}
-                    </td>
-                    <td className='border px-4 py-2'>{reservation.status}</td>
-                    <td className='border px-4 py-2'>
-                      {formatCurrency(reservation.price)}
-                    </td>
-                    <td className='border px-4 py-2'>{reservation.progress}</td>
-
-                    {/* Payment Proof */}
-                    <td className='border px-4 py-2 hidden md:table-cell'>
-                      {reservation.paymentProof ? (
-                        <div>
-                          <a
-                            href={`http://localhost:3000/${reservation.paymentProof}`}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='text-blue-500'
-                          >
-                            Lihat
-                          </a>
-                          <span
-                            onClick={() => handleDeleteProof(reservation.id)}
-                            className='ml-2 text-red-500 cursor-pointer'
-                          >
-                            Hapus
-                          </span>
-                        </div>
-                      ) : (
-                        <div>
-                          <input
-                            type='file'
-                            onChange={(e) => setPaymentProof(e.target.files[0])}
-                            className='border border-gray-300 rounded p-1'
-                          />
+          <div className='overflow-x-auto'>
+            <table className='table-auto mx-auto'>
+              <thead className='border'>
+                <tr>
+                  <th className='px-4 py-2 border-r hidden md:table-cell'>
+                    Nama
+                  </th>
+                  <th className='px-4 py-2 border-r hidden md:table-cell'>
+                    Jenis Mesin
+                  </th>
+                  <th className='px-4 py-2 border-r'>Status</th>
+                  <th className='px-4 py-2 border-r'>Harga</th>
+                  <th className='px-4 py-2 border-r'>Progress</th>
+                  <th className='px-4 py-2 border-r hidden md:table-cell'>
+                    Bukti Transaksi DP
+                  </th>
+                  <th className='px-4 py-2 border-r hidden md:table-cell'>
+                    Bukti Transaksi Lunas
+                  </th>
+                  <th className='px-4 py-2 border-r'>Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                {reservations.length > 0 ? (
+                  reservations
+                    .slice()
+                    .sort(
+                      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+                    )
+                    .map((reservation, index) => (
+                      <tr key={index}>
+                        <td className='border px-4 py-2 hidden md:table-cell'>
+                          {reservation.name}
+                        </td>
+                        <td className='border px-4 py-2 hidden md:table-cell'>
+                          {reservation.type}
+                        </td>
+                        <td className='border px-4 py-2'>
+                          {reservation.status}
+                        </td>
+                        <td className='border px-4 py-2'>
+                          {formatCurrency(reservation.price)}
+                        </td>
+                        <td className='border px-4 py-2'>
+                          {reservation.progress}
+                        </td>
+                        <td className='border px-4 py-2 hidden md:table-cell'>
+                          {reservation.paymentProof ? (
+                            <div>
+                              <a
+                                href={`http://localhost:3000/${reservation.paymentProof}`}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-blue-500'
+                              >
+                                Lihat
+                              </a>
+                              <span
+                                onClick={() =>
+                                  handleDeleteProof(reservation.id)
+                                }
+                                className='ml-2 text-red-500 cursor-pointer'
+                              >
+                                Hapus
+                              </span>
+                            </div>
+                          ) : (
+                            <div>
+                              <input
+                                type='file'
+                                onChange={(e) =>
+                                  setPaymentProof(e.target.files[0])
+                                }
+                                className='border border-gray-300 rounded p-1'
+                              />
+                              <button
+                                onClick={() =>
+                                  handleUploadProof(reservation.id)
+                                }
+                                className='ml-2 bg-blue-500 text-white rounded p-1'
+                              >
+                                Upload
+                              </button>
+                            </div>
+                          )}
+                        </td>
+                        <td className='border px-4 py-2 hidden md:table-cell'>
+                          {reservation.paidOff ? (
+                            <div>
+                              <a
+                                href={`http://localhost:3000/${reservation.paidOff}`}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-blue-500'
+                              >
+                                Lihat
+                              </a>
+                              <span
+                                onClick={() =>
+                                  handleDeletePaidOff(reservation.id)
+                                }
+                                className='ml-2 text-red-500 cursor-pointer'
+                              >
+                                Hapus
+                              </span>
+                            </div>
+                          ) : (
+                            <div>
+                              <input
+                                type='file'
+                                onChange={(e) => setPaidOff(e.target.files[0])}
+                                className='border border-gray-300 rounded p-1'
+                              />
+                              <button
+                                onClick={() =>
+                                  handleUploadPaidOff(reservation.id)
+                                }
+                                className='ml-2 bg-blue-500 text-white rounded p-1'
+                              >
+                                Upload
+                              </button>
+                            </div>
+                          )}
+                        </td>
+                        <td className='border px-4 py-2'>
                           <button
-                            onClick={() => handleUploadProof(reservation.id)}
-                            className='ml-2 bg-blue-500 text-white rounded p-1'
+                            onClick={() => openModal(reservation)}
+                            className='text-blue-500 underline'
                           >
-                            Upload
+                            Lihat Detail
                           </button>
-                        </div>
-                      )}
-                    </td>
-
-                    {/* PaidOff */}
-                    <td className='border px-4 py-2 hidden md:table-cell'>
-                      {reservation.paidOff ? (
-                        <div>
-                          <a
-                            href={`http://localhost:3000/${reservation.paidOff}`}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='text-blue-500'
-                          >
-                            Lihat
-                          </a>
-                          <span
-                            onClick={() => handleDeletePaidOff(reservation.id)}
-                            className='ml-2 text-red-500 cursor-pointer'
-                          >
-                            Hapus
-                          </span>
-                        </div>
-                      ) : (
-                        <div>
-                          <input
-                            type='file'
-                            onChange={(e) => setPaidOff(e.target.files[0])}
-                            className='border border-gray-300 rounded p-1'
-                          />
-                          <button
-                            onClick={() => handleUploadPaidOff(reservation.id)}
-                            className='ml-2 bg-blue-500 text-white rounded p-1'
-                          >
-                            Upload
-                          </button>
-                        </div>
-                      )}
-                    </td>
-                    <td className='border px-4 py-2'>
-                      <button
-                        onClick={() => openModal(reservation)}
-                        className='text-blue-500 underline'
-                      >
-                        Lihat Detail
-                      </button>
+                        </td>
+                      </tr>
+                    ))
+                ) : (
+                  <tr>
+                    <td className='border px-4 py-2 text-center' colSpan='8'>
+                      Tidak Ada Riwayat Reservasi
                     </td>
                   </tr>
-                ))
-              ) : (
-                <tr>
-                  <td className='border px-4 py-2 text-center' colSpan='8'>
-                    Tidak Ada Riwayat Reservasi
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+                )}
+              </tbody>
+            </table>
+          </div>
 
           <h2 className='text-xl font-bold text-center my-10 italic'>
             Catatan: Pesanan Akan Diproses Setelah Kami Menerima Pembayaran Uang

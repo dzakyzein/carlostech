@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import LandingLayout from '../Layout/LandingLayout';
-import BgMachine from '../../../assets/bg-machine.png';
-import Footer from '../../../Components/Footer';
 import CarlosTech from '../../../assets/carlos-tech.png';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Service = () => {
   const [formData, setFormData] = useState({
@@ -56,24 +55,30 @@ const Service = () => {
           },
         }
       );
-      console.log('Server response:', response.data);
-      alert('Pesanan telah terkirim');
+      Swal.fire({
+        title: 'Pemesanan',
+        text: 'Pesanan berhasil dipesan',
+        icon: 'success',
+      });
     } catch (error) {
-      console.error('Error saat mengirim pesanan:', error);
-      alert('Gagal mengirim pesanan');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Pesanan gagal',
+      });
     }
   };
 
   return (
     <LandingLayout>
       <div className='min-h-screen flex flex-col justify-between bg-center bg-cover bg-no-repeat'>
-        <div className='flex flex-col items-center justify-center md:space-x-4 mt-4 p-4'>
+        <div className='flex flex-col items-center justify-center md:space-x-4'>
           <div className='w-full max-w-md'>
-            <div className='flex justify-center mb-4'>
+            <a className='flex justify-center my-4' href='/'>
               <img src={CarlosTech} className='w-1/2' />
-            </div>
+            </a>
           </div>
-          <div className='w-full max-w-md bg-white text-black md:p-6 rounded-lg shadow-md overflow-y-auto mb-10 p-4'>
+          <div className='w-full max-w-md bg-white text-black md:p-6 rounded-lg shadow-md overflow-y-auto'>
             <h2 className='text-2xl font-bold mb-4 text-center '>
               Formulir Pemesanan
             </h2>
@@ -177,7 +182,6 @@ const Service = () => {
             </form>
           </div>
         </div>
-        <Footer />
       </div>
     </LandingLayout>
   );

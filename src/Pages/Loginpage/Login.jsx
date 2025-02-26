@@ -4,7 +4,7 @@ import axios from 'axios';
 import usePasswordVisibility from '../Landingpage/Hooks/usePasswordVisibility';
 
 import CarlosTech from '../../assets/carlos-tech.png';
-import BgMachine from '../../assets/bg-machine.png';
+import LandingLayout from '../Landingpage/Layout/LandingLayout';
 
 import { FaArrowCircleLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -46,10 +46,7 @@ const Login = () => {
   };
 
   return (
-    <section
-      className='bg-center bg-cover bg-no-repeat'
-      style={{ backgroundImage: `url(${BgMachine})` }}
-    >
+    <LandingLayout>
       <div className='absolute top-4 left-4'>
         <a href='/'>
           <FaArrowCircleLeft className='' />
@@ -117,7 +114,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </section>
+    </LandingLayout>
   );
 };
 
