@@ -21,9 +21,14 @@ const ProductList = () => {
         </div>
 
         {/* Grid Layout */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 '>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {/* Grid Item 1 */}
-          <div className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white text-black'>
+          <div
+            className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white text-black'
+            data-aos='fade-up'
+            data-aos-duration='1000'
+            data-aos-delay='200'
+          >
             <h3 className='text-2xl font-semibold mb-4 pb-2 border-b-2 border-gray-200 shadow-sm'>
               Mesin Motor
             </h3>
@@ -48,7 +53,12 @@ const ProductList = () => {
           </div>
 
           {/* Grid Item 2 */}
-          <div className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white text-black'>
+          <div
+            className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white text-black'
+            data-aos='fade-up'
+            data-aos-duration='2000'
+            data-aos-delay='400'
+          >
             <h3 className='text-2xl font-semibold mb-4 pb-2 border-b-2 border-gray-200 shadow-sm'>
               Mesin Mobil
             </h3>
@@ -61,7 +71,12 @@ const ProductList = () => {
           </div>
 
           {/* Grid Item 3 */}
-          <div className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white text-black'>
+          <div
+            className='p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white text-black'
+            data-aos='fade-up'
+            data-aos-duration='3000'
+            data-aos-delay='600'
+          >
             <h3 className='text-2xl font-semibold mb-4 pb-2 border-b-2 border-gray-200 shadow-sm'>
               Mesin Industri
             </h3>

@@ -11,6 +11,7 @@ const Map = () => {
         allowFullScreen=''
         loading='lazy'
         referrerPolicy='no-referrer-when-downgrade'
+        data-aos='fade-up'
       ></iframe>
     </div>
   );
