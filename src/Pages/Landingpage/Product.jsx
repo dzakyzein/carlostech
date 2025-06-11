@@ -80,14 +80,21 @@ const Product = () => {
 
           {/* Grid Card Product */}
           <div className="flex flex-wrap justify-center -mx-4">
-            {visibleTools.map((tool) => (
-              <CardProduct
+            {visibleTools.map((tool, index) => (
+              <div
                 key={tool.id}
-                image={`http://localhost:3000${tool.imageUrl}`}
-                title={tool.title}
-                description={tool.description}
-                type={tool.type}
-              />
+                data-aos="fade-up"
+                data-aos-delay={index * 300}
+                data-aos-duration="900"
+                className="w-full px-4 md:w-1/2 lg:w-1/3"
+              >
+                <CardProduct
+                  image={`http://localhost:3000${tool.imageUrl}`}
+                  title={tool.title}
+                  description={tool.description}
+                  type={tool.type}
+                />
+              </div>
             ))}
           </div>
 

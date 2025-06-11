@@ -34,6 +34,9 @@ const MainServices = () => {
             <div
               key={index}
               className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+              data-aos="fade-up"
+              data-aos-delay={index * 300} // delay berbeda tiap card (100ms, 200ms, dst)
+              data-aos-duration="900" // durasi animasi
             >
               <div className="mb-4">{service.icon}</div>
               <h3 className="text-primary text-xl font-semibold mb-2">

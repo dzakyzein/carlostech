@@ -23,7 +23,7 @@ const steps = [
 
 const StepProcess = () => {
   return (
-    <section className="py-20 text-primary">
+    <section className="py-16 text-primary">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -42,6 +42,9 @@ const StepProcess = () => {
               className={`flex flex-col md:flex-row items-center gap-10 md:gap-20 ${
                 index % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
+              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"} // animasi sesuai posisi
+              data-aos-delay={index * 300} // delay bertingkat
+              data-aos-duration="900"
             >
               <div className="flex-shrink-0 text-6xl bg-white shadow-lg rounded-full w-24 h-24 flex items-center justify-center text-primary">
                 {step.icon}
