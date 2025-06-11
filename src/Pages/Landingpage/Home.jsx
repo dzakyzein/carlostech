@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import Navbar from '../../Components/Navbar';
-import Header from '../../Components/Header';
-import Intro from './Intro';
-import Product from './Product';
-import Footer from '../../Components/Footer';
-import Map from './Map';
-import LandingLayout from './Layout/LandingLayout';
-import ProductList from './ProductList';
+import React from "react";
+import Navbar from "../../Components/Navbar";
+import Header from "../../Components/Header";
+import Intro from "./Intro";
+import Product from "./Product";
+import Footer from "../../Components/Footer";
+import Map from "./Map";
+import LandingLayout from "./Layout/LandingLayout";
+// import ProductList from './ProductList';
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
       <Navbar />
       <Header />
       <Intro />
-      <ProductList />
+      {/* <ProductList /> */}
       <Product />
       <Map />
       <Footer />

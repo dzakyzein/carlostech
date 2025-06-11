@@ -1,30 +1,44 @@
-/* eslint-disable react/prop-types */
-import CardProduct from './CardProduct';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import CardProduct from "./CardProduct";
+import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 
-const Carousel = ({ items }) => {
+const Product = () => {
+  const [tools, setTools] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(3); // Default to 3 items
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+
+  useEffect(() => {
+    const fetchTools = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/api/v1/tools");
+        setTools(res.data.data);
+      } catch (error) {
+        console.error("Gagal mengambil data tools:", error);
+      }
+    };
+
+    fetchTools();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setItemsPerPage(1); // Satu item untuk mobile
+        setItemsPerPage(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerPage(2);
       } else {
-        setItemsPerPage(3); // Tiga item untuk tampilan yang lebih besar
+        setItemsPerPage(3);
       }
     };
 
-    handleResize(); // Set initial items per page
-    window.addEventListener('resize', handleResize); // Update on resize
-
-    return () => window.removeEventListener('resize', handleResize); // Clean up listener
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const next = () => {
-    if (currentIndex < items.length - itemsPerPage) {
+    if (currentIndex < tools.length - itemsPerPage) {
       setCurrentIndex(currentIndex + itemsPerPage);
     }
   };
@@ -35,81 +49,61 @@ const Carousel = ({ items }) => {
     }
   };
 
-  return (
-    <div className='relative'>
-      <div className='flex flex-wrap'>
-        {items.slice(currentIndex, currentIndex + itemsPerPage).map((item) => (
-          <CardProduct
-            key={item.id}
-            Title={item.title}
-            Type={item.type}
-            Description={item.description}
-            Image={`http://localhost:3000${item.imageUrl}`}
-          />
-        ))}
-      </div>
-
-      {/* Tombol navigasi kiri */}
-      <button
-        onClick={prev}
-        disabled={currentIndex === 0}
-        className={`absolute top-44 my-auto left-0 transform -translate-y-1/2 text-2xl bg-white text-black rounded-full p-2 shadow-md ${
-          currentIndex === 0 ? 'text-gray-400' : 'text-black'
-        }`}
-      >
-        <MdNavigateBefore />
-      </button>
-
-      {/* Tombol navigasi kanan */}
-      <button
-        onClick={next}
-        disabled={currentIndex >= items.length - itemsPerPage}
-        className={`absolute top-44 my-auto right-0 transform -translate-y-1/2 text-2xl bg-white text-black rounded-full p-2 shadow-md ${
-          currentIndex >= items.length - itemsPerPage
-            ? 'text-gray-400'
-            : 'text-black'
-        }`}
-      >
-        <MdNavigateNext />
-      </button>
-    </div>
-  );
-};
-
-const Product = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/api/v1/tools');
-        setProducts(response.data.data);
-      } catch (error) {
-        console.error('Error fetching the products', error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+  const visibleTools = tools.slice(currentIndex, currentIndex + itemsPerPage);
 
   return (
-    <section className='text-white pb-10 pt-15 lg:pb-20 lg:pt-[120px]'>
-      <div className='container lg:px-10 max-w-7xl mx-auto'>
-        <div className='-mx-4 flex flex-wrap'>
-          <div className='w-full px-4 xsm:mx-4 md:flex flex-col justify-center'>
-            <div className='mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20'>
-              <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-[40px]'>
-                Produk Terbaik
-              </h2>
-              <p className='text-xl'>
-                Kami menawarkan produk dan layanan terbaik untuk motor, mobil,
-                alat berat, dan mesin industri dengan kualitas unggulan dan
-                keandalan tinggi.
-              </p>
-            </div>
-          </div>
+    <section className="bg-white py-16 relative text-primary">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Produk yang Bisa Kami Buatkan
+          </h2>
+          <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
+            Kami menerima berbagai pesanan pembuatan dan perbaikan untuk
+            keperluan otomotif, alat berat, hingga mesin industri.
+          </p>
         </div>
-        <Carousel items={products} />
+
+        <div className="relative">
+          {/* Tombol Kiri */}
+          <button
+            onClick={prev}
+            disabled={currentIndex === 0}
+            className={`absolute top-[45%] left-0 -translate-y-1/2 -ml-4 z-10 text-3xl bg-white rounded-full p-2 shadow-md ${
+              currentIndex === 0
+                ? "text-gray-300 cursor-not-allowed"
+                : "text-black"
+            }`}
+          >
+            <MdNavigateBefore />
+          </button>
+
+          {/* Grid Card Product */}
+          <div className="flex flex-wrap justify-center -mx-4">
+            {visibleTools.map((tool) => (
+              <CardProduct
+                key={tool.id}
+                image={`http://localhost:3000${tool.imageUrl}`}
+                title={tool.title}
+                description={tool.description}
+                type={tool.type}
+              />
+            ))}
+          </div>
+
+          {/* Tombol Kanan */}
+          <button
+            onClick={next}
+            disabled={currentIndex >= tools.length - itemsPerPage}
+            className={`absolute top-[45%] right-0 -translate-y-1/2 -mr-4 z-10 text-3xl bg-white rounded-full p-2 shadow-md ${
+              currentIndex >= tools.length - itemsPerPage
+                ? "text-gray-300 cursor-not-allowed"
+                : "text-black"
+            }`}
+          >
+            <MdNavigateNext />
+          </button>
+        </div>
       </div>
     </section>
   );
