@@ -8,6 +8,8 @@ import Footer from "../../Components/Footer";
 import Map from "./Map";
 import LandingLayout from "./Layout/LandingLayout";
 import StepProcess from "./StepProcess";
+import WhyChooseUs from "./WhyChooseUs";
+import CallToAction from "./CallToAction";
 // import ProductList from './ProductList';
 
 const Home = () => {
@@ -19,6 +21,8 @@ const Home = () => {
       {/* <ProductList /> */}
       <Product />
       <StepProcess />
+      <WhyChooseUs />
+      <CallToAction />
       <Map />
       <Footer />
     </LandingLayout>
