@@ -1,4 +1,3 @@
-import { GoBook } from "react-icons/go";
 import { FaRegMessage } from "react-icons/fa6";
 import SplitText from "./Animation/SplitText";
 
@@ -33,14 +32,6 @@ const Header = () => {
               className="bg-primary text-white inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base font-medium border border-primary rounded-lg hover:bg-white hover:text-primary transition"
             >
               Hubungi Penjual <FaRegMessage className="ml-2" />
-            </a>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://drive.google.com/file/d/1VYpB9Odf5amG2nE6FxvkGhawyoQNUiOJ/view?usp=sharing"
-              className="bg-white text-primary inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base font-medium border border-primary rounded-lg hover:bg-primary hover:text-white transition"
-            >
-              Alur Pemesanan <GoBook className="ml-2" />
             </a>
           </div>
         </div>
