@@ -9,7 +9,7 @@ import CarlosTech from "../../assets/carlos-tech.png";
 import usePasswordVisibility from "../landingpage/hooks/usePasswordVisibility";
 import { useAuth } from "../../Routes/AuthContext";
 import { BACKEND_URL } from "../../constants";
-import LandingLayout from "../Landingpage/layout/LandingLayout";
+import LandingLayout from "../landingpage/layout/LandingLayout";
 
 const Login = () => {
   const [email, setEmail] = useState("");
