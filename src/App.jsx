@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import Loader from "./pages/adminpage/common/Loader/Loader";
+import Loader from "./pages/adminpage/common/Loader/Loader.jsx";
 
 // Route
 import ProtectedRoute from "./Routes/ProtectedRoute";
