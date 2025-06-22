@@ -1,26 +1,26 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import Loader from "./Pages/Adminpage/common/Loader/Loader";
+import Loader from "./pages/adminpage/common/Loader/Loader";
 
 // Route
 import ProtectedRoute from "./Routes/ProtectedRoute";
 import { AuthProvider } from "./Routes/AuthContext";
 
 // LandingPage
-import Home from "./Pages/Landingpage/Home";
-import About from "./Pages/Landingpage/About";
-import Service from "./Pages/Landingpage/ServicePage/Service";
-import Login from "./Pages/Loginpage/Login";
-import Register from "./Pages/Signuppage/Register";
-import LPProfile from "./Pages/Landingpage/ProfilePage/Profile";
+import Home from "./pages/landingpage/Home";
+import About from "./pages/landingpage/About";
+import Register from "./pages/signuppage/Register";
+import LPProfile from "./pages/landingpage/profilepage/Profile";
 
 // AdminPage
-import PageTitle from "./Pages/Adminpage/components/PageTitle";
-import Dashboard from "./Pages/Adminpage/pages/Dashboard";
-import Tool from "./Pages/Adminpage/pages/Tool";
-import User from "./Pages/Adminpage/pages/User";
-import Sale from "./Pages/Adminpage/pages/Sale";
+import PageTitle from "./pages/adminpage/components/PageTitle";
+import Dashboard from "./pages/adminpage/pages/Dashboard";
+import Tool from "./pages/adminpage/pages/Tool";
+import User from "./pages/adminpage/pages/User";
+import Sale from "./pages/adminpage/pages/Sale";
+import Service from "./pages/landingpage/servicepage/Service";
+import Login from "./pages/loginpage/Login";
 
 const App = () => {
   const [loading, setLoading] = useState(true);

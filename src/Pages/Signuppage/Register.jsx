@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
 
-import LandingLayout from "../Landingpage/Layout/LandingLayout";
+import LandingLayout from "../landingpage/layout/LandingLayout";
 import CarlosTech from "../../assets/carlos-tech.png";
-import usePasswordVisibility from "../Landingpage/Hooks/usePasswordVisibility";
+import usePasswordVisibility from "../landingpage/hooks/usePasswordVisibility";
 import { BACKEND_URL } from "../../Constants";
 
 const Register = () => {

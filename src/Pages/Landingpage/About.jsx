@@ -2,27 +2,27 @@ import Machine from "../../assets/machine.jpg";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 
-import LandingLayout from "./Layout/LandingLayout";
+import LandingLayout from "./layout/LandingLayout";
 
 const About = () => {
   return (
     <LandingLayout>
-      <div className="flex flex-col justify-between min-h-screen items-center text-primary">
+      <div className='flex flex-col justify-between min-h-screen items-center text-primary'>
         <Navbar />
-        <div className="flex flex-col items-center my-5 mt-20 p-4">
-          <h1 className="text-title-lg font-bold mb-10 text-center">
+        <div className='flex flex-col items-center my-5 mt-20 p-4'>
+          <h1 className='text-title-lg font-bold mb-10 text-center'>
             Tentang Carlos Tech
           </h1>
-          <div className="flex flex-col items-center md:flex-row md:items-start md:justify-center">
-            <div className="max-w-[39.5rem] flex justify-center mb-4 md:mb-0">
+          <div className='flex flex-col items-center md:flex-row md:items-start md:justify-center'>
+            <div className='max-w-[39.5rem] flex justify-center mb-4 md:mb-0'>
               <img
                 src={Machine}
-                alt="Machine"
-                className="w-auto h-auto shadow-lg rounded-lg"
+                alt='Machine'
+                className='w-auto h-auto shadow-lg rounded-lg'
               />
             </div>
-            <div className="mt-4 md:mt-0 md:ml-10 max-w-xl">
-              <p className="text-justify">
+            <div className='mt-4 md:mt-0 md:ml-10 max-w-xl'>
+              <p className='text-justify'>
                 Carlos Tech didirikan pada tahun 2004 dengan hanya dua karyawan
                 dan satu mesin. Sebelum mendirikan bengkel ini, pemiliknya
                 mengalami perjalanan panjang mulai dari tahun 1991 setelah

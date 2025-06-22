@@ -6,7 +6,7 @@ import Intro from "./Intro";
 import Product from "./Product";
 import Footer from "../../Components/Footer";
 import Map from "./Map";
-import LandingLayout from "./Layout/LandingLayout";
+import LandingLayout from "./layout/LandingLayout";
 import StepProcess from "./StepProcess";
 import WhyChooseUs from "./WhyChooseUs";
 import CallToAction from "./CallToAction";

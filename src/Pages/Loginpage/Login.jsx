@@ -6,10 +6,10 @@ import { FaWrench, FaArrowCircleLeft } from "react-icons/fa";
 import { FiMail, FiLock } from "react-icons/fi";
 
 import CarlosTech from "../../assets/carlos-tech.png";
-import LandingLayout from "../Landingpage/Layout/LandingLayout";
-import usePasswordVisibility from "../Landingpage/Hooks/usePasswordVisibility";
+import usePasswordVisibility from "../landingpage/hooks/usePasswordVisibility";
 import { useAuth } from "../../Routes/AuthContext";
 import { BACKEND_URL } from "../../Constants";
+import LandingLayout from "../Landingpage/layout/LandingLayout";
 
 const Login = () => {
   const [email, setEmail] = useState("");

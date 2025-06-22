@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import LandingLayout from "../Layout/LandingLayout";
+import LandingLayout from "../layout/LandingLayout";
 import CarlosTech from "../../../assets/carlos-tech.png";
 import axios from "axios";
 import Swal from "sweetalert2";
