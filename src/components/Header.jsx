@@ -1,12 +1,13 @@
 import { FaRegMessage } from "react-icons/fa6";
 import SplitText from "./animation/SplitText";
+import bgHeader1 from "../assets/bg-header1.png";
 
 const Header = () => {
   return (
     <div
       className='hero min-h-screen relative'
       style={{
-        backgroundImage: "url('src/assets/bg-header1.png')",
+        backgroundImage: "url(" + bgHeader1 + ")",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

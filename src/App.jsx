@@ -4,8 +4,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Loader from "./pages/adminpage/common/loader/index";
 
 // Route
-import ProtectedRoute from "./Routes/ProtectedRoute";
-import { AuthProvider } from "./Routes/AuthContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import { AuthProvider } from "./routes/AuthContext";
 
 // LandingPage
 import Home from "./pages/landingpage/Home";
