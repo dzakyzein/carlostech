@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CardProduct from "./CardProduct";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
+import { BACKEND_URL, IMAGE_BACKEND_URL } from "../../Constants";
 
 const Product = () => {
   const [tools, setTools] = useState([]);
@@ -11,7 +12,7 @@ const Product = () => {
   useEffect(() => {
     const fetchTools = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/v1/tools");
+        const res = await axios.get(`${BACKEND_URL}/v1/tools`);
         setTools(res.data.data);
       } catch (error) {
         console.error("Gagal mengambil data tools:", error);
@@ -52,19 +53,19 @@ const Product = () => {
   const visibleTools = tools.slice(currentIndex, currentIndex + itemsPerPage);
 
   return (
-    <section className="bg-white py-16 relative text-primary">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+    <section className='bg-white py-16 relative text-primary'>
+      <div className='container mx-auto px-4 max-w-7xl'>
+        <div className='mb-12 text-center'>
+          <h2 className='text-3xl md:text-4xl font-bold text-gray-800 mb-4'>
             Produk yang Bisa Kami Buatkan
           </h2>
-          <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
+          <p className='text-gray-600 text-base md:text-lg max-w-2xl mx-auto'>
             Kami menerima berbagai pesanan pembuatan dan perbaikan untuk
             keperluan otomotif, alat berat, hingga mesin industri.
           </p>
         </div>
 
-        <div className="relative">
+        <div className='relative'>
           {/* Tombol Kiri */}
           <button
             onClick={prev}
@@ -79,17 +80,17 @@ const Product = () => {
           </button>
 
           {/* Grid Card Product */}
-          <div className="flex flex-wrap justify-center -mx-4">
+          <div className='flex flex-wrap justify-center -mx-4'>
             {visibleTools.map((tool, index) => (
               <div
                 key={tool.id}
-                data-aos="fade-up"
+                data-aos='fade-up'
                 data-aos-delay={index * 300}
-                data-aos-duration="900"
-                className="w-full px-4 md:w-1/2 lg:w-1/3"
+                data-aos-duration='900'
+                className='w-full px-4 md:w-1/2 lg:w-1/3'
               >
                 <CardProduct
-                  image={`http://localhost:3000${tool.imageUrl}`}
+                  image={`${IMAGE_BACKEND_URL}${tool.imageUrl}`}
                   title={tool.title}
                   description={tool.description}
                   type={tool.type}

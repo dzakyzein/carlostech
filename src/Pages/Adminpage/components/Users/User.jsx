@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { BACKEND_URL } from "../../../../Constants";
 
 const User = () => {
   const [userData, setUserData] = useState([]);
@@ -8,16 +9,16 @@ const User = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/api/v1/users')
+      .get(`${BACKEND_URL}/v1/users`)
       .then((response) => {
         setUserData(response.data.data);
       })
       .catch((error) => {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       });
   }, []);
 
-  const filteredUserData = userData.filter((user) => user.role !== 'admin');
+  const filteredUserData = userData.filter((user) => user.role !== "admin");
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;

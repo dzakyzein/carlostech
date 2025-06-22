@@ -1,25 +1,26 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
-import LandingLayout from '../Layout/LandingLayout';
-import CarlosTech from '../../../assets/carlos-tech.png';
-import axios from 'axios';
-import Swal from 'sweetalert2';
+import React, { useEffect, useState } from "react";
+import LandingLayout from "../Layout/LandingLayout";
+import CarlosTech from "../../../assets/carlos-tech.png";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { BACKEND_URL } from "../../../Constants";
 
 const Service = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    address: '',
-    type: '',
+    name: "",
+    phone: "",
+    address: "",
+    type: "",
     amount: 1,
-    note: '',
-    status: 'Belum Lunas',
-    price: '',
-    progress: '',
+    note: "",
+    status: "Belum Lunas",
+    price: "",
+    progress: "",
   });
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem('user');
+    const loggedInUser = localStorage.getItem("user");
 
     if (loggedInUser) {
       const user = JSON.parse(loggedInUser);
@@ -32,7 +33,7 @@ const Service = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'phone') {
+    if (name === "phone") {
       const isValidPhoneNumber = /^[0-9+]*$/.test(value);
       if (!isValidPhoneNumber) return;
     }
@@ -43,11 +44,11 @@ const Service = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/v1/reservations',
+        `${BACKEND_URL}/v1/reservations`,
         formData,
         {
           headers: {
@@ -56,15 +57,15 @@ const Service = () => {
         }
       );
       Swal.fire({
-        title: 'Pemesanan',
-        text: 'Pesanan berhasil dipesan',
-        icon: 'success',
+        title: "Pemesanan",
+        text: "Pesanan berhasil dipesan",
+        icon: "success",
       });
     } catch (error) {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Pesanan gagal',
+        icon: "error",
+        title: "Oops...",
+        text: "Pesanan gagal",
       });
     }
   };

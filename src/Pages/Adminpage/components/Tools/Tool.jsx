@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { CiEdit } from 'react-icons/ci';
-import { MdDeleteOutline } from 'react-icons/md';
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { CiEdit } from "react-icons/ci";
+import { MdDeleteOutline } from "react-icons/md";
+import { BACKEND_URL } from "../../../../Constants";
 
 const Tool = () => {
   const [toolData, setToolData] = useState([]);
@@ -11,32 +12,32 @@ const Tool = () => {
   const toolsPerPage = 6;
 
   const [newTool, setNewTool] = useState({
-    title: '',
-    type: '',
-    description: '',
+    title: "",
+    type: "",
+    description: "",
     image: null,
-    imageUrl: '',
+    imageUrl: "",
   });
 
   const [editTool, setEditTool] = useState(null);
 
   const fetchTools = async () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     try {
-      const response = await axios.get('http://localhost:3000/api/v1/tools', {
+      const response = await axios.get(`${BACKEND_URL}/v1/tools`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       setToolData(response.data.data);
     } catch (error) {
-      console.error('Error fetching tools:', error);
+      console.error("Error fetching tools:", error);
     }
   };
 
   useEffect(() => {
-    const adminData = JSON.parse(localStorage.getItem('admin'));
-    const token = localStorage.getItem('token');
+    const adminData = JSON.parse(localStorage.getItem("admin"));
+    const token = localStorage.getItem("token");
 
     if (adminData) {
       setAdmin(adminData);
@@ -55,7 +56,7 @@ const Tool = () => {
       setNewTool((prevTool) => ({
         ...prevTool,
         image: e.target.files[0],
-        imageUrl: '',
+        imageUrl: "",
       }));
     }
   };
@@ -71,30 +72,26 @@ const Tool = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('title', newTool.title);
-    formData.append('type', newTool.type);
-    formData.append('description', newTool.description);
+    formData.append("title", newTool.title);
+    formData.append("type", newTool.type);
+    formData.append("description", newTool.description);
     if (newTool.image) {
-      formData.append('image', newTool.image);
+      formData.append("image", newTool.image);
     }
 
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.post(
-        'http://localhost:3000/api/v1/tools',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log('Tool added:', response.data);
+      const token = localStorage.getItem("token");
+      const response = await axios.post(`${BACKEND_URL}/v1/tools`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("Tool added:", response.data);
       // Refresh tool data
       fetchTools();
     } catch (error) {
-      console.error('Error adding tool:', error.response.data);
+      console.error("Error adding tool:", error.response.data);
     }
   };
 
@@ -112,26 +109,26 @@ const Tool = () => {
   const handleCancel = () => {
     setEditTool(null);
     setNewTool({
-      title: '',
-      type: '',
-      description: '',
+      title: "",
+      type: "",
+      description: "",
       image: null,
-      imageUrl: '',
+      imageUrl: "",
     });
   };
 
   const handleDelete = async (toolId) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     try {
-      await axios.delete(`http://localhost:3000/api/v1/tools/${toolId}`, {
+      await axios.delete(`${BACKEND_URL}/v1/tools/${toolId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log('Tool deleted');
+      console.log("Tool deleted");
       fetchTools(); // Refresh tool data
     } catch (error) {
-      console.error('Error deleting tool:', error);
+      console.error("Error deleting tool:", error);
     }
   };
 
@@ -139,15 +136,15 @@ const Tool = () => {
     e.preventDefault();
     if (!editTool) return;
 
-    console.log('New tool data:', newTool);
-    console.log('Editing tool with ID:', editTool.id);
+    console.log("New tool data:", newTool);
+    console.log("Editing tool with ID:", editTool.id);
 
     const formData = new FormData();
-    formData.append('title', newTool.title);
-    formData.append('type', newTool.type);
-    formData.append('description', newTool.description);
+    formData.append("title", newTool.title);
+    formData.append("type", newTool.type);
+    formData.append("description", newTool.description);
     if (newTool.image) {
-      formData.append('image', newTool.image);
+      formData.append("image", newTool.image);
     }
 
     // Log the formData entries
@@ -156,23 +153,23 @@ const Tool = () => {
     }
 
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const response = await axios.put(
-        `http://localhost:3000/api/v1/tools/${editTool.id}`,
+        `${BACKEND_URL}/v1/tools/${editTool.id}`,
         formData,
         {
           headers: {
-            'Content-Type': 'multipart/form-data',
+            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      console.log('Tool updated:', response.data);
+      console.log("Tool updated:", response.data);
       setEditTool(null);
-      setNewTool({ title: '', type: '', description: '', image: null });
+      setNewTool({ title: "", type: "", description: "", image: null });
       fetchTools();
     } catch (error) {
-      console.error('Error updating tool:', error.response.data);
+      console.error("Error updating tool:", error.response.data);
     }
   };
 
@@ -262,7 +259,7 @@ const Tool = () => {
             type='submit'
             className='px-4 py-2 bg-blue-500 text-white rounded-md'
           >
-            {editTool ? 'Update Tool' : 'Add Tool'}
+            {editTool ? "Update Tool" : "Add Tool"}
           </button>
           {editTool && (
             <button

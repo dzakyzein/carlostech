@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Navbar from '../../../Components/Navbar';
-import Footer from '../../../Components/Footer';
-import { IoPersonOutline } from 'react-icons/io5';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Navbar from "../../../Components/Navbar";
+import Footer from "../../../Components/Footer";
+import { IoPersonOutline } from "react-icons/io5";
+import { BACKEND_URL } from "../../../Constants";
 
 const LPProfile = () => {
   const [user, setUser] = useState({});
@@ -24,8 +25,8 @@ const LPProfile = () => {
   };
 
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem('user'));
-    const token = localStorage.getItem('token');
+    const userData = JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("token");
 
     if (userData) {
       setUser(userData);
@@ -33,18 +34,15 @@ const LPProfile = () => {
 
     const fetchReservations = async () => {
       try {
-        const response = await axios.get(
-          'http://localhost:3000/api/v1/reservations',
-          {
-            params: { userId: userData.id },
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await axios.get(`${BACKEND_URL}/v1/reservations`, {
+          params: { userId: userData.id },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setReservations(response.data.data);
       } catch (error) {
-        console.error('Error fetching reservations:', error);
+        console.error("Error fetching reservations:", error);
       }
     };
 
@@ -57,22 +55,22 @@ const LPProfile = () => {
     if (!paymentProof) return;
 
     const formData = new FormData();
-    formData.append('proof', paymentProof);
+    formData.append("proof", paymentProof);
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/reservations/upload-proof/${reservationId}`, // Tambahkan reservationId
+        `${BACKEND_URL}/v1/reservations/upload-proof/${reservationId}`, // Tambahkan reservationId
         formData,
         {
           headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
 
       // Tangani respons jika berhasil
-      console.log('Upload successful:', response.data);
+      console.log("Upload successful:", response.data);
       // Update state reservations setelah berhasil mengunggah
       setReservations(
         reservations.map((reservation) =>
@@ -82,18 +80,18 @@ const LPProfile = () => {
         )
       );
     } catch (error) {
-      console.error('Error uploading payment proof:', error.response.data);
+      console.error("Error uploading payment proof:", error.response.data);
     }
   };
 
   const handleDeleteProof = async (reservationId) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/reservations/delete-proof/${reservationId}`, // Endpoint untuk hapus bukti pembayaran
+        `${BACKEND_URL}/v1/reservations/delete-proof/${reservationId}`, // Endpoint untuk hapus bukti pembayaran
         {},
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
@@ -108,9 +106,9 @@ const LPProfile = () => {
       );
 
       // Tangani respons jika berhasil
-      console.log('Delete successful:', response.data);
+      console.log("Delete successful:", response.data);
     } catch (error) {
-      console.error('Error deleting payment proof:', error.response.data);
+      console.error("Error deleting payment proof:", error.response.data);
     }
   };
 
@@ -118,22 +116,22 @@ const LPProfile = () => {
     if (!paidOff) return;
 
     const formData = new FormData();
-    formData.append('paidoff', paidOff);
+    formData.append("paidoff", paidOff);
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/reservations/upload-paidoff/${reservationId}`,
+        `${BACKEND_URL}/v1/reservations/upload-paidoff/${reservationId}`,
         formData,
         {
           headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
 
       // Tangani respons jika berhasil
-      console.log('Upload successful:', response.data);
+      console.log("Upload successful:", response.data);
       // Update state reservations setelah berhasil mengunggah
       setReservations(
         reservations.map((reservation) =>
@@ -143,18 +141,18 @@ const LPProfile = () => {
         )
       );
     } catch (error) {
-      console.error('Error uploading paid off:', error.response.data);
+      console.error("Error uploading paid off:", error.response.data);
     }
   };
 
   const handleDeletePaidOff = async (reservationId) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/reservations/delete-paidoff/${reservationId}`, // Endpoint untuk hapus bukti pembayaran
+        `${BACKEND_URL}/v1/reservations/delete-paidoff/${reservationId}`, // Endpoint untuk hapus bukti pembayaran
         {},
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
@@ -169,14 +167,14 @@ const LPProfile = () => {
       );
 
       // Tangani respons jika berhasil
-      console.log('Delete successful:', response.data);
+      console.log("Delete successful:", response.data);
     } catch (error) {
-      console.error('Error deleting paidoff:', error.response.data);
+      console.error("Error deleting paidoff:", error.response.data);
     }
   };
 
   const formatCurrency = (amount) => {
-    return `Rp ${new Intl.NumberFormat('id-ID').format(amount)}`;
+    return `Rp ${new Intl.NumberFormat("id-ID").format(amount)}`;
   };
 
   return (
@@ -193,14 +191,14 @@ const LPProfile = () => {
                 <span className='font-medium mr-2'>Nama</span>
                 <span className='text-gray-700'>:</span>
                 <span className='ml-2 text-gray-700'>
-                  {user.name || 'John Doe'}
+                  {user.name || "John Doe"}
                 </span>
               </li>
               <li className='flex items-center'>
                 <span className='font-medium mr-2'>Email</span>
                 <span className='text-gray-700'>:</span>
                 <span className='ml-2 text-gray-700'>
-                  {user.email || 'john.doe@example.com'}
+                  {user.email || "john.doe@example.com"}
                 </span>
               </li>
             </ul>
@@ -386,22 +384,22 @@ const LPProfile = () => {
                 <strong>Jumlah:</strong> {selectedReservation.amount}
               </p>
               <p>
-                <strong>Catatan:</strong> {selectedReservation.note || '-'}
+                <strong>Catatan:</strong> {selectedReservation.note || "-"}
               </p>
               <p>
                 <strong>Status:</strong> {selectedReservation.status}
               </p>
               <p>
-                <strong>Harga:</strong>{' '}
+                <strong>Harga:</strong>{" "}
                 {formatCurrency(selectedReservation.price)}
               </p>
               <p>
                 <strong>Progress:</strong> {selectedReservation.progress}
               </p>
               <p>
-                <strong>Tanggal Pemesanan:</strong>{' '}
+                <strong>Tanggal Pemesanan:</strong>{" "}
                 {new Date(selectedReservation.createdAt).toLocaleDateString(
-                  'id-ID'
+                  "id-ID"
                 )}
               </p>
               <p>
@@ -416,7 +414,7 @@ const LPProfile = () => {
                     Lihat
                   </a>
                 ) : (
-                  'Tidak ada bukti transaksi'
+                  "Tidak ada bukti transaksi"
                 )}
               </p>
               <p>
@@ -431,7 +429,7 @@ const LPProfile = () => {
                     Lihat
                   </a>
                 ) : (
-                  'Tidak ada bukti transaksi'
+                  "Tidak ada bukti transaksi"
                 )}
               </p>
               <button

@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { NumericFormat } from 'react-number-format';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { NumericFormat } from "react-number-format";
+import { BACKEND_URL } from "../../../../Constants";
 
 const SaleData = () => {
   const [admin, setAdmin] = useState({});
@@ -12,8 +13,8 @@ const SaleData = () => {
   const salesPerPage = 6;
 
   useEffect(() => {
-    const adminData = JSON.parse(localStorage.getItem('admin'));
-    const token = localStorage.getItem('token');
+    const adminData = JSON.parse(localStorage.getItem("admin"));
+    const token = localStorage.getItem("token");
 
     if (adminData) {
       setAdmin(adminData);
@@ -21,17 +22,14 @@ const SaleData = () => {
 
     const fetchReservations = async () => {
       try {
-        const response = await axios.get(
-          'http://localhost:3000/api/v1/reservations',
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await axios.get(`${BACKEND_URL}/v1/reservations`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setSaleData(response.data.data);
       } catch (error) {
-        console.error('Error fetching reservations:', error);
+        console.error("Error fetching reservations:", error);
       }
     };
 
@@ -41,17 +39,17 @@ const SaleData = () => {
   const handleStatusChange = async (saleId, currentStatus) => {
     try {
       if (!saleId) {
-        console.error('Sale ID is undefined or null');
+        console.error("Sale ID is undefined or null");
         return;
       }
-      const newStatus = currentStatus === 'lunas' ? 'belum lunas' : 'lunas';
+      const newStatus = currentStatus === "lunas" ? "belum lunas" : "lunas";
 
       await axios.put(
-        `http://localhost:3000/api/v1/reservations/${saleId}`,
+        `${BACKEND_URL}/v1/reservations/${saleId}`,
         { status: newStatus },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
@@ -62,7 +60,7 @@ const SaleData = () => {
       );
       setSaleData(updatedSales);
     } catch (error) {
-      console.error('Error updating status:', error);
+      console.error("Error updating status:", error);
     }
   };
 
@@ -78,13 +76,13 @@ const SaleData = () => {
 
   const handleEditSubmit = async (editedData) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       if (!editedData.id) {
         return;
       }
 
       await axios.put(
-        `http://localhost:3000/api/v1/reservations/${editedData.id}`,
+        `${BACKEND_URL}/v1/reservations/${editedData.id}`,
         editedData,
         {
           headers: {
@@ -101,7 +99,7 @@ const SaleData = () => {
 
       closeEditModal();
     } catch (error) {
-      console.error('Error updating reservation:', error);
+      console.error("Error updating reservation:", error);
     }
   };
 
@@ -216,9 +214,9 @@ const SaleData = () => {
           >
             <p
               className={`text-sm ${
-                sale.status === 'lunas'
-                  ? 'text-green-500 dark:text-green-500'
-                  : 'text-red-500 dark:text-red-500'
+                sale.status === "lunas"
+                  ? "text-green-500 dark:text-green-500"
+                  : "text-red-500 dark:text-red-500"
               } `}
             >
               {sale.status}
@@ -378,7 +376,7 @@ const SaleData = () => {
                 </label>
                 <NumericFormat
                   thousandSeparator={true}
-                  prefix={'Rp '}
+                  prefix={"Rp "}
                   id='price'
                   name='price'
                   onValueChange={handlePriceChange}
