@@ -1,6 +1,6 @@
-import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
-import UserData from '../components/Users/User';
-import DefaultLayout from '../layout/DefaultLayout';
+import Breadcrumb from "../components/breadcrumbs/Breadcrumb";
+import UserData from "../components/users/User";
+import DefaultLayout from "../layout/DefaultLayout";
 
 const User = () => {
   return (

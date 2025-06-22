@@ -1,6 +1,6 @@
-import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
-import SaleData from '../components/Sales/SaleData';
-import DefaultLayout from '../layout/DefaultLayout';
+import Breadcrumb from "../components/breadcrumbs/Breadcrumb";
+import SaleData from "../components/sales/SaleData";
+import DefaultLayout from "../layout/DefaultLayout";
 
 const Sale = () => {
   return (

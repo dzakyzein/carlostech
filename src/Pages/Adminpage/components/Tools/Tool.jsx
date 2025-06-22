@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
-import { BACKEND_URL } from "../../../../Constants";
+import { BACKEND_URL } from "../../../../constants";
 
 const Tool = () => {
   const [toolData, setToolData] = useState([]);

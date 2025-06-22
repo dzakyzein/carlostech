@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../../../Components/Navbar";
-import Footer from "../../../Components/Footer";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 import { IoPersonOutline } from "react-icons/io5";
-import { BACKEND_URL } from "../../../Constants";
+import { BACKEND_URL } from "../../../constants";
 
 const LPProfile = () => {
   const [user, setUser] = useState({});

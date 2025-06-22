@@ -7,7 +7,7 @@ import { FiMail, FiLock, FiUser } from "react-icons/fi";
 import LandingLayout from "../landingpage/layout/LandingLayout";
 import CarlosTech from "../../assets/carlos-tech.png";
 import usePasswordVisibility from "../landingpage/hooks/usePasswordVisibility";
-import { BACKEND_URL } from "../../Constants";
+import { BACKEND_URL } from "../../constants";
 
 const Register = () => {
   const [formData, setFormData] = useState({

@@ -10,7 +10,7 @@ import DefaultLayout from "../layout/DefaultLayout";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { HiOutlineUsers } from "react-icons/hi";
-import { BACKEND_URL } from "../../../Constants";
+import { BACKEND_URL } from "../../../constants";
 
 const Dashboard = () => {
   const token = localStorage.getItem("token");

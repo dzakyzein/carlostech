@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CardProduct from "./CardProduct";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
-import { BACKEND_URL, IMAGE_BACKEND_URL } from "../../Constants";
+import { BACKEND_URL, IMAGE_BACKEND_URL } from "../../constants";
 
 const Product = () => {
   const [tools, setTools] = useState([]);

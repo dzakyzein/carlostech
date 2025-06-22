@@ -4,7 +4,7 @@ import LandingLayout from "../layout/LandingLayout";
 import CarlosTech from "../../../assets/carlos-tech.png";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { BACKEND_URL } from "../../../Constants";
+import { BACKEND_URL } from "../../../constants";
 
 const Service = () => {
   const [formData, setFormData] = useState({

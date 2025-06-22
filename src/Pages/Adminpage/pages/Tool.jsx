@@ -1,6 +1,6 @@
-import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
-import ToolData from '../components/Tools/Tool';
-import DefaultLayout from '../layout/DefaultLayout';
+import Breadcrumb from "../components/breadcrumbs/Breadcrumb";
+import ToolData from "../components/tools/Tool";
+import DefaultLayout from "../layout/DefaultLayout";
 
 const Tool = () => {
   return (

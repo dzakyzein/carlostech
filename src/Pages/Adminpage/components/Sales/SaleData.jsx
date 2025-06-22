@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { NumericFormat } from "react-number-format";
-import { BACKEND_URL } from "../../../../Constants";
+import { BACKEND_URL } from "../../../../constants";
 
 const SaleData = () => {
   const [admin, setAdmin] = useState({});
