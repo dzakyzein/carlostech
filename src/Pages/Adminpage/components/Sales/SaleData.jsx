@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { NumericFormat } from "react-number-format";
-import { BACKEND_URL } from "../../../../constants";
+import { BACKEND_URL, IMAGE_BACKEND_URL } from "../../../../constants";
 
 const SaleData = () => {
   const [admin, setAdmin] = useState({});
@@ -412,7 +412,7 @@ const SaleData = () => {
                 </label>
                 {selectedSale.paymentProof ? (
                   <a
-                    href={`http://localhost:3000/${selectedSale.paymentProof}`}
+                    href={`${IMAGE_BACKEND_URL}/${selectedSale.paymentProof}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'
@@ -429,7 +429,7 @@ const SaleData = () => {
                 </label>
                 {selectedSale.paidOff ? (
                   <a
-                    href={`http://localhost:3000/${selectedSale.paidOff}`}
+                    href={`${IMAGE_BACKEND_URL}/${selectedSale.paidOff}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'

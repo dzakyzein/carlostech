@@ -4,7 +4,7 @@ import axios from "axios";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import { IoPersonOutline } from "react-icons/io5";
-import { BACKEND_URL } from "../../../constants";
+import { BACKEND_URL, IMAGE_BACKEND_URL } from "../../../constants";
 
 const LPProfile = () => {
   const [user, setUser] = useState({});
@@ -262,7 +262,7 @@ const LPProfile = () => {
                           {reservation.paymentProof ? (
                             <div>
                               <a
-                                href={`http://localhost:3000/${reservation.paymentProof}`}
+                                href={`${IMAGE_BACKEND_URL}/${reservation.paymentProof}`}
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 className='text-blue-500'
@@ -302,7 +302,7 @@ const LPProfile = () => {
                           {reservation.paidOff ? (
                             <div>
                               <a
-                                href={`http://localhost:3000/${reservation.paidOff}`}
+                                href={`${IMAGE_BACKEND_URL}/${reservation.paidOff}`}
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 className='text-blue-500'
@@ -406,7 +406,7 @@ const LPProfile = () => {
                 <strong>Bukti Transaksi DP:</strong>
                 {selectedReservation.paymentProof ? (
                   <a
-                    href={`http://localhost:3000/${selectedReservation.paymentProof}`}
+                    href={`${IMAGE_BACKEND_URL}/${selectedReservation.paymentProof}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'
@@ -421,7 +421,7 @@ const LPProfile = () => {
                 <strong>Bukti Transaksi Lunas:</strong>
                 {selectedReservation.paidOff ? (
                   <a
-                    href={`http://localhost:3000/${selectedReservation.paidOff}`}
+                    href={`${IMAGE_BACKEND_URL}/${selectedReservation.paidOff}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-blue-500'

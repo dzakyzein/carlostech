@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
-import { BACKEND_URL } from "../../../../constants";
+import { BACKEND_URL, IMAGE_BACKEND_URL } from "../../../../constants";
 
 const Tool = () => {
   const [toolData, setToolData] = useState([]);
@@ -247,7 +247,7 @@ const Tool = () => {
           {newTool.imageUrl && !newTool.image && (
             <div className='mt-2'>
               <img
-                src={`http://localhost:3000${newTool.imageUrl}`}
+                src={`${IMAGE_BACKEND_URL}${newTool.imageUrl}`}
                 alt={newTool.title}
                 className='w-1/3 object-cover rounded'
               />
@@ -319,12 +319,12 @@ const Tool = () => {
           </div>
           <div className='col-span-3 hidden items-center md:flex'>
             <a
-              href={`http://localhost:3000${tool.imageUrl}`} // URL gambar
+              href={`${IMAGE_BACKEND_URL}${tool.imageUrl}`} // URL gambar
               target='_blank'
               rel='noopener noreferrer'
             >
               <img
-                src={`http://localhost:3000${tool.imageUrl}`} // URL gambar
+                src={`${IMAGE_BACKEND_URL}${tool.imageUrl}`} // URL gambar
                 alt={tool.title}
                 className='w-3/5 object-cover rounded'
               />
